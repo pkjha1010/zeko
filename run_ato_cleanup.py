@@ -19,11 +19,29 @@ def get_kite_session():
     kite = KiteConnect(api_key=API_KEY)
     login_url = kite.login_url()
 
-    final_url = None
+    request_token = None
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
+
+        # --- BULLETPROOF NETWORK INTERCEPTOR ---
+        # Instead of waiting for page frames to render, this actively sniffs background 
+        # traffic. The exact millisecond the token parameters are created, we capture it.
+        def network_sniffer(request):
+            nonlocal request_token
+            url = request.url
+            if "request_token=" in url:
+                try:
+                    parsed_url = urlparse(url)
+                    query_params = parse_qs(parsed_url.query)
+                    if "request_token" in query_params:
+                        request_token = query_params["request_token"][0]
+                except Exception:
+                    pass
+
+        # Attach our network sniffer to the active web lifecycle
+        page.on("request", network_sniffer)
         page.goto(login_url)
 
         # Enter User ID and Password
@@ -44,30 +62,20 @@ def get_kite_session():
         token_2fa = totp.now()
         # ------------------------------
         
-        # Fill the 2FA box
+        # Fill the 2FA box and hit Enter
         two_fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
         two_fa_input.fill(token_2fa)
+        two_fa_input.press("Enter")
         
-        # Intercept redirection to the 127.0.0.1 link safely
-        try:
-            two_fa_input.press("Enter")
-            page.wait_for_url("**/127.0.0.1*", timeout=15000, wait_until="commit")
-            final_url = page.url
-        except Exception:
-            # Fallback: Read address bar string values if a network refusal frame triggers
-            final_url = page.url
+        # Give the background network engine up to 10 seconds to catch the redirect token parameter
+        for _ in range(20):
+            if request_token:
+                break
+            page.wait_for_timeout(500)
 
         browser.close()
 
-    # Parse request token parameter safely out of the URL string
-    if final_url and "request_token=" in final_url:
-        parsed_url = urlparse(final_url)
-        params = parse_qs(parsed_url.query)
-        request_token = params.get("request_token")
-        # Ensure we extract string values out of parameter dictionary arrays
-        if isinstance(request_token, list):
-            request_token = request_token[0]
-    else:
+    if not request_token:
         raise Exception("Failed to intercept the request_token from the login redirect sequence.")
 
     # Authenticate daily session
@@ -82,7 +90,7 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # Matches GET /alerts official documentation backend routing rules
+        # Fetch custom alerts using the backend namespace mapped endpoint
         alerts = kite._get("alerts", {})
         deleted_count = 0
 
@@ -94,7 +102,7 @@ def delete_untriggered_atos():
                 
                 print(f"Deleting untriggered ATO: {alert_name} (UUID: {alert_uuid})")
                 
-                # Matches DELETE /alerts?uuid={uuid} query parameter rule mapping
+                # Delete target by passing correct documentation query parameters
                 kite._delete("alerts", params={"uuid": alert_uuid})
                 deleted_count += 1
 
