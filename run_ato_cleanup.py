@@ -17,9 +17,24 @@ def get_kite_session():
     kite = KiteConnect(api_key=API_KEY)
     login_url = kite.login_url()
 
+    request_token = None
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
+
+        # Listen to all background URL requests. The moment it hits our 127.0.0.1 redirect URL,
+        # we pull out the request_token parameter immediately from the network layer.
+        def route_listener(request):
+            nonlocal request_token
+            url = request.url
+            if "127.0.0.1" in url and "request_token=" in url:
+                try:
+                    request_token = url.split("request_token=")[1].split("&")[0]
+                except Exception:
+                    pass
+
+        page.on("request", route_listener)
         page.goto(login_url)
 
         # Enter User ID and Password
@@ -33,20 +48,22 @@ def get_kite_session():
         totp = pyotp.TOTP(TOTP_KEY)
         token_2fa = totp.now()
         
-        # We expect the background network navigation to trigger when the keys are input
-        with page.expect_navigation(url="**/127.0.0.1*", wait_until="commit", timeout=30000) as navigation_info:
-            # RENAME VARIABLE HERE TO FIX SYNTAX ERROR
-            two_fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
-            two_fa_input.fill(token_2fa)
-            
-            # Fallback: press Enter on the keyboard safely
+        # Fill the 2FA box and press Enter
+        two_fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
+        two_fa_input.fill(token_2fa)
+        
+        # We wrap the submit action in a safe try-except block. Even if the network crashes
+        # with a connection refusal, our background listener will have already intercepted the token.
+        try:
             two_fa_input.press("Enter")
-        
-        final_url = navigation_info.value.url
-        
-        # Extract the request token parameter out of the final URL string
-        request_token = final_url.split("request_token=").split("&")
+            page.wait_for_timeout(5000)  # Give it 5 seconds to process redirection fully
+        except Exception:
+            pass  # Ignore network errors since we only need the URL string
+
         browser.close()
+
+    if not request_token:
+        raise Exception("Failed to intercept the request_token from the login redirect sequence.")
 
     # Exchange the request token for a valid daily session access token
     data = kite.generate_session(request_token, secret=API_SECRET)
