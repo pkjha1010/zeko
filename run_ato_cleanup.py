@@ -1,135 +1,83 @@
-import os
-import sys
-import time
-from urllib.parse import urlparse, parse_qs
-import requests  # Raw HTTP processing matching the official curl documentation specs
+import logging
+import json
+import requests
 from kiteconnect import KiteConnect
-from playwright.sync_api import sync_playwright
-import pyotp
 
-# Fetch secure credentials from GitHub environment variables
-API_KEY = os.environ["KITE_API_KEY"]
-API_SECRET = os.environ["KITE_API_SECRET"]
-USER_ID = os.environ["ZERODHA_USER_ID"]
-PASSWORD = os.environ["ZERODHA_PASSWORD"]
-TOTP_KEY = os.environ["ZERODHA_TOTP_KEY"]
+# Optional: Enable debug logs to print out full server requests and responses
+logging.basicConfig(level=logging.DEBUG)
 
+# ==========================================
+# CONFIGURATION & INITIALIZATION
+# ==========================================
+API_KEY = "your_api_key_here"
+ACCESS_TOKEN = "your_access_token_here"  # Re-use your authenticated access token
 
-def get_kite_session():
-    print("Initiating automated login to generate fresh access token...")
-    kite = KiteConnect(api_key=API_KEY)
-    login_url = kite.login_url()
+kite = KiteConnect(api_key=API_KEY)
+kite.set_access_token(ACCESS_TOKEN)
 
-    request_token = None
+# Define headers using kiteconnect internally formatted properties
+headers = {
+    "X-Kite-Version": "3",
+    "Authorization": f"token {API_KEY}:{ACCESS_TOKEN}"
+}
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
-
-        # Network interceptor to extract request token from redirect URLs
-        def network_sniffer(request):
-            nonlocal request_token
-            url = request.url
-            if "request_token=" in url:
-                try:
-                    parsed_url = urlparse(url)
-                    query_params = parse_qs(parsed_url.query)
-                    if "request_token" in query_params:
-                        request_token = query_params["request_token"][0]
-                except Exception:
-                    pass
-
-        page.on("request", network_sniffer)
-        page.goto(login_url)
-
-        # Enter User ID and Password
-        page.fill('input[type="text"]', USER_ID)
-        page.fill('input[type="password"]', PASSWORD)
-        page.click('button[type="submit"]')
-
-        # Wait for the 2FA numerical input box to appear
-        page.wait_for_selector('input[type="number"], input[type="text"]', timeout=15000)
-        
-        # --- TOTP EXPIRATION GUARD ---
-        totp = pyotp.TOTP(TOTP_KEY)
-        time_remaining = 30 - (int(time.time()) % 30)
-        if time_remaining < 4:
-            print(f"TOTP token rotating in {time_remaining}s. Waiting for a fresh code...")
-            time.sleep(time_remaining + 1)
-            
-        token_2fa = totp.now()
-        # ------------------------------
-        
-        # Fill the 2FA box and hit Enter
-        two_fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
-        two_fa_input.fill(token_2fa)
-        two_fa_input.press("Enter")
-        
-        # Give the background network engine up to 10 seconds to catch the redirect token parameter
-        for _ in range(20):
-            if request_token:
-                break
-            page.wait_for_timeout(500)
-
-        browser.close()
-
-    if not request_token:
-        raise Exception("Failed to intercept the request_token from the login redirect sequence.")
-
-    # Authenticate daily session
-    data = kite.generate_session(request_token, api_secret=API_SECRET)
-    kite.set_access_token(data["access_token"])
-    print("Session authenticated successfully.")
-    return kite
-
-
-def delete_untriggered_atos():
+def fetch_and_cleanup_atos():
+    print("Scanning active Kite alerts/ATOs...")
+    
+    # 1. Fetch alerts using standard HTTP requests to ensure full payload accessibility
+    url = "https://kite.trade"
+    
     try:
-        kite = get_kite_session()
-        print("Scanning active Kite alerts/ATOs...")
-
-        # Match official authorization header schema: 'token api_key:access_token'
-        headers = {
-            "X-Kite-Version": "3",
-            "Authorization": f"token {API_KEY}:{kite.access_token}"
-        }
-
-        # 1. GET /alerts call (Matches official documentation schema)
-        response = requests.get("https://kite.trade", headers=headers)
+        response = requests.get(url, headers=headers)
+        
+        # Guard against non-JSON HTTP errors (e.g. 401 Unauthorized, 502 Bad Gateway)
         if response.status_code != 200:
-            raise Exception(f"Failed to fetch alerts from API: {response.text}")
+            print(f"Execution failed: API returned status code {response.status_code}")
+            print(f"Response Payload: {response.text}")
+            return
 
-        # FIX: Explicitly target the '.get("data")' list array from response payload wrapper mapping
-        alerts = response.json().get("data", [])
-        deleted_count = 0
+        # Safe parsing block to resolve "Expecting value: line 1 column 1 (char 0)"
+        try:
+            alerts_list = response.json()
+        except json.JSONDecodeError as json_err:
+            print(f"Execution failed parsing JSON: {json_err}")
+            print(f"Raw un-parsable response received: '{response.text}'")
+            return
 
-        for alert in alerts:
-            # 2. Check documentation filters: status is 'enabled' and type is 'ato'
-            if alert.get("status") == "enabled" and alert.get("type") == "ato":
-                alert_uuid = alert["uuid"]  # Unique hash string id key
-                alert_name = alert.get("name", "Unnamed ATO")
-                
-                print(f"Deleting untriggered ATO: {alert_name} (UUID: {alert_uuid})")
-                
-                # 3. DELETE /alerts?uuid={uuid} call (Matches documentation query param spec)
-                del_response = requests.delete(
-                    "https://kite.trade", 
-                    headers=headers, 
-                    params={"uuid": alert_uuid}
-                )
-                
-                if del_response.status_code == 200:
-                    deleted_count += 1
-                else:
-                    print(f"Warning: Could not delete alert {alert_uuid}: {del_response.text}")
+        # Extract data payload array if it is packed within a standard dict wrap
+        if isinstance(alerts_list, dict) and "data" in alerts_list:
+            alerts_list = alerts_list["data"]
 
-        print(f"Successfully cleaned up {deleted_count} untriggered ATOs.")
+        # 2. Filter for untriggered (enabled) ATO orders
+        untriggered_atos = [
+            alert for alert in alerts_list
+            if alert.get("type") == "ato" and alert.get("status") == "enabled"
+        ]
+
+        if not untriggered_atos:
+            print("No untriggered ATO orders found.")
+            return
+
+        print(f"Found {len(untriggered_atos)} untriggered ATO configuration(s).")
+        
+        # 3. Print or Action (Looping through and deleting them)
+        for ato in untriggered_atos:
+            ato_uuid = ato.get("uuid")
+            ato_name = ato.get("name", "Unnamed ATO")
+            print(f"Targeting ATO -> Name: {ato_name} | UUID: {ato_uuid}")
+            
+            # Execute DELETE query for the matching UUID
+            delete_url = f"https://kite.trade?uuid={ato_uuid}"
+            delete_response = requests.delete(delete_url, headers=headers)
+            
+            if delete_response.status_code == 200:
+                print(f"Successfully deleted ATO: {ato_uuid}")
+            else:
+                print(f"Failed to delete ATO {ato_uuid}: {delete_response.text}")
 
     except Exception as e:
-        print(f"Execution failed: {e}")
-        sys.exit(1)
-
+        print(f"An unexpected system exception occurred: {e}")
 
 if __name__ == "__main__":
-    delete_untriggered_atos()
+    fetch_and_cleanup_atos()
     
