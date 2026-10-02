@@ -1,6 +1,5 @@
 import os
 import sys
-import time
 from kiteconnect import KiteConnect
 from playwright.sync_api import sync_playwright
 import pyotp
@@ -18,24 +17,9 @@ def get_kite_session():
     kite = KiteConnect(api_key=API_KEY)
     login_url = kite.login_url()
 
-    request_token = None
-
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-
-        # Network interceptor to extract request token from redirect URLs
-        def route_listener(request):
-            nonlocal request_token
-            url = request.url
-            if "request_token=" in url:
-                try:
-                    # Extracts the exact parameter value from the token string
-                    request_token = url.split("request_token=").split("&")
-                except Exception:
-                    pass
-
-        page.on("request", route_listener)
         page.goto(login_url)
 
         # Enter User ID and Password
@@ -43,38 +27,25 @@ def get_kite_session():
         page.fill('input[type="password"]', PASSWORD)
         page.click('button[type="submit"]')
 
-        # Wait for the 2FA input box
+        # Wait for the 2FA numerical input box to appear
         page.wait_for_selector('input[type="number"], input[type="text"]', timeout=15000)
         
-        # TOTP Window Safety Check 
         totp = pyotp.TOTP(TOTP_KEY)
-        time_remaining = 30 - (int(time.time()) % 30)
-        if time_remaining < 4:
-            print(f"TOTP rotating in {time_remaining}s. Waiting for a fresh window...")
-            time.sleep(time_remaining + 1)
-            
         token_2fa = totp.now()
         
-        # Enter 2FA code and trigger submit sequence
-        two_fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
-        two_fa_input.fill(token_2fa)
-        two_fa_input.press("Enter")
+        page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first.fill(token_2fa)
         
-        # --- FIXED LOGIC BLOCK ---
-        # Instead of closing the browser instantly, we pause and monitor the background 
-        # network traffic loop for up to 10 seconds or until the token parameter arrives.
-        for _ in range(20):  # 20 loops x 500ms = 10 seconds total wait buffer
-            if request_token:
-                break
-            page.wait_for_timeout(5000)
-        # --------------------------
-
+        # --- YOUR ORIGINAL WORKING NAVIGATION FLOW ---
+        with page.expect_navigation(url="**/127.0.0.1*", wait_until="commit") as navigation_info:
+            page.click('button[type="submit"]')
+        
+        final_url = navigation_info.value.url
+        
+        # FIXED: Cleanly extract the token string without splitting a list object
+        request_token = final_url.split("request_token=")[1].split("&")[0]
         browser.close()
 
-    if not request_token:
-        raise Exception("Failed to intercept the request_token from the login redirect sequence.")
-
-    # Exchange token for the daily access credentials 
+    # Authenticate daily session using correct library argument key
     data = kite.generate_session(request_token, api_secret=API_SECRET)
     kite.set_access_token(data["access_token"])
     print("Session authenticated successfully.")
@@ -86,18 +57,17 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # 1. Fetch live alerts using the explicit backend namespace dictionary path
+        # Call official alerts engine route directly
         alerts = kite._get("alerts", {})
         deleted_count = 0
 
         for alert in alerts:
-            # 2. Check documentation parameter filters: status is 'enabled' and type is 'ato'
             if alert.get("status") == "enabled" and alert.get("type") == "ato":
-                alert_uuid = alert["uuid"]  # Key matches string schema hash value
+                alert_uuid = alert["uuid"]
                 alert_name = alert.get("name", "Unnamed ATO")
                 print(f"Deleting ATO: {alert_name} (UUID: {alert_uuid})")
                 
-                # 3. Route explicit delete network transaction passing target uuid payload
+                # Delete target by passing correct documentation payload key
                 kite._delete("alerts", params={"uuid": alert_uuid})
                 deleted_count += 1
 
