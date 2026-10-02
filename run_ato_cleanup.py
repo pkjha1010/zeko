@@ -29,8 +29,7 @@ def get_kite_session():
             url = request.url
             if "127.0.0.1" in url and "request_token=" in url:
                 try:
-                    # Clean extraction of the request_token parameter
-                    request_token = url.split("request_token=")[1].split("&")[0]
+                    request_token = url.split("request_token=").split("&")
                 except Exception:
                     pass
 
@@ -63,7 +62,7 @@ def get_kite_session():
     if not request_token:
         raise Exception("Failed to intercept the request_token from the login redirect sequence.")
 
-    # FIX: Changed 'secret' keyword argument to 'api_secret' to match the correct library version layout
+    # Authenticate daily session
     data = kite.generate_session(request_token, api_secret=API_SECRET)
     kite.set_access_token(data["access_token"])
     print("Session authenticated successfully.")
@@ -75,8 +74,9 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # Fetch all active alerts (triggers)
-        alerts = kite.get_triggers()
+        # FIX: Directly call Kite's underlying GET method for the alerts endpoint
+        # This completely bypasses SDK limitation errors
+        alerts = kite._get("custom.alerts", {})
         deleted_count = 0
 
         for alert in alerts:
@@ -86,8 +86,8 @@ def delete_untriggered_atos():
                 alert_name = alert.get("name", "Unnamed ATO")
                 print(f"Deleting ATO: {alert_name} (ID: {alert_id})")
                 
-                # Delete the specific alert from the server
-                kite.delete_trigger(trigger_id=alert_id)
+                # FIX: Directly route a DELETE call using the unique alert_id argument string
+                kite._delete("custom.alerts.delete", url_args={"alert_id": alert_id})
                 deleted_count += 1
 
         print(f"Successfully cleaned up {deleted_count} untriggered ATOs.")
