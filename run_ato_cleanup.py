@@ -1,63 +1,86 @@
 import json
+import logging
 import requests
 
-# Set your active access profile configs
+# Enable explicit console debugging to see the raw request flow
+logging.basicConfig(level=logging.INFO)
+
+# ==========================================
+# CREDENTIAL CONFIGURATION
+# ==========================================
+# Pass these securely from GitHub Secrets or write them here directly for testing
 API_KEY = "your_api_key_here"
 ACCESS_TOKEN = "your_access_token_here"
 
 headers = {
     "X-Kite-Version": "3",
     "Authorization": f"token {API_KEY}:{ACCESS_TOKEN}",
-    "Content-Type": "application/json"
+    "Content-Type": "application/x-www-form-urlencoded"
 }
 
-def fetch_and_cleanup_atos():
-    # --- FIXED ENDPOINT: Targeting Baskets/ATOs directly ---
+def execute_ato_cleanup():
     url = "https://kite.trade"
     
     try:
-        print("Scanning active Kite Baskets and attached ATOs...")
+        print("Executing GET call to https://kite.trade...")
         response = requests.get(url, headers=headers)
         
+        # 1. Guard against authorization errors or bad gateway drops
         if response.status_code != 200:
-            print(f"API Connection Failure. Status code: {response.status_code}")
-            print(f"Server says: {response.text}")
+            print(f"Error: API returned HTTP status {response.status_code}")
+            print(f"Raw Error Content: {response.text}")
             return
 
-        raw_payload = response.json()
-        baskets_list = raw_payload.get("data", [])
-        
-        print(f"Successfully retrieved {len(baskets_list)} total basket/ATO entries.")
+        # 2. Parse response and access the mandatory documentation "data" block
+        try:
+            payload = response.json()
+        except json.JSONDecodeError as decode_err:
+            print(f"JSON Parsing crashed. Input stream text was: '{response.text}'")
+            return
 
-        # Filter for active configurations matching your image context
+        # As seen in the official doc screenshot: {"status": "success", "data": [...]}
+        alerts_list = payload.get("data", [])
+        if not isinstance(alerts_list, list):
+            print("Unexpected format: 'data' field is not a list array.")
+            return
+
+        print(f"Successfully connected. Scanning {len(alerts_list)} total alerts...")
+
+        # 3. Filter strictly based on the structural documentation fields
         target_atos = []
-        for basket in baskets_list:
-            # Check if this basket contains your NIFTY order bindings
-            # or uses an ATO activation status tag
-            if basket.get("status") == "enabled" or basket.get("type") == "ato":
-                target_atos.append(basket)
+        for alert in alerts_list:
+            alert_type = str(alert.get("type", "")).strip().lower()
+            alert_status = str(alert.get("status", "")).strip().lower()
+            
+            # Target alert rules matching your active NIFTY order state
+            if alert_type == "ato" and alert_status == "enabled":
+                target_atos.append(alert)
 
         if not target_atos:
-            print("No matching active ATO/Basket configurations discovered.")
-            if baskets_list:
-                print(f"Debug - Available items found on server: {json.dumps(baskets_list, indent=2)}")
+            print("No matching, untriggered ATO orders found in this account scan.")
+            # Safety backup dump so you can view unmatched objects inside GitHub Action logs
+            print(f"Raw system alerts trace: {json.dumps(alerts_list, indent=2)}")
             return
 
-        print(f"Identified {len(target_atos)} target ATO basket configurations to clean up.")
-        
-        # Execute deletions using the Basket identifiers
-        for ato in target_atos:
-            basket_id = ato.get("basket_id") or ato.get("uuid")
-            name = ato.get("name", "NIFTY 50")
-            print(f"Executing deletion for: {name} (ID: {basket_id})")
-            
-            delete_url = f"https://kite.trade/{basket_id}"
-            delete_response = requests.delete(delete_url, headers=headers)
-            print(f"Delete Status: {delete_response.status_code} | Payload: {delete_response.text}")
+        print(f"Matched {len(target_atos)} active ATO configuration(s) for removal.")
 
-    except Exception as e:
-        print(f"An unexpected script exception occurred: {e}")
+        # 4. Delete the matched ATOs using query string routing per image_8OqkjI.png
+        for ato in target_atos:
+            uuid = ato.get("uuid")
+            name = ato.get("name", "Unnamed ATO")
+            print(f"Sending DELETE request for: '{name}' | UUID: {uuid}")
+            
+            delete_url = f"https://kite.trade?uuid={uuid}"
+            delete_response = requests.delete(delete_url, headers=headers)
+            
+            if delete_response.status_code == 200:
+                print(f"-> Success: Deleted {uuid}. Server payload: {delete_response.text}")
+            else:
+                print(f"-> Failed: Could not delete {uuid}. Server code: {delete_response.status_code} | Payload: {delete_response.text}")
+
+    except Exception as general_err:
+        print(f"A system execution runtime exception occurred: {general_err}")
 
 if __name__ == "__main__":
-    fetch_and_cleanup_atos()
+    execute_ato_cleanup()
     
