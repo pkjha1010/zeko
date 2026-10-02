@@ -2,13 +2,13 @@ import json
 import logging
 import requests
 
-# Enable explicit console debugging to see the raw request flow
+# Enable explicit console logging
 logging.basicConfig(level=logging.INFO)
 
 # ==========================================
 # CREDENTIAL CONFIGURATION
 # ==========================================
-# Pass these securely from GitHub Secrets or write them here directly for testing
+# Replace these with your live credentials or pass them via environment variables
 API_KEY = "your_api_key_here"
 ACCESS_TOKEN = "your_access_token_here"
 
@@ -22,61 +22,64 @@ def execute_ato_cleanup():
     url = "https://kite.trade"
     
     try:
-        print("Executing GET call to https://kite.trade...")
+        print("Executing fetch call to Zerodha Alerts API...")
         response = requests.get(url, headers=headers)
         
-        # 1. Guard against authorization errors or bad gateway drops
+        # 1. Guard against authorization errors or server communication drops
         if response.status_code != 200:
             print(f"Error: API returned HTTP status {response.status_code}")
             print(f"Raw Error Content: {response.text}")
             return
 
-        # 2. Parse response and access the mandatory documentation "data" block
+        # 2. Safely parse the server payload response
         try:
             payload = response.json()
         except json.JSONDecodeError as decode_err:
             print(f"JSON Parsing crashed. Input stream text was: '{response.text}'")
             return
 
-        # As seen in the official doc screenshot: {"status": "success", "data": [...]}
+        # Access the mandatory documentation "data" block array
         alerts_list = payload.get("data", [])
         if not isinstance(alerts_list, list):
-            print("Unexpected format: 'data' field is not a list array.")
+            print("Unexpected response structure: 'data' field is not a list array.")
             return
 
-        print(f"Successfully connected. Scanning {len(alerts_list)} total alerts...")
+        print(f"Successfully fetched active stream. Scanning {len(alerts_list)} total alert profiles...")
 
-        # 3. Filter strictly based on the structural documentation fields
+        # 3. Filter for ATO types while bypassing strict status checks
         target_atos = []
         for alert in alerts_list:
             alert_type = str(alert.get("type", "")).strip().lower()
             alert_status = str(alert.get("status", "")).strip().lower()
+            alert_name = alert.get("name", "Unnamed Alert")
             
-            # Target alert rules matching your active NIFTY order state
-            if alert_type == "ato" and alert_status == "enabled":
+            # Catch ANY alert flagged as an ATO type
+            if alert_type == "ato":
+                print(f"DEBUG CRON MATCH: Found ATO alert '{alert_name}' | Status on server: '{alert_status}'")
                 target_atos.append(alert)
 
+        # 4. Fallback trace loop if no matches were identified
         if not target_atos:
-            print("No matching, untriggered ATO orders found in this account scan.")
-            # Safety backup dump so you can view unmatched objects inside GitHub Action logs
-            print(f"Raw system alerts trace: {json.dumps(alerts_list, indent=2)}")
+            print("\n[!] No matching ATO configurations discovered with this run.")
+            print("--- PRINTING RAW SYSTEM ENTRIES TO DIAGNOSE PAYLOAD STRUCTURE ---")
+            print(json.dumps(alerts_list, indent=2))
             return
 
-        print(f"Matched {len(target_atos)} active ATO configuration(s) for removal.")
+        print(f"\nIdentified {len(target_atos)} target ATO configuration(s) for forced removal.")
 
-        # 4. Delete the matched ATOs using query string routing per image_8OqkjI.png
+        # 5. Delete the targeted ATOs using query string routing parameters
         for ato in target_atos:
             uuid = ato.get("uuid")
             name = ato.get("name", "Unnamed ATO")
-            print(f"Sending DELETE request for: '{name}' | UUID: {uuid}")
+            print(f"Sending DELETE request for target: '{name}' | UUID: {uuid}")
             
             delete_url = f"https://kite.trade?uuid={uuid}"
             delete_response = requests.delete(delete_url, headers=headers)
             
             if delete_response.status_code == 200:
-                print(f"-> Success: Deleted {uuid}. Server payload: {delete_response.text}")
+                print(f"  -> Success: Deleted {uuid}. Server says: {delete_response.text}")
             else:
-                print(f"-> Failed: Could not delete {uuid}. Server code: {delete_response.status_code} | Payload: {delete_response.text}")
+                print(f"  -> Failed: Could not delete {uuid}. Server code: {delete_response.status_code} | Details: {delete_response.text}")
 
     except Exception as general_err:
         print(f"A system execution runtime exception occurred: {general_err}")
