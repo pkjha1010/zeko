@@ -84,20 +84,20 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # FIX: Using the official public library method to fetch GTT/ATO triggers safely
-        alerts = kite.get_gtts()
+        # 1. Fetch all custom alerts directly from the backend namespace 'alerts'
+        alerts = kite._get("alerts", {})
         deleted_count = 0
 
         for alert in alerts:
-            # Filter for orders that are still "active" (untriggered) on the server
-            if alert.get("status") == "active":
-                alert_id = alert["id"]
-                alert_name = alert.get("condition", {}).get("tradingsymbol", "Unnamed ATO")
+            # 2. Filter for untriggered, live alerts ('enabled') that are explicitly ATOs
+            if alert.get("status") == "enabled" and alert.get("type") == "ato":
+                alert_uuid = alert["uuid"]  # Official string key identifier
+                alert_name = alert.get("name", "Unnamed ATO")
                 
-                print(f"Deleting untriggered ATO/GTT Order: {alert_name} (ID: {alert_id})")
+                print(f"Deleting untriggered ATO: {alert_name} (UUID: {alert_uuid})")
                 
-                # FIX: Using the official public library method to delete the trigger safely
-                kite.delete_gtt(trigger_id=alert_id)
+                # 3. Request absolute DELETE to the alerts table passing the targeted query parameter
+                kite._delete("alerts", params={"uuid": alert_uuid})
                 deleted_count += 1
 
         print(f"Successfully cleaned up {deleted_count} untriggered ATOs.")
