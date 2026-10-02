@@ -1,82 +1,102 @@
 import logging
 import json
 import requests
+import pyotp
 from kiteconnect import KiteConnect
 
-# Optional: Enable debug logs to print out full server requests and responses
-logging.basicConfig(level=logging.DEBUG)
+# Enable clear tracking printouts
+logging.basicConfig(level=logging.INFO)
 
 # ==========================================
-# CONFIGURATION & INITIALIZATION
+# CONFIGURATION & REPO INITIALIZATION
 # ==========================================
-API_KEY = "your_api_key_here"
-ACCESS_TOKEN = "your_access_token_here"  # Re-use your authenticated access token
-
-kite = KiteConnect(api_key=API_KEY)
-kite.set_access_token(ACCESS_TOKEN)
-
-# Define headers using kiteconnect internally formatted properties
-headers = {
-    "X-Kite-Version": "3",
-    "Authorization": f"token {API_KEY}:{ACCESS_TOKEN}"
-}
+import os
+API_KEY = os.environ.get("KITE_API_KEY")
+API_SECRET = os.environ.get("KITE_API_SECRET")
+USER_ID = os.environ.get("ZERODHA_USER_ID")
+PASSWORD = os.environ.get("ZERODHA_PASSWORD")
+TOTP_KEY = os.environ.get("ZERODHA_TOTP_KEY")
 
 def fetch_and_cleanup_atos():
-    print("Scanning active Kite alerts/ATOs...")
-    
-    # 1. Fetch alerts using standard HTTP requests to ensure full payload accessibility
-    url = "https://kite.trade"
+    print("Initiating daily session authentication sequence...")
+    session = requests.Session()
     
     try:
-        response = requests.get(url, headers=headers)
+        # ---- YOUR WORKING AUTOLOGIN BLOCK ----
+        login_url = f"https://kite.trade{API_KEY}&v=3"
+        session.get(login_url)
         
-        # Guard against non-JSON HTTP errors (e.g. 401 Unauthorized, 502 Bad Gateway)
+        payload_phase1 = {"user_id": USER_ID, "password": PASSWORD}
+        response_phase1 = session.post("https://zerodha.com", data=payload_phase1)
+        request_id = response_phase1.json().get("data", {}).get("request_id")
+        
+        totp = pyotp.TOTP(TOTP_KEY.replace(" ", ""))
+        current_otp = totp.now()
+        
+        payload_phase2 = {
+            "user_id": USER_ID,
+            "request_id": request_id,
+            "twofa_value": current_otp,
+            "twofa_type": "totp"
+        }
+        session.post("https://zerodha.com", data=payload_phase2)
+        
+        response_redirect = session.get(login_url, allow_redirects=True)
+        final_url = response_redirect.url
+        request_token = final_url.split("request_token=")[1].split("&")[0]
+        
+        # Initialize official session using your preferred SDK framework
+        kite = KiteConnect(api_key=API_KEY)
+        session_profile = kite.generate_session(request_token, api_secret=API_SECRET)
+        access_token = session_profile["access_token"]
+        print("Session authenticated successfully! Daily Access Token generated.")
+        
+        # ---- FIXED: CORRECT API ROUTING PACKETS ----
+        headers = {
+            "X-Kite-Version": "3",
+            "Authorization": f"token {API_KEY}:{access_token}"
+        }
+        
+        # Pointing to the actual live database endpoint, not the frontend site
+        api_alerts_url = "https://kite.trade"
+        response = requests.get(api_alerts_url, headers=headers)
+        
         if response.status_code != 200:
-            print(f"Execution failed: API returned status code {response.status_code}")
-            print(f"Response Payload: {response.text}")
+            print(f"API Error fetching alerts: Data download returned status {response.status_code}")
             return
 
-        # Safe parsing block to resolve "Expecting value: line 1 column 1 (char 0)"
-        try:
-            alerts_list = response.json()
-        except json.JSONDecodeError as json_err:
-            print(f"Execution failed parsing JSON: {json_err}")
-            print(f"Raw un-parsable response received: '{response.text}'")
+        payload = response.json()
+        alerts_list = payload.get("data", []) if isinstance(payload, dict) else payload
+
+        # Case-insensitive filtering loop to catch off-market 10:00 AM settings
+        target_atos = []
+        for alert in alerts_list:
+            alert_type = str(alert.get("type", "")).strip().lower()
+            if alert_type == "ato":
+                target_atos.append(alert)
+
+        if not target_atos:
+            print("No active ATO baskets detected on this account scan.")
             return
 
-        # Extract data payload array if it is packed within a standard dict wrap
-        if isinstance(alerts_list, dict) and "data" in alerts_list:
-            alerts_list = alerts_list["data"]
-
-        # 2. Filter for untriggered (enabled) ATO orders
-        untriggered_atos = [
-            alert for alert in alerts_list
-            if alert.get("type") == "ato" and alert.get("status") == "enabled"
-        ]
-
-        if not untriggered_atos:
-            print("No untriggered ATO orders found.")
-            return
-
-        print(f"Found {len(untriggered_atos)} untriggered ATO configuration(s).")
+        print(f"Identified {len(target_atos)} target ATO configuration(s) for cleanup.")
         
-        # 3. Print or Action (Looping through and deleting them)
-        for ato in untriggered_atos:
-            ato_uuid = ato.get("uuid")
-            ato_name = ato.get("name", "Unnamed ATO")
-            print(f"Targeting ATO -> Name: {ato_name} | UUID: {ato_uuid}")
+        # Delete active configurations using documentation routing parameters
+        for ato in target_atos:
+            uuid = ato.get("uuid")
+            name = ato.get("name", "Unnamed ATO")
+            print(f"Wiping out configuration: '{name}' | UUID: {uuid}")
             
-            # Execute DELETE query for the matching UUID
-            delete_url = f"https://kite.trade?uuid={ato_uuid}"
+            delete_url = f"https://kite.trade?uuid={uuid}"
             delete_response = requests.delete(delete_url, headers=headers)
             
             if delete_response.status_code == 200:
-                print(f"Successfully deleted ATO: {ato_uuid}")
+                print(f"  -> Success: Deleted {uuid}")
             else:
-                print(f"Failed to delete ATO {ato_uuid}: {delete_response.text}")
+                print(f"  -> Failed: Code {delete_response.status_code} | Details: {delete_response.text}")
 
     except Exception as e:
-        print(f"An unexpected system exception occurred: {e}")
+        print(f"An unexpected system exception occurred inside cleanup runtime: {e}")
 
 if __name__ == "__main__":
     fetch_and_cleanup_atos()
