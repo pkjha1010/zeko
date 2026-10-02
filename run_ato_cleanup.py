@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 from kiteconnect import KiteConnect
 from playwright.sync_api import sync_playwright
 import pyotp
@@ -27,9 +28,9 @@ def get_kite_session():
         def route_listener(request):
             nonlocal request_token
             url = request.url
-            if "127.0.0.1" in url and "request_token=" in url:
+            if "request_token=" in url:
                 try:
-                    request_token = url.split("request_token=").split("&")
+                    request_token = url.split("request_token=")[1].split("&")[0]
                 except Exception:
                     pass
 
@@ -44,8 +45,17 @@ def get_kite_session():
         # Wait for the 2FA numerical input box to appear
         page.wait_for_selector('input[type="number"], input[type="text"]', timeout=15000)
         
+        # --- TOTP EXPIRATION GUARD ---
         totp = pyotp.TOTP(TOTP_KEY)
+        
+        # Calculate how many seconds are left before the current 6-digit token expires
+        time_remaining = 30 - (int(time.time()) % 30)
+        if time_remaining < 4:
+            print(f"TOTP token rotating in {time_remaining}s. Waiting for a fresh code...")
+            time.sleep(time_remaining + 1)
+            
         token_2fa = totp.now()
+        # ------------------------------
         
         # Fill the 2FA box and press Enter
         two_fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
@@ -53,7 +63,7 @@ def get_kite_session():
         
         try:
             two_fa_input.press("Enter")
-            page.wait_for_timeout(5000)  # Wait for redirection to execute
+            page.wait_for_timeout(8000)  # Wait for redirection to execute completely
         except Exception:
             pass 
 
@@ -74,8 +84,7 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # FIX: Directly call Kite's underlying GET method for the alerts endpoint
-        # This completely bypasses SDK limitation errors
+        # Direct HTTP GET routing to bypass any library class method limitations
         alerts = kite._get("custom.alerts", {})
         deleted_count = 0
 
@@ -86,7 +95,7 @@ def delete_untriggered_atos():
                 alert_name = alert.get("name", "Unnamed ATO")
                 print(f"Deleting ATO: {alert_name} (ID: {alert_id})")
                 
-                # FIX: Directly route a DELETE call using the unique alert_id argument string
+                # Direct HTTP DELETE routing via native request parameters
                 kite._delete("custom.alerts.delete", url_args={"alert_id": alert_id})
                 deleted_count += 1
 
