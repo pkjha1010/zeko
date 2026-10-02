@@ -1,5 +1,6 @@
 import os
 import sys
+from urllib.parse import urlparse, parse_qs
 from kiteconnect import KiteConnect
 from playwright.sync_api import sync_playwright
 import pyotp
@@ -33,19 +34,25 @@ def get_kite_session():
         totp = pyotp.TOTP(TOTP_KEY)
         token_2fa = totp.now()
         
-        page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first.fill(token_2fa)
-        
-        # --- YOUR ORIGINAL WORKING NAVIGATION FLOW ---
+        # --- RESTORED ORIGINAL WORKING FLOW ---
+        # We handle the redirect cleanly by waiting for the page to navigate to your loopback URL naturally
         with page.expect_navigation(url="**/127.0.0.1*", wait_until="commit") as navigation_info:
-            page.click('button[type="submit"]')
+            page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first.fill(token_2fa)
+            # Zerodha's input box auto-submits upon receiving the 6th digit, no extra click needed!
         
         final_url = navigation_info.value.url
         
-        # FIXED: Cleanly extract the token string without splitting a list object
-        request_token = final_url.split("request_token=")[1].split("&")[0]
+        # Safe URL extraction using Python's standard library parser instead of risky splits
+        parsed_url = urlparse(final_url)
+        params = parse_qs(parsed_url.query)
+        request_token = params.get("request_token")
+        
         browser.close()
 
-    # Authenticate daily session using correct library argument key
+    if not request_token:
+        raise Exception("Failed to intercept the request_token from the login redirect sequence.")
+
+    # Authenticate daily session using the valid extracted token string array element
     data = kite.generate_session(request_token, api_secret=API_SECRET)
     kite.set_access_token(data["access_token"])
     print("Session authenticated successfully.")
@@ -57,17 +64,18 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # Call official alerts engine route directly
+        # Directly call the explicit backend namespace dictionary path
         alerts = kite._get("alerts", {})
         deleted_count = 0
 
         for alert in alerts:
+            # Check documentation parameter filters: status is 'enabled' and type is 'ato'
             if alert.get("status") == "enabled" and alert.get("type") == "ato":
-                alert_uuid = alert["uuid"]
+                alert_uuid = alert["uuid"]  
                 alert_name = alert.get("name", "Unnamed ATO")
                 print(f"Deleting ATO: {alert_name} (UUID: {alert_uuid})")
                 
-                # Delete target by passing correct documentation payload key
+                # Route explicit delete network transaction passing target uuid payload
                 kite._delete("alerts", params={"uuid": alert_uuid})
                 deleted_count += 1
 
