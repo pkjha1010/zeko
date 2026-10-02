@@ -1,6 +1,6 @@
 import os
 import sys
-from urllib.parse import urlparse, parse_qs
+import time
 from kiteconnect import KiteConnect
 from playwright.sync_api import sync_playwright
 import pyotp
@@ -18,9 +18,23 @@ def get_kite_session():
     kite = KiteConnect(api_key=API_KEY)
     login_url = kite.login_url()
 
+    request_token = None
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
+
+        # Listen to background URL requests to intercept the request token
+        def route_listener(request):
+            nonlocal request_token
+            url = request.url
+            if "request_token=" in url:
+                try:
+                    request_token = url.split("request_token=")[1].split("&")[0]
+                except Exception:
+                    pass
+
+        page.on("request", route_listener)
         page.goto(login_url)
 
         # Enter User ID and Password
@@ -31,28 +45,34 @@ def get_kite_session():
         # Wait for the 2FA numerical input box to appear
         page.wait_for_selector('input[type="number"], input[type="text"]', timeout=15000)
         
+        # --- TOTP EXPIRATION GUARD ---
         totp = pyotp.TOTP(TOTP_KEY)
+        
+        # Calculate how many seconds are left before the current 6-digit token expires
+        time_remaining = 30 - (int(time.time()) % 30)
+        if time_remaining < 4:
+            print(f"TOTP token rotating in {time_remaining}s. Waiting for a fresh code...")
+            time.sleep(time_remaining + 1)
+            
         token_2fa = totp.now()
+        # ------------------------------
         
-        # --- RESTORED ORIGINAL WORKING FLOW ---
-        # We handle the redirect cleanly by waiting for the page to navigate to your loopback URL naturally
-        with page.expect_navigation(url="**/127.0.0.1*", wait_until="commit") as navigation_info:
-            page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first.fill(token_2fa)
-            # Zerodha's input box auto-submits upon receiving the 6th digit, no extra click needed!
+        # Fill the 2FA box and press Enter
+        two_fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
+        two_fa_input.fill(token_2fa)
         
-        final_url = navigation_info.value.url
-        
-        # Safe URL extraction using Python's standard library parser instead of risky splits
-        parsed_url = urlparse(final_url)
-        params = parse_qs(parsed_url.query)
-        request_token = params.get("request_token")
-        
+        try:
+            two_fa_input.press("Enter")
+            page.wait_for_timeout(8000)  # Wait for redirection to execute completely
+        except Exception:
+            pass 
+
         browser.close()
 
     if not request_token:
         raise Exception("Failed to intercept the request_token from the login redirect sequence.")
 
-    # Authenticate daily session using the valid extracted token string array element
+    # Authenticate daily session
     data = kite.generate_session(request_token, api_secret=API_SECRET)
     kite.set_access_token(data["access_token"])
     print("Session authenticated successfully.")
@@ -64,19 +84,19 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # Directly call the explicit backend namespace dictionary path
-        alerts = kite._get("alerts", {})
+        # Direct HTTP GET routing to bypass any library class method limitations
+        alerts = kite._get("custom.alerts", {})
         deleted_count = 0
 
         for alert in alerts:
-            # Check documentation parameter filters: status is 'enabled' and type is 'ato'
-            if alert.get("status") == "enabled" and alert.get("type") == "ato":
-                alert_uuid = alert["uuid"]  
+            # Targets untriggered, active ATO-linked baskets exclusively
+            if alert.get("status") == "active" and alert.get("type") == "ato":
+                alert_id = alert["id"]
                 alert_name = alert.get("name", "Unnamed ATO")
-                print(f"Deleting ATO: {alert_name} (UUID: {alert_uuid})")
+                print(f"Deleting ATO: {alert_name} (ID: {alert_id})")
                 
-                # Route explicit delete network transaction passing target uuid payload
-                kite._delete("alerts", params={"uuid": alert_uuid})
+                # Direct HTTP DELETE routing via native request parameters
+                kite._delete("custom.alerts.delete", url_args={"alert_id": alert_id})
                 deleted_count += 1
 
         print(f"Successfully cleaned up {deleted_count} untriggered ATOs.")
