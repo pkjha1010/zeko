@@ -24,13 +24,13 @@ def get_kite_session():
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
-        # Listen to background URL requests to intercept the request token
+        # Listen to background URL requests to intercept the request token safely
         def route_listener(request):
             nonlocal request_token
             url = request.url
             if "request_token=" in url:
                 try:
-                    request_token = url.split("request_token=")[1].split("&")[0]
+                    request_token = url.split("request_token=").split("&")
                 except Exception:
                     pass
 
@@ -45,17 +45,14 @@ def get_kite_session():
         # Wait for the 2FA numerical input box to appear
         page.wait_for_selector('input[type="number"], input[type="text"]', timeout=15000)
         
-        # --- TOTP EXPIRATION GUARD ---
+        # TOTP Expiration Guard
         totp = pyotp.TOTP(TOTP_KEY)
-        
-        # Calculate how many seconds are left before the current 6-digit token expires
         time_remaining = 30 - (int(time.time()) % 30)
         if time_remaining < 4:
             print(f"TOTP token rotating in {time_remaining}s. Waiting for a fresh code...")
             time.sleep(time_remaining + 1)
             
         token_2fa = totp.now()
-        # ------------------------------
         
         # Fill the 2FA box and press Enter
         two_fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
@@ -84,19 +81,19 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # Direct HTTP GET routing to bypass any library class method limitations
-        alerts = kite._get("custom.alerts", {})
+        # Matches the official GET /alerts route mapping rule
+        alerts = kite._get("alerts", {})
         deleted_count = 0
 
         for alert in alerts:
-            # Targets untriggered, active ATO-linked baskets exclusively
-            if alert.get("status") == "active" and alert.get("type") == "ato":
-                alert_id = alert["id"]
+            # According to documentation: status is 'enabled' and type can be 'ato'
+            if alert.get("status") == "enabled" and alert.get("type") == "ato":
+                alert_uuid = alert["uuid"]  # Official key is uuid, not id
                 alert_name = alert.get("name", "Unnamed ATO")
-                print(f"Deleting ATO: {alert_name} (ID: {alert_id})")
+                print(f"Deleting ATO: {alert_name} (UUID: {alert_uuid})")
                 
-                # Direct HTTP DELETE routing via native request parameters
-                kite._delete("custom.alerts.delete", url_args={"alert_id": alert_id})
+                # Matches the official DELETE /alerts?uuid={uuid} query param string rule
+                kite._delete("alerts", params={"uuid": alert_uuid})
                 deleted_count += 1
 
         print(f"Successfully cleaned up {deleted_count} untriggered ATOs.")
