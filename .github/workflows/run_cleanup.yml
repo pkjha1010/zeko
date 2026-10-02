@@ -1,0 +1,39 @@
+name: Daily Zerodha Order Cleanup
+
+on:
+  schedule:
+    # Triggers daily at 10:00 AM IST (4:30 AM UTC)
+    - cron: '30 4 * * *'
+  workflow_dispatch: # Allows manual testing anytime via the Actions tab
+
+jobs:
+  run-cleanup-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository Code
+      uses: actions/checkout@v4
+
+    - name: Setup Python Environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install Base Python Dependencies
+      run: |
+        pip install kiteconnect pyotp playwright
+        
+    - name: Install Headless Cloud Browser Engines
+      run: |
+        playwright install chromium --with-deps
+
+    - name: Execute Autonomous Cleanup Script
+      env:
+        # Maps the environment keys to the exact names in your repository screenshot
+        KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+        KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+        ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+        ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+        ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+      run: python zerodha_auto_cleanup.py
+      
