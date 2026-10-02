@@ -28,18 +28,25 @@ def get_kite_session():
         page.fill('input[type="password"]', PASSWORD)
         page.click('button[type="submit"]')
 
-        # Generate and enter the temporary 2FA code using your secret TOTP key
+        # --- ROBUST 2FA INPUT METHOD ---
+        # Wait up to 15 seconds for the 2FA numerical input box to appear on screen
+        page.wait_for_selector('input[type="number"], input[type="text"]', timeout=15000)
+        
+        # Calculate the live 6-digit TOTP code using your master key
         totp = pyotp.TOTP(TOTP_KEY)
         token_2fa = totp.now()
-        page.fill('input[label="External 2FA"]', token_2fa)
+        
+        # Target the input box using multiple fallback selectors to prevent label errors
+        page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first.fill(token_2fa)
         page.click('button[type="submit"]')
+        # -------------------------------
 
         # Wait for the system to redirect to your loopback URL
         page.wait_for_url("**/127.0.0.1*")
         final_url = page.url
         
         # Extract the request token parameter out of the final URL
-        request_token = final_url.split("request_token=")[1].split("&")[0]
+        request_token = final_url.split("request_token=").split("&")[0]
         browser.close()
 
     # Exchange the request token for a valid daily session access token
@@ -78,4 +85,4 @@ def delete_untriggered_atos():
 
 if __name__ == "__main__":
     delete_untriggered_atos()
-  
+    
