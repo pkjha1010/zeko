@@ -22,9 +22,15 @@ def fetch_and_cleanup_atos():
     session = requests.Session()
     
     try:
-        # ---- YOUR WORKING AUTOLOGIN BLOCK ----
-        login_url = f"https://kite.trade{API_KEY}&v=3"
-        session.get(login_url)
+        # ---- SAFE URL CONSTRUCTION PARSING ----
+        base_login_url = "https://kite.trade"
+        login_params = {
+            "api_key": API_KEY,
+            "v": "3"
+        }
+        
+        # Hit the login gateway safely using dictionary arguments
+        session.get(base_login_url, params=login_params)
         
         payload_phase1 = {"user_id": USER_ID, "password": PASSWORD}
         response_phase1 = session.post("https://zerodha.com", data=payload_phase1)
@@ -41,7 +47,8 @@ def fetch_and_cleanup_atos():
         }
         session.post("https://zerodha.com", data=payload_phase2)
         
-        response_redirect = session.get(login_url, allow_redirects=True)
+        # Follow dynamic landing chains safely using parameter bindings
+        response_redirect = session.get(base_login_url, params=login_params, allow_redirects=True)
         final_url = response_redirect.url
         request_token = final_url.split("request_token=")[1].split("&")[0]
         
@@ -51,7 +58,7 @@ def fetch_and_cleanup_atos():
         access_token = session_profile["access_token"]
         print("Session authenticated successfully! Daily Access Token generated.")
         
-        # ---- FIXED: CORRECT API ROUTING PACKETS ----
+        # ---- CORRECT API ROUTING PACKETS ----
         headers = {
             "X-Kite-Version": "3",
             "Authorization": f"token {API_KEY}:{access_token}"
