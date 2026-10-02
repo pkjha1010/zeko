@@ -84,19 +84,22 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # Direct HTTP GET routing to bypass any library class method limitations
-        alerts = kite._get("custom.alerts", {})
+        # FIX: Using the verified, native endpoint string mapped in pykiteconnect
+        alerts = kite._get("gtt.orders", {})
         deleted_count = 0
 
         for alert in alerts:
-            # Targets untriggered, active ATO-linked baskets exclusively
-            if alert.get("status") == "active" and alert.get("type") == "ato":
+            # Targets untriggered, active orders exclusively
+            # Status "active" means it's sitting on the server waiting to trigger
+            if alert.get("status") == "active":
                 alert_id = alert["id"]
-                alert_name = alert.get("name", "Unnamed ATO")
-                print(f"Deleting ATO: {alert_name} (ID: {alert_id})")
+                # Fallback to trading symbol or type descriptor if name field is custom
+                alert_name = alert.get("condition", {}).get("tradingsymbol", "Unnamed ATO")
                 
-                # Direct HTTP DELETE routing via native request parameters
-                kite._delete("custom.alerts.delete", url_args={"alert_id": alert_id})
+                print(f"Deleting ATO/GTT Order: {alert_name} (ID: {alert_id})")
+                
+                # FIX: Utilizing the correct delete routing API structure mapping
+                kite._delete("gtt.delete", url_args={"trigger_id": alert_id})
                 deleted_count += 1
 
         print(f"Successfully cleaned up {deleted_count} untriggered ATOs.")
