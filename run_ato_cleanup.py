@@ -18,7 +18,6 @@ def get_kite_session():
     login_url = kite.login_url()
 
     with sync_playwright() as p:
-        # Launch a headless background browser instance
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         page.goto(login_url)
@@ -28,17 +27,22 @@ def get_kite_session():
         page.fill('input[type="password"]', PASSWORD)
         page.click('button[type="submit"]')
 
-        # Robust 2FA Input
+        # Wait for the 2FA numerical input box to appear
         page.wait_for_selector('input[type="number"], input[type="text"]', timeout=15000)
+        
         totp = pyotp.TOTP(TOTP_KEY)
         token_2fa = totp.now()
-        page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first.fill(token_2fa)
         
-        # Capture the redirect event instantly during the network request.
-        # This catches the URL parameters the millisecond Zerodha generates them,
-        # completely bypassing the browser's local connection error page.
-        with page.expect_navigation(url="**/127.0.0.1*", wait_until="commit") as navigation_info:
-            page.click('button[type="submit"]')
+        # --- FIXED LOGIC ---
+        # We start expecting the background network navigation loop to trigger BEFORE we push our keys
+        with page.expect_navigation(url="**/127.0.0.1*", wait_until="commit", timeout=30000) as navigation_info:
+            # We target the input block and fill it. Zerodha's web interface automatically 
+            # triggers form submission the moment the 6th digit is typed, so a manual button click is omitted.
+            2fa_input = page.locator('div.twofa-value input, input[type="number"], input[maxlength="6"]').first
+            2fa_input.fill(token_2fa)
+            
+            # Fallback: if it doesn't auto-submit on key fill, press "Enter" safely on the keyboard
+            2fa_input.press("Enter")
         
         final_url = navigation_info.value.url
         
