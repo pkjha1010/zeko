@@ -2,6 +2,7 @@ import os
 import sys
 import time
 from urllib.parse import urlparse, parse_qs
+import requests  # Raw HTTP processing matching the official curl documentation specs
 from kiteconnect import KiteConnect
 from playwright.sync_api import sync_playwright
 import pyotp
@@ -25,9 +26,7 @@ def get_kite_session():
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
-        # --- BULLETPROOF NETWORK INTERCEPTOR ---
-        # Instead of waiting for page frames to render, this actively sniffs background 
-        # traffic. The exact millisecond the token parameters are created, we capture it.
+        # Network interceptor to extract request token from redirect URLs
         def network_sniffer(request):
             nonlocal request_token
             url = request.url
@@ -40,7 +39,6 @@ def get_kite_session():
                 except Exception:
                     pass
 
-        # Attach our network sniffer to the active web lifecycle
         page.on("request", network_sniffer)
         page.goto(login_url)
 
@@ -90,21 +88,40 @@ def delete_untriggered_atos():
         kite = get_kite_session()
         print("Scanning active Kite alerts/ATOs...")
 
-        # Fetch custom alerts using the backend namespace mapped endpoint
-        alerts = kite._get("alerts", {})
+        # Match official authorization header schema: 'token api_key:access_token'
+        headers = {
+            "X-Kite-Version": "3",
+            "Authorization": f"token {API_KEY}:{kite.access_token}"
+        }
+
+        # 1. GET /alerts call (Matches official documentation schema)
+        response = requests.get("https://kite.trade", headers=headers)
+        if response.status_code != 200:
+            raise Exception(f"Failed to fetch alerts from API: {response.text}")
+
+        # FIX: Explicitly target the '.get("data")' list array from response payload wrapper mapping
+        alerts = response.json().get("data", [])
         deleted_count = 0
 
         for alert in alerts:
-            # Filter condition parameters: status is 'enabled' and type is 'ato'
+            # 2. Check documentation filters: status is 'enabled' and type is 'ato'
             if alert.get("status") == "enabled" and alert.get("type") == "ato":
-                alert_uuid = alert["uuid"]  # Extract unique hash string
+                alert_uuid = alert["uuid"]  # Unique hash string id key
                 alert_name = alert.get("name", "Unnamed ATO")
                 
                 print(f"Deleting untriggered ATO: {alert_name} (UUID: {alert_uuid})")
                 
-                # Delete target by passing correct documentation query parameters
-                kite._delete("alerts", params={"uuid": alert_uuid})
-                deleted_count += 1
+                # 3. DELETE /alerts?uuid={uuid} call (Matches documentation query param spec)
+                del_response = requests.delete(
+                    "https://kite.trade", 
+                    headers=headers, 
+                    params={"uuid": alert_uuid}
+                )
+                
+                if del_response.status_code == 200:
+                    deleted_count += 1
+                else:
+                    print(f"Warning: Could not delete alert {alert_uuid}: {del_response.text}")
 
         print(f"Successfully cleaned up {deleted_count} untriggered ATOs.")
 
