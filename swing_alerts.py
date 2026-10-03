@@ -28,7 +28,9 @@ import argparse
 import hashlib
 import os
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, time as dtime
 from urllib.parse import urljoin, urlparse, parse_qs
 from zoneinfo import ZoneInfo
@@ -134,6 +136,17 @@ def kite_login():
 KITE = None
 TOKENS = {}      # NSE trading symbol -> instrument token
 _CACHE = {}      # symbol -> DataFrame
+_LOCK = threading.Lock()
+_LAST_CALL = [0.0]
+
+
+def _throttle(gap=0.34):
+    """Kite historical API allows 3 requests/sec - space the calls out."""
+    with _LOCK:
+        wait = _LAST_CALL[0] + gap - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        _LAST_CALL[0] = time.monotonic()
 
 
 def init_prices(kite):
@@ -157,12 +170,12 @@ def get_df(sym):
         now = datetime.now(IST)
         for attempt in range(3):
             try:
+                _throttle()
                 rows = KITE.historical_data(tok, now - timedelta(days=LOOKBACK_DAYS), now, "day")
                 break
             except Exception as e:
                 rows = None
                 time.sleep(1.0 * (attempt + 1))
-        time.sleep(0.35)                     # historical API limit: 3 requests/sec
         if rows:
             df = pd.DataFrame(rows).rename(columns={"open": "Open", "high": "High",
                                                     "low": "Low", "close": "Close"})
@@ -270,12 +283,53 @@ def scan_ticker(ticker):
         return results
 
 
+def prefetch(symbols):
+    """Fetch history for several symbols in parallel (rate-limited)."""
+    todo = [x for x in dict.fromkeys(symbols) if x not in _CACHE]
+    if todo:
+        with ThreadPoolExecutor(max_workers=3) as ex:
+            list(ex.map(get_df, todo))
+
+
+def prefilter(symbols):
+    """One quote call for all stocks -> keep only those whose latest candle could
+    pass the scanner's candle-shape test (slightly looser than the real test; the
+    exact test still runs on full history afterwards). Falls back to all symbols."""
+    now = datetime.now(IST)
+    if now.weekday() < 5 and now.time() < dtime(15, 45):
+        return symbols            # today's candle not final yet -> can't use quote
+    try:
+        keys = [f"NSE:{x}" for x in symbols if x in TOKENS]
+        q = {}
+        for i in range(0, len(keys), 500):
+            q.update(KITE.ohlc(keys[i:i + 500]))
+        keep = []
+        for x in symbols:
+            d = q.get(f"NSE:{x}")
+            if not d:
+                keep.append(x); continue
+            o, h, l = d["ohlc"]["open"], d["ohlc"]["high"], d["ohlc"]["low"]
+            c = d["last_price"]
+            rng = h - l
+            if not (o and h and l and c) or rng <= 0:
+                keep.append(x); continue
+            body = abs(c - o)
+            up, lo = h - max(o, c), min(o, c) - l
+            if body / rng <= 0.50 and (up >= 1.8 * body or lo >= 1.8 * body):
+                keep.append(x)
+        return keep
+    except Exception as e:
+        print(f"  prefilter skipped ({e}); scanning all")
+        return symbols
+
+
 def run_scan():
-    print(f"Scanning {len(UNIVERSE)} F&O stocks...")
+    syms = [u.replace('.NS', '') for u in UNIVERSE]
+    cand = prefilter(syms)
+    print(f"Scanning {len(cand)} of {len(syms)} F&O stocks (rest fail the candle test)...")
+    prefetch(cand)
     out = []
-    for idx, t in enumerate(UNIVERSE):
-        if (idx + 1) % 50 == 0:
-            print(f"  progress {idx + 1}/{len(UNIVERSE)}")
+    for t in cand:
         out.extend(scan_ticker(t))
     df = pd.DataFrame(out, columns=['Ticker', 'Direction', 'BoS_Date', 'Swing_Date', 'Today_Date'])
     print(f"Found {len(df)} signal(s).")
@@ -292,6 +346,7 @@ def tick_round(x):
 def build_alerts(signals):
     """LONG -> swing high / '>=' ; SHORT -> swing low / '<='."""
     alerts, skipped = [], []
+    prefetch(list(signals['Ticker']))
     for _, s in signals.iterrows():
         sym, direction = s['Ticker'], str(s['Direction']).upper()
         try:
@@ -406,26 +461,4 @@ def main():
     stale = [x["uuid"] for x in existing
              if x["name"] not in wanted_names and x.get("status") == "enabled"]
     if stale:
-        alerts_api.delete(stale)
-        print(f"\nDeleted {len(stale)} stale SWG alert(s).")
-
-    created, failed = 0, []
-    for a in alerts:
-        if a['name'] in existing_names:
-            continue
-        try:
-            alerts_api.create(a)
-            created += 1
-            print(f"  + {a['name']}")
-        except Exception as e:
-            failed.append((a['name'], str(e)))
-            print(f"  ! {a['name']}: {e}")
-        time.sleep(0.3)
-
-    print(f"\nDone. created={created}, already_present={len(alerts) - created - len(failed)}, "
-          f"failed={len(failed)}")
-    return 1 if failed else 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+        alerts_api.delete(s
