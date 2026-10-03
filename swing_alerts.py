@@ -1,5 +1,5 @@
-import os, sys, time, requests, pyotp, pandas as pd
-from datetime import datetime, timedelta, time as dtime
+import os, sys, time, requests, pyotp, pandas as pd, yfinance as yf
+from datetime import datetime, time as dtime
 from urllib.parse import urljoin, urlparse, parse_qs
 from zoneinfo import ZoneInfo
 from kiteconnect import KiteConnect
@@ -36,14 +36,16 @@ UNIVERSE = """
 def login():
     key, uid = os.environ["KITE_API_KEY"], os.environ["ZERODHA_USER_ID"]
     s = requests.Session()
-    rid = s.post("https://kite.zerodha.com/api/login", data={
-        "user_id": uid, "password": os.environ["ZERODHA_PASSWORD"]}).json()["data"]["request_id"]
-    s.post("https://kite.zerodha.com/api/twofa", data={
-        "user_id": uid, "request_id": rid, "twofa_type": "totp",
-        "twofa_value": pyotp.TOTP(os.environ["ZERODHA_TOTP_KEY"]).now()})
+    r = s.post("https://kite.zerodha.com/api/login", timeout=30, data={
+        "user_id": uid, "password": os.environ["ZERODHA_PASSWORD"]}).json()
+    if r.get("status") != "success": sys.exit(f"Login failed: {r}")
+    r = s.post("https://kite.zerodha.com/api/twofa", timeout=30, data={
+        "user_id": uid, "request_id": r["data"]["request_id"], "twofa_type": "totp",
+        "twofa_value": pyotp.TOTP(os.environ["ZERODHA_TOTP_KEY"]).now()}).json()
+    if r.get("status") != "success": sys.exit(f"2FA failed: {r}")
     url = f"https://kite.zerodha.com/connect/login?v=3&api_key={key}"
     for _ in range(10):
-        loc = s.get(url, allow_redirects=False).headers.get("Location")
+        loc = s.get(url, allow_redirects=False, timeout=30).headers.get("Location")
         if not loc: break
         url = urljoin(url, loc)
         if "request_token" in url: break
@@ -54,29 +56,21 @@ def login():
     return kite, {"X-Kite-Version": "3", "Authorization": f"token {key}:{d['access_token']}"}
 
 
-def candles(kite, tok):
-    now, r = datetime.now(IST), None
-    for _ in range(3):
-        try:
-            time.sleep(0.34)  # Kite history limit: 3 req/sec
-            r = kite.historical_data(tok, now - timedelta(days=90), now, "day")
-            break
-        except Exception:
-            time.sleep(1)
-    if not r: return None
-    df = pd.DataFrame(r).rename(columns=str.title)
-    df.index = pd.to_datetime(df.pop("Date")).dt.tz_localize(None).dt.normalize()
-    if df.index[-1].date() == now.date() and now.time() < dtime(15, 45):
+def candles(s):
+    try:
+        df = DATA[s + ".NS"][["Open", "High", "Low", "Close"]].dropna()
+    except KeyError:
+        return None
+    now = datetime.now(IST)
+    if len(df) and df.index[-1].date() == now.date() and now.time() < dtime(15, 45):
         df = df.iloc[:-1]  # today's candle still forming
     return df
 
 
-def shape(o, h, l, c, exact=True):
+def shape(o, h, l, c):
     if h == l: return False
     b, up, lo = abs(c - o), h - max(o, c), min(o, c) - l
-    if exact:
-        return b / (h - l) <= .45 and ((up >= 2*b and up > 1.5*lo) or (lo >= 2*b and lo > 1.5*up))
-    return b / (h - l) <= .5 and (up >= 1.8*b or lo >= 1.8*b)  # loose pre-check
+    return b / (h - l) <= .45 and ((up >= 2*b and up > 1.5*lo) or (lo >= 2*b and lo > 1.5*up))
 
 
 def swing_date(df, long):
@@ -97,31 +91,15 @@ def swing_date(df, long):
     return res
 
 
-def precheck(kite, syms):
-    """One quote call for all stocks; drop those whose last candle can't pass."""
-    now = datetime.now(IST)
-    if now.weekday() < 5 and now.time() < dtime(15, 45): return syms
-    try:
-        q = kite.ohlc([f"NSE:{s}" for s in syms])
-        out = []
-        for s in syms:
-            d = q.get(f"NSE:{s}")
-            o, h, l, c = (d["ohlc"]["open"], d["ohlc"]["high"], d["ohlc"]["low"], d["last_price"]) if d else (0,)*4
-            if not (o and h and l and c) or shape(o, h, l, c, False): out.append(s)
-        return out
-    except Exception as e:
-        print("precheck skipped:", e)
-        return syms
-
-
 kite, H = login()
-tok = {i["tradingsymbol"]: i["instrument_token"] for i in kite.instruments("NSE") if i["instrument_type"] == "EQ"}
-syms = precheck(kite, [s for s in UNIVERSE if s in tok])
-print(f"Checking {len(syms)} stocks")
+print("Kite login OK", flush=True)
+DATA = yf.download([s + ".NS" for s in UNIVERSE], period="90d", group_by="ticker",
+                   auto_adjust=False, progress=False, threads=True)
+print("Prices downloaded", flush=True)
 
 want = {}
-for s in syms:
-    df = candles(kite, tok[s])
+for s in UNIVERSE:
+    df = candles(s)
     if df is None or len(df) < 40: continue
     o, h, l, c = df.iloc[-1][["Open", "High", "Low", "Close"]]
     if not shape(o, h, l, c): continue
