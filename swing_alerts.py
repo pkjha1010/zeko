@@ -461,4 +461,27 @@ def main():
     stale = [x["uuid"] for x in existing
              if x["name"] not in wanted_names and x.get("status") == "enabled"]
     if stale:
-        alerts_api.delete(s
+        alerts_api.delete(stale)
+        print(f"\nDeleted {len(stale)} stale SWG alert(s).")
+
+    created, failed = 0, []
+    for a in alerts:
+        if a['name'] in existing_names:
+            continue
+        try:
+            alerts_api.create(a)
+            created += 1
+            print(f"  + {a['name']}")
+        except Exception as e:
+            failed.append((a['name'], str(e)))
+            print(f"  ! {a['name']}: {e}")
+        time.sleep(0.15)
+
+    print(f"\nDone. created={created}, already_present={len(alerts) - created - len(failed)}, "
+          f"failed={len(failed)}")
+    return 1 if failed else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+
