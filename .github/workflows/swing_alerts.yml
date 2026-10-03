@@ -8,7 +8,7 @@ on:
 jobs:
   swing-alerts:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -17,7 +17,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install requests kiteconnect pyotp pandas numpy
+        run: pip install requests kiteconnect pyotp yfinance pandas numpy
 
       - name: Scan and place swing alerts
         env:
@@ -26,4 +26,4 @@ jobs:
           ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
           ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
           ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
-        run: python swing_alerts.py
+        run: python -u swing_alerts.py
