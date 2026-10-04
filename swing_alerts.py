@@ -68,26 +68,27 @@ def candles(s):
 
 
 def shape(o, h, l, c):
+    """Last candle: body < 45% of range and a wick (upper or lower) >= 2x body."""
     if h == l: return False
-    b, up, lo = abs(c - o), h - max(o, c), min(o, c) - l
-    return b / (h - l) <= .45 and ((up >= 2*b and up > 1.5*lo) or (lo >= 2*b and lo > 1.5*up))
+    b = abs(c - o)
+    return b / (h - l) < .45 and max(h - max(o, c), min(o, c) - l) >= 2 * b
 
 
-def swing_date(df, long):
-    """Your Colab logic. Returns swing date of the last valid BoS, or None."""
-    n, col = len(df) - 1, "High" if long else "Low"
-    f = max if long else min
-    ref = df[col].rolling(10).apply(f, raw=True).shift(1)
-    loc = df[col].rolling(10).apply(lambda x: x.argmax() if long else x.argmin(), raw=True).shift(1)
-    c = df.Close
-    if pd.isna(ref.iloc[n]) or (c.iloc[n] >= ref.iloc[n] if long else c.iloc[n] <= ref.iloc[n]):
-        return None
-    res = None
+def setup(df, long):
+    """Most recent valid break-of-structure setup for the last candle, else None.
+    Returns (ref_line, swing_date, bos_date, pullback_date)."""
+    n, res = len(df) - 1, None
+    hi, lo, c = df.High.values, df.Low.values, df.Close.values
     for i in range(10, n):
-        r = ref.iloc[i]
-        if pd.isna(r) or not (c.iloc[i] > r if long else c.iloc[i] < r) or n - i > 25: continue
-        if any((df.Low.iloc[j] < r) if long else (df.High.iloc[j] > r) for j in range(i + 1, n)):
-            res = df.index[i - 10 + int(loc.iloc[i])]
+        w = (hi if long else lo)[i - 10:i]            # 10 days before candle i
+        k = w.argmax() if long else w.argmin()
+        ref, sw = w[k], i - 10 + k                    # reference line + swing candle
+        if not (c[i] > ref if long else c[i] < ref): continue         # break of structure
+        if i - sw > 20 or n - i > 20: continue                        # 20-day limits
+        if not (c[n] < ref if long else c[n] > ref): continue         # last candle closes back across line
+        # pullback = first close back across the line after the break (can be the last candle)
+        pb = next(j for j in range(i + 1, n + 1) if (c[j] < ref if long else c[j] > ref))
+        res = (ref, df.index[sw], df.index[i], df.index[pb])          # later break overrides
     return res
 
 
@@ -95,24 +96,30 @@ kite, H = login()
 print("Kite login OK", flush=True)
 DATA = yf.download([s + ".NS" for s in UNIVERSE], period="90d", group_by="ticker",
                    auto_adjust=False, progress=False, threads=True)
-print("Prices downloaded", flush=True)
+have_data = sum(1 for s in UNIVERSE if (candles(s) is not None and len(candles(s)) >= 40))
+print(f"Prices downloaded: {have_data}/{len(UNIVERSE)} stocks have data", flush=True)
+if have_data < 150: sys.exit("Price download failed - alerts left untouched")
 
-want = {}
+want, rows, passed = {}, [], 0
 for s in UNIVERSE:
     df = candles(s)
     if df is None or len(df) < 40: continue
     o, h, l, c = df.iloc[-1][["Open", "High", "Low", "Close"]]
     if not shape(o, h, l, c): continue
+    passed += 1
     for long in (True, False):
-        d = swing_date(df, long)
-        if d is None: continue
-        lvl = round(round((df.High if long else df.Low)[d] / .05) * .05, 2)
-        if (c >= lvl) if long else (c <= lvl):
-            print(f"skip {s}: already past {lvl}"); continue
-        name = f"{P}{'LONG' if long else 'SHORT'}|{s}|{lvl:.2f}"
+        r = setup(df, long)
+        if r is None: continue
+        ref, sw, bos, pb = r
+        lvl, d = round(float(ref), 2), "LONG" if long else "SHORT"
+        name = f"{P}{d}|{s}|{lvl:.2f}"
+        rows.append(dict(Stock=s, Direction=d, Ref_Line=lvl, Swing=sw.date(), BoS=bos.date(),
+                         Pullback=pb.date(), Last_Candle=df.index[-1].date()))
         want[name] = dict(name=name, type="simple", lhs_exchange="NSE", lhs_tradingsymbol=s,
                           lhs_attribute="LastTradedPrice", operator=">=" if long else "<=",
                           rhs_type="constant", rhs_constant=lvl)
+print(f"Last candle test passed: {passed} stocks", flush=True)
+print(pd.DataFrame(rows).to_string(index=False) if rows else "No setups today", flush=True)
 
 have, p = {}, 1
 while p < 20:  # existing alerts made by this script
