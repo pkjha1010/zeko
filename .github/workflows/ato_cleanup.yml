@@ -2,6 +2,13 @@ name: ATO Cleanup
 
 on:
   schedule:
+    - cron: '40 5 * * 1-5'   # TEST 11:10 AM IST
+    - cron: '50 5 * * 1-5'   # TEST 11:20 AM IST
+    - cron: '0 6 * * 1-5'    # TEST 11:30 AM IST
+    - cron: '7 4 * * 1-5'    # 9:37 AM IST
+    - cron: '27 4 * * 1-5'   # 9:57 AM IST
+    - cron: '47 4 * * 1-5'   # 10:17 AM IST
+    - cron: '17 5 * * 1-5'   # 10:47 AM IST
     - cron: '30 4 * * 1-5'   # 10:00 AM IST, Mon-Fri
     - cron: '45 4 * * 1-5'   # 10:15 AM IST, Mon-Fri
   workflow_dispatch:
