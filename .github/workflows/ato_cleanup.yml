@@ -3,7 +3,7 @@ name: ATO Cleanup
 on:
   schedule:
     - cron: '30 4 * * 1-5'   # 10:00 AM IST, Mon-Fri
-    - cron: '59 4 * * 1-5'   # 10:15 AM IST, Mon-Fri
+    - cron: '45 4 * * 1-5'   # 10:15 AM IST, Mon-Fri
   workflow_dispatch:
 
 jobs:
