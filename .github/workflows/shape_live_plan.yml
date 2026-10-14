@@ -1,0 +1,65 @@
+name: SHAPELIVE plan (06:00 IST - creates ATO alerts)
+
+on:
+  schedule:
+    - cron: '30 0 * * 1-5'      # 6:00 AM IST, Mon-Fri (before the market opens)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'plan = create the alerts | probe = print your existing ATO alerts (to check the stop-loss layout)'
+        required: false
+        default: 'plan'
+      dry_run:
+        description: '1 = show the plan only, create no alerts'
+        required: false
+        default: '0'
+      max_cost:
+        description: 'Maximum cost per trade in rupees (premium x quantity)'
+        required: false
+        default: '10000'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shapelive-kite
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests kiteconnect pyotp pandas numpy
+
+      - name: Scan, choose options, create ATO alerts
+        env:
+          KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+          KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+          ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+          ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+          ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+          ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+          ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+          ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+          ANGEL_TOTP_KEY: ${{ secrets.ANGEL_TOTP_KEY }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+          MAX_COST: ${{ github.event.inputs.max_cost }}
+        run: python -u shape_live_plan.py ${{ github.event.inputs.mode }}
+
+      - name: Save plan
+        if: always()
+        run: |
+          git config user.name "shapelive-bot"
+          git config user.email "shapelive-bot@users.noreply.github.com"
+          if [ -d live_plan ]; then git add live_plan; fi
+          git diff --cached --quiet || git commit -m "shapelive plan"
+          git pull --no-rebase -X ours --no-edit || true
+          git push || true
