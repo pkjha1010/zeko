@@ -16,7 +16,7 @@ on:
       max_cost:
         description: 'Maximum cost per trade in rupees (premium x quantity)'
         required: false
-        default: '10000'
+        default: '5000'
 
 permissions:
   contents: write
