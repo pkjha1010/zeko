@@ -24,7 +24,7 @@ from zoneinfo import ZoneInfo
 from kiteconnect import KiteConnect
 
 PFX = "SHP|"
-MAX_COST = float(os.environ.get("MAX_COST") or 10000)        # rupees per trade, premium x quantity
+MAX_COST = float(os.environ.get("MAX_COST") or 5000)        # rupees per trade, premium x quantity
 PRODUCT = os.environ.get("PRODUCT") or "NRML"                # overnight: this is what carries the built-in stop-loss (GTT)
 SL_PCT = float(os.environ.get("SL_PCT") or 10)                # built-in stop-loss, percent below the fill price
 # basket params["gtt"]: stop-loss in percent. If probe mode shows your account stores it differently, set GTT_JSON to that layout.
