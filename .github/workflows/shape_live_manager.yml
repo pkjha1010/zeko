@@ -1,0 +1,45 @@
+name: SHAPELIVE manager (morning - stop-loss and time exits)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'run = normal morning job | cleanup = delete all waiting SHP| alerts right now | iptest = check the static IP (places nothing)'
+        required: false
+        default: 'run'
+      dry_run:
+        description: '1 = print the orders, send nothing'
+        required: false
+        default: '0'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shapelive-kite-manager
+  cancel-in-progress: false
+
+jobs:
+  manager:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests kiteconnect pyotp
+
+      - name: Manage entries, stop-loss and exits
+        env:
+          KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+          KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+          ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+          ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+          ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+          ORDER_PROXY: ${{ secrets.ORDER_PROXY }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: python -u shape_live_manager.py ${{ github.event.inputs.mode }}
