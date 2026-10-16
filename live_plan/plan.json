@@ -1,6 +1,6 @@
 {
- "created": "2026-10-16 08:03:07.749172",
- "trade_day": "2026-10-16",
+ "created": "2026-10-16 18:06:59.877718",
+ "trade_day": "2026-10-19",
  "max_cost": 8148.83,
  "product": "NRML",
  "items": [
@@ -12,10 +12,10 @@
    "strike": 1020.0,
    "expiry": "2026-10-27",
    "lot_size": 500,
-   "lots": 1,
-   "qty": 500,
-   "close_price": 9.9,
-   "cost": 4950.0,
+   "lots": 2,
+   "qty": 1000,
+   "close_price": 5.45,
+   "cost": 5450.0,
    "alert": "SHP|S|360ONE|1037.10"
   },
   {
@@ -26,10 +26,10 @@
    "strike": 410.0,
    "expiry": "2026-10-27",
    "lot_size": 3100,
-   "lots": 3,
-   "qty": 9300,
-   "close_price": 0.8,
-   "cost": 7440.0,
+   "lots": 4,
+   "qty": 12400,
+   "close_price": 0.55,
+   "cost": 6820.0,
    "alert": "SHP|L|ABCAPITAL|407.40"
   },
   {
@@ -42,8 +42,8 @@
    "lot_size": 675,
    "lots": 1,
    "qty": 675,
-   "close_price": 9.05,
-   "cost": 6108.75,
+   "close_price": 6.5,
+   "cost": 4387.5,
    "alert": "SHP|S|ADANIENSOL|1275.20"
   },
   {
@@ -54,10 +54,10 @@
    "strike": 1800.0,
    "expiry": "2026-10-27",
    "lot_size": 475,
-   "lots": 1,
-   "qty": 475,
-   "close_price": 10.4,
-   "cost": 4940.0,
+   "lots": 2,
+   "qty": 950,
+   "close_price": 8.0,
+   "cost": 7600.0,
    "alert": "SHP|L|ADANIPORTS|1791.40"
   },
   {
@@ -70,23 +70,23 @@
    "lot_size": 475,
    "lots": 1,
    "qty": 475,
-   "close_price": 9.25,
-   "cost": 4393.75,
+   "close_price": 9.6,
+   "cost": 4560.0,
    "alert": "SHP|S|ADANIPORTS|1716.00"
   },
   {
-   "stock": "ASIANPAINT",
+   "stock": "AMBUJACEM",
    "direction": "SHORT",
-   "ref": 2336.7,
-   "option": "ASIANPAINT26OCT2320PE",
-   "strike": 2320.0,
+   "ref": 352.45,
+   "option": "AMBUJACEM26OCT350PE",
+   "strike": 350.0,
    "expiry": "2026-10-27",
-   "lot_size": 250,
+   "lot_size": 1200,
    "lots": 1,
-   "qty": 250,
-   "close_price": 18.9,
-   "cost": 4725.0,
-   "alert": "SHP|S|ASIANPAINT|2336.70"
+   "qty": 1200,
+   "close_price": 3.85,
+   "cost": 4620.0,
+   "alert": "SHP|S|AMBUJACEM|352.45"
   },
   {
    "stock": "BAJAJ-AUTO",
@@ -96,11 +96,25 @@
    "strike": 9700.0,
    "expiry": "2026-10-27",
    "lot_size": 75,
-   "lots": 7,
-   "qty": 525,
-   "close_price": 15.3,
-   "cost": 8032.5,
+   "lots": 10,
+   "qty": 750,
+   "close_price": 10.45,
+   "cost": 7837.5,
    "alert": "SHP|S|BAJAJ-AUTO|9727.00"
+  },
+  {
+   "stock": "BAJAJHLDNG",
+   "direction": "LONG",
+   "ref": 11434.0,
+   "option": "BAJAJHLDNG26OCT11500CE",
+   "strike": 11500.0,
+   "expiry": "2026-10-27",
+   "lot_size": 75,
+   "lots": 1,
+   "qty": 75,
+   "close_price": 94.0,
+   "cost": 7050.0,
+   "alert": "SHP|L|BAJAJHLDNG|11434.00"
   },
   {
    "stock": "BAJAJHLDNG",
@@ -110,10 +124,10 @@
    "strike": 10700.0,
    "expiry": "2026-10-27",
    "lot_size": 75,
-   "lots": 1,
-   "qty": 75,
-   "close_price": 65.7,
-   "cost": 4927.5,
+   "lots": 2,
+   "qty": 150,
+   "close_price": 50.15,
+   "cost": 7522.5,
    "alert": "SHP|S|BAJAJHLDNG|10738.00"
   },
   {
@@ -124,10 +138,10 @@
    "strike": 2040.0,
    "expiry": "2026-10-27",
    "lot_size": 350,
-   "lots": 1,
-   "qty": 350,
-   "close_price": 14.9,
-   "cost": 5215.0,
+   "lots": 2,
+   "qty": 700,
+   "close_price": 9.6,
+   "cost": 6720.0,
    "alert": "SHP|S|APLAPOLLO|2059.50"
   },
   {
@@ -140,8 +154,8 @@
    "lot_size": 550,
    "lots": 1,
    "qty": 550,
-   "close_price": 12.85,
-   "cost": 7067.5,
+   "close_price": 8.25,
+   "cost": 4537.5,
    "alert": "SHP|L|AUROPHARMA|1704.00"
   },
   {
@@ -152,10 +166,10 @@
    "strike": 1210.0,
    "expiry": "2026-10-27",
    "lot_size": 625,
-   "lots": 3,
-   "qty": 1875,
-   "close_price": 3.95,
-   "cost": 7406.25,
+   "lots": 2,
+   "qty": 1250,
+   "close_price": 4.6,
+   "cost": 5750.0,
    "alert": "SHP|S|AXISBANK|1219.90"
   },
   {
@@ -166,10 +180,10 @@
    "strike": 44000.0,
    "expiry": "2026-10-27",
    "lot_size": 25,
-   "lots": 1,
-   "qty": 25,
-   "close_price": 320.5,
-   "cost": 8012.5,
+   "lots": 2,
+   "qty": 50,
+   "close_price": 150.0,
+   "cost": 7500.0,
    "alert": "SHP|S|BOSCHLTD|44305.00"
   },
   {
@@ -180,10 +194,10 @@
    "strike": 4950.0,
    "expiry": "2026-10-27",
    "lot_size": 125,
-   "lots": 1,
-   "qty": 125,
-   "close_price": 34.85,
-   "cost": 4356.25,
+   "lots": 3,
+   "qty": 375,
+   "close_price": 18.2,
+   "cost": 6825.0,
    "alert": "SHP|L|BRITANNIA|4907.50"
   },
   {
@@ -196,8 +210,8 @@
    "lot_size": 475,
    "lots": 1,
    "qty": 475,
-   "close_price": 10.75,
-   "cost": 5106.25,
+   "close_price": 10.65,
+   "cost": 5058.75,
    "alert": "SHP|S|CDSL|1261.30"
   },
   {
@@ -208,10 +222,10 @@
    "strike": 187.5,
    "expiry": "2026-10-27",
    "lot_size": 3600,
-   "lots": 1,
-   "qty": 3600,
-   "close_price": 1.21,
-   "cost": 4356.0,
+   "lots": 4,
+   "qty": 14400,
+   "close_price": 0.52,
+   "cost": 7488.0,
    "alert": "SHP|L|BANDHANBNK|185.11"
   },
   {
@@ -224,9 +238,23 @@
    "lot_size": 3600,
    "lots": 1,
    "qty": 3600,
-   "close_price": 1.78,
-   "cost": 6408.0,
+   "close_price": 1.86,
+   "cost": 6696.0,
    "alert": "SHP|S|BANDHANBNK|161.33"
+  },
+  {
+   "stock": "BDL",
+   "direction": "LONG",
+   "ref": 1127.6,
+   "option": "BDL26OCT1140CE",
+   "strike": 1140.0,
+   "expiry": "2026-10-27",
+   "lot_size": 425,
+   "lots": 1,
+   "qty": 425,
+   "close_price": 13.5,
+   "cost": 5737.5,
+   "alert": "SHP|L|BDL|1127.60"
   },
   {
    "stock": "BDL",
@@ -236,25 +264,11 @@
    "strike": 1060.0,
    "expiry": "2026-10-27",
    "lot_size": 425,
-   "lots": 3,
-   "qty": 1275,
-   "close_price": 5.45,
-   "cost": 6948.75,
+   "lots": 2,
+   "qty": 850,
+   "close_price": 6.4,
+   "cost": 5440.0,
    "alert": "SHP|S|BDL|1071.20"
-  },
-  {
-   "stock": "BHARATFORG",
-   "direction": "SHORT",
-   "ref": 1816.7,
-   "option": "BHARATFORG26OCT1800PE",
-   "strike": 1800.0,
-   "expiry": "2026-10-27",
-   "lot_size": 500,
-   "lots": 1,
-   "qty": 500,
-   "close_price": 14.05,
-   "cost": 7025.0,
-   "alert": "SHP|S|BHARATFORG|1816.70"
   },
   {
    "stock": "COALINDIA",
@@ -266,23 +280,9 @@
    "lot_size": 1350,
    "lots": 2,
    "qty": 2700,
-   "close_price": 2.55,
-   "cost": 6885.0,
+   "close_price": 2.45,
+   "cost": 6615.0,
    "alert": "SHP|S|COALINDIA|410.60"
-  },
-  {
-   "stock": "BHARTIARTL",
-   "direction": "LONG",
-   "ref": 1870.7,
-   "option": "BHARTIARTL26OCT1880CE",
-   "strike": 1880.0,
-   "expiry": "2026-10-27",
-   "lot_size": 475,
-   "lots": 1,
-   "qty": 475,
-   "close_price": 10.25,
-   "cost": 4868.75,
-   "alert": "SHP|L|BHARTIARTL|1870.70"
   },
   {
    "stock": "BHARTIARTL",
@@ -292,10 +292,10 @@
    "strike": 1740.0,
    "expiry": "2026-10-27",
    "lot_size": 475,
-   "lots": 10,
-   "qty": 4750,
-   "close_price": 1.65,
-   "cost": 7837.5,
+   "lots": 17,
+   "qty": 8075,
+   "close_price": 1.0,
+   "cost": 8075.0,
    "alert": "SHP|S|BHARTIARTL|1753.70"
   },
   {
@@ -308,8 +308,8 @@
    "lot_size": 325,
    "lots": 1,
    "qty": 325,
-   "close_price": 24.5,
-   "cost": 7962.5,
+   "close_price": 17.25,
+   "cost": 5606.25,
    "alert": "SHP|L|BLUESTARCO|1594.00"
   },
   {
@@ -322,8 +322,8 @@
    "lot_size": 325,
    "lots": 4,
    "qty": 1300,
-   "close_price": 5.05,
-   "cost": 6565.0,
+   "close_price": 5.2,
+   "cost": 6760.0,
    "alert": "SHP|S|BLUESTARCO|1492.00"
   },
   {
@@ -334,10 +334,10 @@
    "strike": 5400.0,
    "expiry": "2026-10-27",
    "lot_size": 125,
-   "lots": 5,
-   "qty": 625,
-   "close_price": 11.8,
-   "cost": 7375.0,
+   "lots": 10,
+   "qty": 1250,
+   "close_price": 6.1,
+   "cost": 7625.0,
    "alert": "SHP|L|ALKEM|5361.00"
   },
   {
@@ -350,8 +350,8 @@
    "lot_size": 825,
    "lots": 4,
    "qty": 3300,
-   "close_price": 2.25,
-   "cost": 7425.0,
+   "close_price": 2.2,
+   "cost": 7260.0,
    "alert": "SHP|S|CAMS|665.05"
   },
   {
@@ -364,9 +364,23 @@
    "lot_size": 425,
    "lots": 1,
    "qty": 425,
-   "close_price": 18.5,
-   "cost": 7862.5,
+   "close_price": 18.3,
+   "cost": 7777.5,
    "alert": "SHP|S|CIPLA|1321.00"
+  },
+  {
+   "stock": "COCHINSHIP",
+   "direction": "SHORT",
+   "ref": 1246.4,
+   "option": "COCHINSHIP26OCT1240PE",
+   "strike": 1240.0,
+   "expiry": "2026-10-27",
+   "lot_size": 400,
+   "lots": 1,
+   "qty": 400,
+   "close_price": 20.25,
+   "cost": 8100.0,
+   "alert": "SHP|S|COCHINSHIP|1246.40"
   },
   {
    "stock": "COLPAL",
@@ -376,10 +390,10 @@
    "strike": 1920.0,
    "expiry": "2026-10-27",
    "lot_size": 275,
-   "lots": 4,
-   "qty": 1100,
-   "close_price": 6.0,
-   "cost": 6600.0,
+   "lots": 7,
+   "qty": 1925,
+   "close_price": 4.0,
+   "cost": 7700.0,
    "alert": "SHP|L|COLPAL|1900.10"
   },
   {
@@ -390,10 +404,10 @@
    "strike": 207.5,
    "expiry": "2026-10-27",
    "lot_size": 2150,
-   "lots": 1,
-   "qty": 2150,
-   "close_price": 2.25,
-   "cost": 4837.5,
+   "lots": 2,
+   "qty": 4300,
+   "close_price": 1.79,
+   "cost": 7697.0,
    "alert": "SHP|S|CROMPTON|208.67"
   },
   {
@@ -406,8 +420,8 @@
    "lot_size": 1250,
    "lots": 2,
    "qty": 2500,
-   "close_price": 3.25,
-   "cost": 8125.0,
+   "close_price": 2.7,
+   "cost": 6750.0,
    "alert": "SHP|S|CONCOR|434.50"
   },
   {
@@ -418,10 +432,10 @@
    "strike": 395.0,
    "expiry": "2026-10-27",
    "lot_size": 1250,
-   "lots": 3,
-   "qty": 3750,
-   "close_price": 2.1,
-   "cost": 7875.0,
+   "lots": 4,
+   "qty": 5000,
+   "close_price": 1.45,
+   "cost": 7250.0,
    "alert": "SHP|L|DABUR|390.95"
   },
   {
@@ -432,11 +446,25 @@
    "strike": 375.0,
    "expiry": "2026-10-27",
    "lot_size": 1250,
-   "lots": 2,
-   "qty": 2500,
-   "close_price": 2.3,
-   "cost": 5750.0,
+   "lots": 3,
+   "qty": 3750,
+   "close_price": 1.8,
+   "cost": 6750.0,
    "alert": "SHP|S|DABUR|378.00"
+  },
+  {
+   "stock": "ANGELONE",
+   "direction": "LONG",
+   "ref": 312.0,
+   "option": "ANGELONE26OCT315CE",
+   "strike": 315.0,
+   "expiry": "2026-10-27",
+   "lot_size": 2500,
+   "lots": 1,
+   "qty": 2500,
+   "close_price": 2.15,
+   "cost": 5375.0,
+   "alert": "SHP|L|ANGELONE|312.00"
   },
   {
    "stock": "ANGELONE",
@@ -446,9 +474,9 @@
    "strike": 275.0,
    "expiry": "2026-10-27",
    "lot_size": 2500,
-   "lots": 3,
-   "qty": 7500,
-   "close_price": 1.0,
+   "lots": 4,
+   "qty": 10000,
+   "close_price": 0.75,
    "cost": 7500.0,
    "alert": "SHP|S|ANGELONE|278.05"
   },
@@ -460,9 +488,9 @@
    "strike": 9100.0,
    "expiry": "2026-10-27",
    "lot_size": 125,
-   "lots": 17,
-   "qty": 2125,
-   "close_price": 3.75,
+   "lots": 25,
+   "qty": 3125,
+   "close_price": 2.55,
    "cost": 7968.75,
    "alert": "SHP|L|APOLLOHOSP|9024.00"
   },
@@ -476,8 +504,8 @@
    "lot_size": 2075,
    "lots": 1,
    "qty": 2075,
-   "close_price": 3.45,
-   "cost": 7158.75,
+   "close_price": 3.75,
+   "cost": 7781.25,
    "alert": "SHP|S|DELHIVERY|400.35"
   },
   {
@@ -488,10 +516,10 @@
    "strike": 9700.0,
    "expiry": "2026-10-27",
    "lot_size": 100,
-   "lots": 4,
-   "qty": 400,
-   "close_price": 19.85,
-   "cost": 7940.0,
+   "lots": 3,
+   "qty": 300,
+   "close_price": 24.85,
+   "cost": 7455.0,
    "alert": "SHP|L|DIVISLAB|9615.00"
   },
   {
@@ -518,8 +546,8 @@
    "lot_size": 950,
    "lots": 1,
    "qty": 950,
-   "close_price": 7.0,
-   "cost": 6650.0,
+   "close_price": 4.45,
+   "cost": 4227.5,
    "alert": "SHP|S|DLF|650.55"
   },
   {
@@ -530,10 +558,10 @@
    "strike": 3850.0,
    "expiry": "2026-10-27",
    "lot_size": 150,
-   "lots": 19,
-   "qty": 2850,
-   "close_price": 2.85,
-   "cost": 8122.5,
+   "lots": 33,
+   "qty": 4950,
+   "close_price": 1.6,
+   "cost": 7920.0,
    "alert": "SHP|L|DMART|3830.50"
   },
   {
@@ -544,10 +572,10 @@
    "strike": 1180.0,
    "expiry": "2026-10-27",
    "lot_size": 625,
-   "lots": 1,
-   "qty": 625,
-   "close_price": 8.45,
-   "cost": 5281.25,
+   "lots": 2,
+   "qty": 1250,
+   "close_price": 6.05,
+   "cost": 7562.5,
    "alert": "SHP|S|DRREDDY|1189.00"
   },
   {
@@ -558,10 +586,10 @@
    "strike": 13750.0,
    "expiry": "2026-10-27",
    "lot_size": 50,
-   "lots": 2,
-   "qty": 100,
-   "close_price": 63.6,
-   "cost": 6360.0,
+   "lots": 6,
+   "qty": 300,
+   "close_price": 27.1,
+   "cost": 8130.0,
    "alert": "SHP|L|DIXON|13575.00"
   },
   {
@@ -574,8 +602,8 @@
    "lot_size": 2425,
    "lots": 1,
    "qty": 2425,
-   "close_price": 1.95,
-   "cost": 4728.75,
+   "close_price": 2.05,
+   "cost": 4971.25,
    "alert": "SHP|L|ETERNAL|342.00"
   },
   {
@@ -588,8 +616,8 @@
    "lot_size": 25,
    "lots": 2,
    "qty": 50,
-   "close_price": 148.95,
-   "cost": 7447.5,
+   "close_price": 110.0,
+   "cost": 5500.0,
    "alert": "SHP|S|FORCEMOT|17042.00"
   },
   {
@@ -616,8 +644,8 @@
    "lot_size": 325,
    "lots": 1,
    "qty": 325,
-   "close_price": 19.45,
-   "cost": 6321.25,
+   "close_price": 20.55,
+   "cost": 6678.75,
    "alert": "SHP|S|GODREJPROP|1566.60"
   },
   {
@@ -628,10 +656,10 @@
    "strike": 830.0,
    "expiry": "2026-10-27",
    "lot_size": 500,
-   "lots": 6,
-   "qty": 3000,
-   "close_price": 2.7,
-   "cost": 8100.0,
+   "lots": 3,
+   "qty": 1500,
+   "close_price": 4.35,
+   "cost": 6525.0,
    "alert": "SHP|S|GODREJCP|838.00"
   },
   {
@@ -642,10 +670,10 @@
    "strike": 1180.0,
    "expiry": "2026-10-27",
    "lot_size": 400,
-   "lots": 15,
-   "qty": 6000,
-   "close_price": 1.35,
-   "cost": 8100.0,
+   "lots": 22,
+   "qty": 8800,
+   "close_price": 0.9,
+   "cost": 7920.0,
    "alert": "SHP|S|HCLTECH|1188.20"
   },
   {
@@ -658,8 +686,8 @@
    "lot_size": 650,
    "lots": 1,
    "qty": 650,
-   "close_price": 7.0,
-   "cost": 4550.0,
+   "close_price": 7.45,
+   "cost": 4842.5,
    "alert": "SHP|L|HDFCBANK|733.80"
   },
   {
@@ -670,11 +698,25 @@
    "strike": 700.0,
    "expiry": "2026-10-27",
    "lot_size": 650,
-   "lots": 3,
-   "qty": 1950,
-   "close_price": 3.6,
-   "cost": 7020.0,
+   "lots": 4,
+   "qty": 2600,
+   "close_price": 2.95,
+   "cost": 7670.0,
    "alert": "SHP|S|HDFCBANK|701.00"
+  },
+  {
+   "stock": "GRASIM",
+   "direction": "SHORT",
+   "ref": 2901.6,
+   "option": "GRASIM26OCT2900PE",
+   "strike": 2900.0,
+   "expiry": "2026-10-27",
+   "lot_size": 250,
+   "lots": 1,
+   "qty": 250,
+   "close_price": 26.75,
+   "cost": 6687.5,
+   "alert": "SHP|S|GRASIM|2901.60"
   },
   {
    "stock": "HAVELLS",
@@ -684,25 +726,11 @@
    "strike": 1040.0,
    "expiry": "2026-10-27",
    "lot_size": 500,
-   "lots": 4,
-   "qty": 2000,
-   "close_price": 3.8,
-   "cost": 7600.0,
+   "lots": 6,
+   "qty": 3000,
+   "close_price": 2.55,
+   "cost": 7650.0,
    "alert": "SHP|S|HAVELLS|1043.30"
-  },
-  {
-   "stock": "BEL",
-   "direction": "SHORT",
-   "ref": 377.0,
-   "option": "BEL26OCT375PE",
-   "strike": 375.0,
-   "expiry": "2026-10-27",
-   "lot_size": 1425,
-   "lots": 1,
-   "qty": 1425,
-   "close_price": 4.2,
-   "cost": 5985.0,
-   "alert": "SHP|S|BEL|377.00"
   },
   {
    "stock": "BHEL",
@@ -714,23 +742,9 @@
    "lot_size": 2625,
    "lots": 1,
    "qty": 2625,
-   "close_price": 2.85,
-   "cost": 7481.25,
+   "close_price": 1.85,
+   "cost": 4856.25,
    "alert": "SHP|L|BHEL|455.95"
-  },
-  {
-   "stock": "BHEL",
-   "direction": "SHORT",
-   "ref": 412.85,
-   "option": "BHEL26OCT410PE",
-   "strike": 410.0,
-   "expiry": "2026-10-27",
-   "lot_size": 2625,
-   "lots": 1,
-   "qty": 2625,
-   "close_price": 2.15,
-   "cost": 5643.75,
-   "alert": "SHP|S|BHEL|412.85"
   },
   {
    "stock": "HINDALCO",
@@ -742,8 +756,8 @@
    "lot_size": 700,
    "lots": 1,
    "qty": 700,
-   "close_price": 11.0,
-   "cost": 7700.0,
+   "close_price": 6.35,
+   "cost": 4445.0,
    "alert": "SHP|S|HINDALCO|886.50"
   },
   {
@@ -768,10 +782,10 @@
    "strike": 88.0,
    "expiry": "2026-10-27",
    "lot_size": 9275,
-   "lots": 3,
-   "qty": 27825,
-   "close_price": 0.22,
-   "cost": 6121.5,
+   "lots": 5,
+   "qty": 46375,
+   "close_price": 0.16,
+   "cost": 7420.0,
    "alert": "SHP|L|IDFCFIRSTB|87.40"
   },
   {
@@ -784,8 +798,8 @@
    "lot_size": 700,
    "lots": 1,
    "qty": 700,
-   "close_price": 7.4,
-   "cost": 5180.0,
+   "close_price": 8.0,
+   "cost": 5600.0,
    "alert": "SHP|S|INDUSINDBK|857.00"
   },
   {
@@ -798,8 +812,8 @@
    "lot_size": 325,
    "lots": 1,
    "qty": 325,
-   "close_price": 18.1,
-   "cost": 5882.5,
+   "close_price": 12.7,
+   "cost": 4127.5,
    "alert": "SHP|L|ICICIGI|1704.00"
   },
   {
@@ -810,10 +824,10 @@
    "strike": 76.0,
    "expiry": "2026-10-27",
    "lot_size": 5425,
-   "lots": 1,
-   "qty": 5425,
-   "close_price": 1.0,
-   "cost": 5425.0,
+   "lots": 4,
+   "qty": 21700,
+   "close_price": 0.32,
+   "cost": 6944.0,
    "alert": "SHP|S|IRFC|76.04"
   },
   {
@@ -824,11 +838,25 @@
    "strike": 1160.0,
    "expiry": "2026-10-27",
    "lot_size": 625,
-   "lots": 9,
-   "qty": 5625,
-   "close_price": 1.35,
-   "cost": 7593.75,
+   "lots": 10,
+   "qty": 6250,
+   "close_price": 1.3,
+   "cost": 8125.0,
    "alert": "SHP|L|JINDALSTEL|1158.00"
+  },
+  {
+   "stock": "JIOFIN",
+   "direction": "SHORT",
+   "ref": 215.36,
+   "option": "JIOFIN26OCT215PE",
+   "strike": 215.0,
+   "expiry": "2026-10-27",
+   "lot_size": 2350,
+   "lots": 1,
+   "qty": 2350,
+   "close_price": 3.0,
+   "cost": 7050.0,
+   "alert": "SHP|S|JIOFIN|215.36"
   },
   {
    "stock": "IEX",
@@ -840,8 +868,8 @@
    "lot_size": 4350,
    "lots": 1,
    "qty": 4350,
-   "close_price": 1.09,
-   "cost": 4741.5,
+   "close_price": 0.99,
+   "cost": 4306.5,
    "alert": "SHP|S|IEX|103.94"
   },
   {
@@ -852,10 +880,10 @@
    "strike": 790.0,
    "expiry": "2026-10-27",
    "lot_size": 1000,
-   "lots": 2,
-   "qty": 2000,
-   "close_price": 3.0,
-   "cost": 6000.0,
+   "lots": 9,
+   "qty": 9000,
+   "close_price": 0.85,
+   "cost": 7650.0,
    "alert": "SHP|S|INDIANB|794.75"
   },
   {
@@ -866,10 +894,10 @@
    "strike": 460.0,
    "expiry": "2026-10-27",
    "lot_size": 1075,
-   "lots": 1,
-   "qty": 1075,
-   "close_price": 4.45,
-   "cost": 4783.75,
+   "lots": 2,
+   "qty": 2150,
+   "close_price": 3.25,
+   "cost": 6987.5,
    "alert": "SHP|S|JSWENERGY|461.00"
   },
   {
@@ -882,8 +910,8 @@
    "lot_size": 675,
    "lots": 1,
    "qty": 675,
-   "close_price": 10.7,
-   "cost": 7222.5,
+   "close_price": 6.25,
+   "cost": 4218.75,
    "alert": "SHP|S|JSWSTEEL|1171.10"
   },
   {
@@ -894,10 +922,10 @@
    "strike": 1000.0,
    "expiry": "2026-10-27",
    "lot_size": 400,
-   "lots": 5,
-   "qty": 2000,
-   "close_price": 3.5,
-   "cost": 7000.0,
+   "lots": 14,
+   "qty": 5600,
+   "close_price": 1.4,
+   "cost": 7840.0,
    "alert": "SHP|S|INFY|1005.20"
   },
   {
@@ -908,10 +936,10 @@
    "strike": 66.0,
    "expiry": "2026-10-27",
    "lot_size": 6400,
-   "lots": 2,
-   "qty": 12800,
-   "close_price": 0.63,
-   "cost": 8064.0,
+   "lots": 1,
+   "qty": 6400,
+   "close_price": 0.9,
+   "cost": 5760.0,
    "alert": "SHP|S|INOXWIND|66.73"
   },
   {
@@ -922,10 +950,10 @@
    "strike": 270.0,
    "expiry": "2026-10-27",
    "lot_size": 1725,
-   "lots": 3,
-   "qty": 5175,
-   "close_price": 1.35,
-   "cost": 6986.25,
+   "lots": 4,
+   "qty": 6900,
+   "close_price": 1.1,
+   "cost": 7590.0,
    "alert": "SHP|L|ITC|268.50"
   },
   {
@@ -938,8 +966,8 @@
    "lot_size": 1725,
    "lots": 2,
    "qty": 3450,
-   "close_price": 1.85,
-   "cost": 6382.5,
+   "close_price": 1.6,
+   "cost": 5520.0,
    "alert": "SHP|S|ITC|261.40"
   },
   {
@@ -950,10 +978,10 @@
    "strike": 480.0,
    "expiry": "2026-10-27",
    "lot_size": 775,
-   "lots": 4,
-   "qty": 3100,
-   "close_price": 2.3,
-   "cost": 7130.0,
+   "lots": 15,
+   "qty": 11625,
+   "close_price": 0.7,
+   "cost": 8137.5,
    "alert": "SHP|S|KPITTECH|483.40"
   },
   {
@@ -964,10 +992,10 @@
    "strike": 490.0,
    "expiry": "2026-10-27",
    "lot_size": 1250,
-   "lots": 16,
-   "qty": 20000,
-   "close_price": 0.4,
-   "cost": 8000.0,
+   "lots": 21,
+   "qty": 26250,
+   "close_price": 0.3,
+   "cost": 7875.0,
    "alert": "SHP|L|JUBLFOOD|488.45"
   },
   {
@@ -978,10 +1006,10 @@
    "strike": 2800.0,
    "expiry": "2026-10-27",
    "lot_size": 200,
-   "lots": 1,
-   "qty": 200,
-   "close_price": 22.05,
-   "cost": 4410.0,
+   "lots": 4,
+   "qty": 800,
+   "close_price": 8.2,
+   "cost": 6560.0,
    "alert": "SHP|S|M&M|2800.00"
   },
   {
@@ -992,10 +1020,10 @@
    "strike": 2520.0,
    "expiry": "2026-10-27",
    "lot_size": 250,
-   "lots": 3,
-   "qty": 750,
-   "close_price": 9.95,
-   "cost": 7462.5,
+   "lots": 8,
+   "qty": 2000,
+   "close_price": 4.0,
+   "cost": 8000.0,
    "alert": "SHP|L|MANKIND|2504.60"
   },
   {
@@ -1006,10 +1034,10 @@
    "strike": 840.0,
    "expiry": "2026-10-27",
    "lot_size": 1200,
-   "lots": 7,
-   "qty": 8400,
-   "close_price": 0.85,
-   "cost": 7140.0,
+   "lots": 9,
+   "qty": 10800,
+   "close_price": 0.75,
+   "cost": 8100.0,
    "alert": "SHP|L|MARICO|830.50"
   },
   {
@@ -1020,25 +1048,25 @@
    "strike": 3400.0,
    "expiry": "2026-10-27",
    "lot_size": 225,
-   "lots": 1,
-   "qty": 225,
-   "close_price": 29.2,
-   "cost": 6570.0,
+   "lots": 2,
+   "qty": 450,
+   "close_price": 15.2,
+   "cost": 6840.0,
    "alert": "SHP|L|MCX|3398.00"
   },
   {
    "stock": "NAM-INDIA",
-   "direction": "SHORT",
-   "ref": 1062.0,
-   "option": "NAM-INDIA26OCT1060PE",
-   "strike": 1060.0,
+   "direction": "LONG",
+   "ref": 1088.0,
+   "option": "NAM-INDIA26OCT1100CE",
+   "strike": 1100.0,
    "expiry": "2026-10-27",
    "lot_size": 625,
    "lots": 1,
    "qty": 625,
-   "close_price": 11.65,
-   "cost": 7281.25,
-   "alert": "SHP|S|NAM-INDIA|1062.00"
+   "close_price": 11.0,
+   "cost": 6875.0,
+   "alert": "SHP|L|NAM-INDIA|1088.00"
   },
   {
    "stock": "KFINTECH",
@@ -1050,8 +1078,8 @@
    "lot_size": 575,
    "lots": 4,
    "qty": 2300,
-   "close_price": 3.25,
-   "cost": 7475.0,
+   "close_price": 3.5,
+   "cost": 8050.0,
    "alert": "SHP|S|KFINTECH|837.40"
   },
   {
@@ -1062,10 +1090,10 @@
    "strike": 1360.0,
    "expiry": "2026-10-27",
    "lot_size": 500,
-   "lots": 2,
-   "qty": 1000,
-   "close_price": 5.7,
-   "cost": 5700.0,
+   "lots": 8,
+   "qty": 4000,
+   "close_price": 1.95,
+   "cost": 7800.0,
    "alert": "SHP|L|NESTLEIND|1354.50"
   },
   {
@@ -1076,10 +1104,10 @@
    "strike": 6800.0,
    "expiry": "2026-10-27",
    "lot_size": 100,
-   "lots": 6,
-   "qty": 600,
-   "close_price": 12.3,
-   "cost": 7380.0,
+   "lots": 8,
+   "qty": 800,
+   "close_price": 9.1,
+   "cost": 7280.0,
    "alert": "SHP|S|EICHERMOT|6840.00"
   },
   {
@@ -1090,10 +1118,10 @@
    "strike": 315.0,
    "expiry": "2026-10-27",
    "lot_size": 2500,
-   "lots": 1,
-   "qty": 2500,
-   "close_price": 2.65,
-   "cost": 6625.0,
+   "lots": 2,
+   "qty": 5000,
+   "close_price": 1.15,
+   "cost": 5750.0,
    "alert": "SHP|S|FEDERALBNK|319.50"
   },
   {
@@ -1104,10 +1132,10 @@
    "strike": 3900.0,
    "expiry": "2026-10-27",
    "lot_size": 150,
-   "lots": 2,
-   "qty": 300,
-   "close_price": 27.05,
-   "cost": 8115.0,
+   "lots": 5,
+   "qty": 750,
+   "close_price": 10.0,
+   "cost": 7500.0,
    "alert": "SHP|S|LTM|3936.00"
   },
   {
@@ -1120,8 +1148,8 @@
    "lot_size": 425,
    "lots": 1,
    "qty": 425,
-   "close_price": 9.85,
-   "cost": 4186.25,
+   "close_price": 11.25,
+   "cost": 4781.25,
    "alert": "SHP|S|LUPIN|1936.90"
   },
   {
@@ -1132,25 +1160,11 @@
    "strike": 38000.0,
    "expiry": "2026-10-27",
    "lot_size": 20,
-   "lots": 2,
-   "qty": 40,
-   "close_price": 191.85,
-   "cost": 7674.0,
+   "lots": 3,
+   "qty": 60,
+   "close_price": 131.8,
+   "cost": 7908.0,
    "alert": "SHP|L|PAGEIND|37845.00"
-  },
-  {
-   "stock": "PAGEIND",
-   "direction": "SHORT",
-   "ref": 34580.0,
-   "option": "PAGEIND26OCT34500PE",
-   "strike": 34500.0,
-   "expiry": "2026-10-27",
-   "lot_size": 20,
-   "lots": 4,
-   "qty": 80,
-   "close_price": 100.9,
-   "cost": 8072.0,
-   "alert": "SHP|S|PAGEIND|34580.00"
   },
   {
    "stock": "PFC",
@@ -1160,10 +1174,10 @@
    "strike": 345.0,
    "expiry": "2026-10-27",
    "lot_size": 1300,
-   "lots": 1,
-   "qty": 1300,
-   "close_price": 5.9,
-   "cost": 7670.0,
+   "lots": 2,
+   "qty": 2600,
+   "close_price": 2.4,
+   "cost": 6240.0,
    "alert": "SHP|L|PFC|343.50"
   },
   {
@@ -1174,10 +1188,10 @@
    "strike": 320.0,
    "expiry": "2026-10-27",
    "lot_size": 1300,
-   "lots": 9,
-   "qty": 11700,
-   "close_price": 0.65,
-   "cost": 7605.0,
+   "lots": 4,
+   "qty": 5200,
+   "close_price": 1.35,
+   "cost": 7020.0,
    "alert": "SHP|S|PFC|320.80"
   },
   {
@@ -1190,8 +1204,8 @@
    "lot_size": 950,
    "lots": 3,
    "qty": 2850,
-   "close_price": 2.7,
-   "cost": 7695.0,
+   "close_price": 2.2,
+   "cost": 6270.0,
    "alert": "SHP|S|PGEL|493.15"
   },
   {
@@ -1204,8 +1218,8 @@
    "lot_size": 50,
    "lots": 1,
    "qty": 50,
-   "close_price": 114.95,
-   "cost": 5747.5,
+   "close_price": 92.95,
+   "cost": 4647.5,
    "alert": "SHP|S|MARUTI|11305.00"
   },
   {
@@ -1216,10 +1230,10 @@
    "strike": 1060.0,
    "expiry": "2026-10-27",
    "lot_size": 525,
-   "lots": 34,
-   "qty": 17850,
-   "close_price": 0.45,
-   "cost": 8032.5,
+   "lots": 62,
+   "qty": 32550,
+   "close_price": 0.25,
+   "cost": 8137.5,
    "alert": "SHP|L|MAXHEALTH|1059.90"
   },
   {
@@ -1232,8 +1246,8 @@
    "lot_size": 350,
    "lots": 1,
    "qty": 350,
-   "close_price": 21.25,
-   "cost": 7437.5,
+   "close_price": 13.35,
+   "cost": 4672.5,
    "alert": "SHP|L|PHOENIXLTD|1958.00"
   },
   {
@@ -1246,9 +1260,23 @@
    "lot_size": 350,
    "lots": 1,
    "qty": 350,
-   "close_price": 13.25,
-   "cost": 4637.5,
+   "close_price": 15.15,
+   "cost": 5302.5,
    "alert": "SHP|S|PHOENIXLTD|1845.00"
+  },
+  {
+   "stock": "PNB",
+   "direction": "SHORT",
+   "ref": 110.56,
+   "option": "PNB26OCT110PE",
+   "strike": 110.0,
+   "expiry": "2026-10-27",
+   "lot_size": 8000,
+   "lots": 1,
+   "qty": 8000,
+   "close_price": 0.93,
+   "cost": 7440.0,
+   "alert": "SHP|S|PNB|110.56"
   },
   {
    "stock": "MOTHERSON",
@@ -1258,10 +1286,10 @@
    "strike": 167.5,
    "expiry": "2026-10-27",
    "lot_size": 6150,
-   "lots": 1,
-   "qty": 6150,
-   "close_price": 0.84,
-   "cost": 5166.0,
+   "lots": 2,
+   "qty": 12300,
+   "close_price": 0.65,
+   "cost": 7995.0,
    "alert": "SHP|L|MOTHERSON|165.58"
   },
   {
@@ -1274,8 +1302,8 @@
    "lot_size": 6150,
    "lots": 2,
    "qty": 12300,
-   "close_price": 0.65,
-   "cost": 7995.0,
+   "close_price": 0.54,
+   "cost": 6642.0,
    "alert": "SHP|S|MOTHERSON|153.08"
   },
   {
@@ -1286,10 +1314,10 @@
    "strike": 33000.0,
    "expiry": "2026-10-27",
    "lot_size": 25,
-   "lots": 5,
-   "qty": 125,
-   "close_price": 57.0,
-   "cost": 7125.0,
+   "lots": 7,
+   "qty": 175,
+   "close_price": 42.0,
+   "cost": 7350.0,
    "alert": "SHP|L|POWERINDIA|32635.00"
   },
   {
@@ -1302,8 +1330,8 @@
    "lot_size": 450,
    "lots": 2,
    "qty": 900,
-   "close_price": 8.4,
-   "cost": 7560.0,
+   "close_price": 7.25,
+   "cost": 6525.0,
    "alert": "SHP|S|PRESTIGE|1417.50"
   },
   {
@@ -1314,10 +1342,10 @@
    "strike": 220.0,
    "expiry": "2026-10-27",
    "lot_size": 2250,
-   "lots": 4,
-   "qty": 9000,
-   "close_price": 0.76,
-   "cost": 6840.0,
+   "lots": 2,
+   "qty": 4500,
+   "close_price": 1.37,
+   "cost": 6165.0,
    "alert": "SHP|S|ONGC|220.60"
   },
   {
@@ -1328,10 +1356,10 @@
    "strike": 405.0,
    "expiry": "2026-10-27",
    "lot_size": 1075,
-   "lots": 5,
-   "qty": 5375,
-   "close_price": 1.35,
-   "cost": 7256.25,
+   "lots": 9,
+   "qty": 9675,
+   "close_price": 0.8,
+   "cost": 7740.0,
    "alert": "SHP|L|PATANJALI|400.45"
   },
   {
@@ -1342,25 +1370,11 @@
    "strike": 290.0,
    "expiry": "2026-10-27",
    "lot_size": 1575,
-   "lots": 6,
-   "qty": 9450,
-   "close_price": 0.85,
-   "cost": 8032.5,
+   "lots": 5,
+   "qty": 7875,
+   "close_price": 0.9,
+   "cost": 7087.5,
    "alert": "SHP|S|RECLTD|292.20"
-  },
-  {
-   "stock": "SBILIFE",
-   "direction": "SHORT",
-   "ref": 1658.0,
-   "option": "SBILIFE26OCT1640PE",
-   "strike": 1640.0,
-   "expiry": "2026-10-27",
-   "lot_size": 375,
-   "lots": 1,
-   "qty": 375,
-   "close_price": 21.05,
-   "cost": 7893.75,
-   "alert": "SHP|S|SBILIFE|1658.00"
   },
   {
    "stock": "GMRAIRPORT",
@@ -1370,10 +1384,10 @@
    "strike": 99.0,
    "expiry": "2026-10-27",
    "lot_size": 6975,
-   "lots": 5,
-   "qty": 34875,
-   "close_price": 0.22,
-   "cost": 7672.5,
+   "lots": 7,
+   "qty": 48825,
+   "close_price": 0.15,
+   "cost": 7323.75,
    "alert": "SHP|L|GMRAIRPORT|98.73"
   },
   {
@@ -1384,25 +1398,25 @@
    "strike": 940.0,
    "expiry": "2026-10-27",
    "lot_size": 750,
-   "lots": 1,
-   "qty": 750,
-   "close_price": 5.8,
-   "cost": 4350.0,
+   "lots": 2,
+   "qty": 1500,
+   "close_price": 4.95,
+   "cost": 7425.0,
    "alert": "SHP|S|SBIN|945.60"
   },
   {
-   "stock": "SHREECEM",
-   "direction": "SHORT",
-   "ref": 21905.0,
-   "option": "SHREECEM26OCT21750PE",
-   "strike": 21750.0,
+   "stock": "TATACONSUM",
+   "direction": "LONG",
+   "ref": 987.9,
+   "option": "TATACONSUM26OCT990CE",
+   "strike": 990.0,
    "expiry": "2026-10-27",
-   "lot_size": 25,
+   "lot_size": 550,
    "lots": 1,
-   "qty": 25,
-   "close_price": 220.0,
-   "cost": 5500.0,
-   "alert": "SHP|S|SHREECEM|21905.00"
+   "qty": 550,
+   "close_price": 8.55,
+   "cost": 4702.5,
+   "alert": "SHP|L|TATACONSUM|987.90"
   },
   {
    "stock": "TATACONSUM",
@@ -1412,11 +1426,25 @@
    "strike": 950.0,
    "expiry": "2026-10-27",
    "lot_size": 550,
-   "lots": 4,
-   "qty": 2200,
-   "close_price": 3.35,
-   "cost": 7370.0,
+   "lots": 2,
+   "qty": 1100,
+   "close_price": 4.95,
+   "cost": 5445.0,
    "alert": "SHP|S|TATACONSUM|953.90"
+  },
+  {
+   "stock": "PETRONET",
+   "direction": "LONG",
+   "ref": 294.0,
+   "option": "PETRONET26OCT295CE",
+   "strike": 295.0,
+   "expiry": "2026-10-27",
+   "lot_size": 1900,
+   "lots": 1,
+   "qty": 1900,
+   "close_price": 3.3,
+   "cost": 6270.0,
+   "alert": "SHP|L|PETRONET|294.00"
   },
   {
    "stock": "TATAELXSI",
@@ -1426,10 +1454,10 @@
    "strike": 3000.0,
    "expiry": "2026-10-27",
    "lot_size": 125,
-   "lots": 31,
-   "qty": 3875,
-   "close_price": 2.05,
-   "cost": 7943.75,
+   "lots": 38,
+   "qty": 4750,
+   "close_price": 1.7,
+   "cost": 8075.0,
    "alert": "SHP|S|TATAELXSI|3046.20"
   },
   {
@@ -1440,10 +1468,10 @@
    "strike": 192.5,
    "expiry": "2026-10-27",
    "lot_size": 2750,
-   "lots": 11,
-   "qty": 30250,
-   "close_price": 0.26,
-   "cost": 7865.0,
+   "lots": 12,
+   "qty": 33000,
+   "close_price": 0.23,
+   "cost": 7590.0,
    "alert": "SHP|L|TATASTEEL|190.26"
   },
   {
@@ -1456,8 +1484,8 @@
    "lot_size": 2750,
    "lots": 1,
    "qty": 2750,
-   "close_price": 1.75,
-   "cost": 4812.5,
+   "close_price": 1.6,
+   "cost": 4400.0,
    "alert": "SHP|S|TATASTEEL|174.60"
   },
   {
@@ -1470,8 +1498,8 @@
    "lot_size": 1355,
    "lots": 5,
    "qty": 6775,
-   "close_price": 1.2,
-   "cost": 8130.0,
+   "close_price": 1.15,
+   "cost": 7791.25,
    "alert": "SHP|S|UPL|494.60"
   },
   {
@@ -1484,8 +1512,8 @@
    "lot_size": 500,
    "lots": 1,
    "qty": 500,
-   "close_price": 11.6,
-   "cost": 5800.0,
+   "close_price": 10.85,
+   "cost": 5425.0,
    "alert": "SHP|S|PIDILITIND|1486.80"
   },
   {
@@ -1496,25 +1524,11 @@
    "strike": 2360.0,
    "expiry": "2026-10-27",
    "lot_size": 175,
-   "lots": 2,
-   "qty": 350,
-   "close_price": 17.0,
-   "cost": 5950.0,
+   "lots": 4,
+   "qty": 700,
+   "close_price": 9.5,
+   "cost": 6650.0,
    "alert": "SHP|S|WAAREEENER|2364.90"
-  },
-  {
-   "stock": "PIIND",
-   "direction": "SHORT",
-   "ref": 2197.8,
-   "option": "PIIND26OCT2180PE",
-   "strike": 2180.0,
-   "expiry": "2026-10-27",
-   "lot_size": 175,
-   "lots": 1,
-   "qty": 175,
-   "close_price": 30.4,
-   "cost": 5320.0,
-   "alert": "SHP|S|PIIND|2197.80"
   },
   {
    "stock": "POLICYBZR",
@@ -1524,10 +1538,10 @@
    "strike": 1860.0,
    "expiry": "2026-10-27",
    "lot_size": 350,
-   "lots": 46,
-   "qty": 16100,
-   "close_price": 0.5,
-   "cost": 8050.0,
+   "lots": 38,
+   "qty": 13300,
+   "close_price": 0.6,
+   "cost": 7980.0,
    "alert": "SHP|L|POLICYBZR|1847.00"
   },
   {
@@ -1540,8 +1554,8 @@
    "lot_size": 350,
    "lots": 2,
    "qty": 700,
-   "close_price": 9.1,
-   "cost": 6370.0,
+   "close_price": 10.7,
+   "cost": 7490.0,
    "alert": "SHP|S|POLICYBZR|1031.40"
   },
   {
@@ -1554,8 +1568,8 @@
    "lot_size": 650,
    "lots": 2,
    "qty": 1300,
-   "close_price": 6.2,
-   "cost": 8060.0,
+   "close_price": 5.1,
+   "cost": 6630.0,
    "alert": "SHP|S|PREMIERENE|878.30"
   },
   {
@@ -1568,8 +1582,8 @@
    "lot_size": 150,
    "lots": 1,
    "qty": 150,
-   "close_price": 46.35,
-   "cost": 6952.5,
+   "close_price": 50.0,
+   "cost": 7500.0,
    "alert": "SHP|L|RADICO|4539.90"
   },
   {
@@ -1582,8 +1596,8 @@
    "lot_size": 150,
    "lots": 1,
    "qty": 150,
-   "close_price": 53.75,
-   "cost": 8062.5,
+   "close_price": 40.45,
+   "cost": 6067.5,
    "alert": "SHP|S|RADICO|4364.00"
   },
   {
@@ -1594,25 +1608,11 @@
    "strike": 425.0,
    "expiry": "2026-10-27",
    "lot_size": 3175,
-   "lots": 4,
-   "qty": 12700,
-   "close_price": 0.55,
-   "cost": 6985.0,
+   "lots": 6,
+   "qty": 19050,
+   "close_price": 0.4,
+   "cost": 7620.0,
    "alert": "SHP|L|RBLBANK|424.40"
-  },
-  {
-   "stock": "SOLARINDS",
-   "direction": "SHORT",
-   "ref": 19065.0,
-   "option": "SOLARINDS26OCT19000PE",
-   "strike": 19000.0,
-   "expiry": "2026-10-27",
-   "lot_size": 50,
-   "lots": 1,
-   "qty": 50,
-   "close_price": 156.55,
-   "cost": 7827.5,
-   "alert": "SHP|S|SOLARINDS|19065.00"
   },
   {
    "stock": "SUZLON",
@@ -1622,11 +1622,25 @@
    "strike": 38.0,
    "expiry": "2026-10-27",
    "lot_size": 12700,
-   "lots": 3,
-   "qty": 38100,
-   "close_price": 0.2,
+   "lots": 5,
+   "qty": 63500,
+   "close_price": 0.12,
    "cost": 7620.0,
    "alert": "SHP|S|SUZLON|38.20"
+  },
+  {
+   "stock": "SWIGGY",
+   "direction": "SHORT",
+   "ref": 229.5,
+   "option": "SWIGGY26OCT225PE",
+   "strike": 225.0,
+   "expiry": "2026-10-27",
+   "lot_size": 1825,
+   "lots": 1,
+   "qty": 1825,
+   "close_price": 3.4,
+   "cost": 6205.0,
+   "alert": "SHP|S|SWIGGY|229.50"
   },
   {
    "stock": "TATAPOWER",
@@ -1636,10 +1650,10 @@
    "strike": 340.0,
    "expiry": "2026-10-27",
    "lot_size": 1450,
-   "lots": 3,
-   "qty": 4350,
-   "close_price": 1.85,
-   "cost": 8047.5,
+   "lots": 8,
+   "qty": 11600,
+   "close_price": 0.65,
+   "cost": 7540.0,
    "alert": "SHP|S|TATAPOWER|341.00"
   },
   {
@@ -1650,10 +1664,10 @@
    "strike": 2020.0,
    "expiry": "2026-10-27",
    "lot_size": 225,
-   "lots": 17,
-   "qty": 3825,
-   "close_price": 2.05,
-   "cost": 7841.25,
+   "lots": 25,
+   "qty": 5625,
+   "close_price": 1.4,
+   "cost": 7875.0,
    "alert": "SHP|S|TCS|2038.10"
   },
   {
@@ -1664,10 +1678,10 @@
    "strike": 3850.0,
    "expiry": "2026-10-27",
    "lot_size": 175,
-   "lots": 2,
-   "qty": 350,
-   "close_price": 21.05,
-   "cost": 7367.5,
+   "lots": 3,
+   "qty": 525,
+   "close_price": 12.55,
+   "cost": 6588.75,
    "alert": "SHP|S|TVSMOTOR|3870.80"
   },
   {
@@ -1680,8 +1694,8 @@
    "lot_size": 1275,
    "lots": 1,
    "qty": 1275,
-   "close_price": 5.4,
-   "cost": 6885.0,
+   "close_price": 4.8,
+   "cost": 6120.0,
    "alert": "SHP|L|VBL|438.60"
   },
   {
@@ -1692,10 +1706,10 @@
    "strike": 1210.0,
    "expiry": "2026-10-27",
    "lot_size": 900,
-   "lots": 2,
-   "qty": 1800,
-   "close_price": 4.25,
-   "cost": 7650.0,
+   "lots": 3,
+   "qty": 2700,
+   "close_price": 2.35,
+   "cost": 6345.0,
    "alert": "SHP|L|ZYDUSLIFE|1208.60"
   },
   {
@@ -1708,8 +1722,8 @@
    "lot_size": 150,
    "lots": 2,
    "qty": 300,
-   "close_price": 22.8,
-   "cost": 6840.0,
+   "close_price": 21.6,
+   "cost": 6480.0,
    "alert": "SHP|L|HEROMOTOCO|5362.50"
   },
   {
@@ -1720,10 +1734,10 @@
    "strike": 4950.0,
    "expiry": "2026-10-27",
    "lot_size": 150,
-   "lots": 2,
-   "qty": 300,
-   "close_price": 19.2,
-   "cost": 5760.0,
+   "lots": 4,
+   "qty": 600,
+   "close_price": 13.15,
+   "cost": 7890.0,
    "alert": "SHP|S|HEROMOTOCO|4968.00"
   },
   {
@@ -1736,8 +1750,8 @@
    "lot_size": 275,
    "lots": 2,
    "qty": 550,
-   "close_price": 13.9,
-   "cost": 7645.0,
+   "close_price": 12.3,
+   "cost": 6765.0,
    "alert": "SHP|S|HYUNDAI|1935.00"
   },
   {
@@ -1748,25 +1762,11 @@
    "strike": 1300.0,
    "expiry": "2026-10-27",
    "lot_size": 700,
-   "lots": 4,
-   "qty": 2800,
-   "close_price": 2.55,
+   "lots": 6,
+   "qty": 4200,
+   "close_price": 1.7,
    "cost": 7140.0,
    "alert": "SHP|S|ICICIBANK|1300.00"
-  },
-  {
-   "stock": "INDIGO",
-   "direction": "SHORT",
-   "ref": 4749.6,
-   "option": "INDIGO26OCT4700PE",
-   "strike": 4700.0,
-   "expiry": "2026-10-27",
-   "lot_size": 150,
-   "lots": 1,
-   "qty": 150,
-   "close_price": 52.0,
-   "cost": 7800.0,
-   "alert": "SHP|S|INDIGO|4749.60"
   },
   {
    "stock": "BSE",
@@ -1776,25 +1776,11 @@
    "strike": 3050.0,
    "expiry": "2026-10-27",
    "lot_size": 200,
-   "lots": 5,
-   "qty": 1000,
-   "close_price": 7.95,
-   "cost": 7950.0,
+   "lots": 4,
+   "qty": 800,
+   "close_price": 8.4,
+   "cost": 6720.0,
    "alert": "SHP|S|BSE|3075.00"
-  },
-  {
-   "stock": "LICHSGFIN",
-   "direction": "SHORT",
-   "ref": 530.2,
-   "option": "LICHSGFIN26OCT530PE",
-   "strike": 530.0,
-   "expiry": "2026-10-27",
-   "lot_size": 1000,
-   "lots": 1,
-   "qty": 1000,
-   "close_price": 6.05,
-   "cost": 6050.0,
-   "alert": "SHP|S|LICHSGFIN|530.20"
   },
   {
    "stock": "HDFCAMC",
@@ -1804,25 +1790,11 @@
    "strike": 2300.0,
    "expiry": "2026-10-27",
    "lot_size": 300,
-   "lots": 1,
-   "qty": 300,
-   "close_price": 13.8,
-   "cost": 4140.0,
+   "lots": 3,
+   "qty": 900,
+   "close_price": 8.7,
+   "cost": 7830.0,
    "alert": "SHP|S|HDFCAMC|2300.70"
-  },
-  {
-   "stock": "MOTILALOFS",
-   "direction": "SHORT",
-   "ref": 985.1,
-   "option": "MOTILALOFS26OCT980PE",
-   "strike": 980.0,
-   "expiry": "2026-10-27",
-   "lot_size": 775,
-   "lots": 1,
-   "qty": 775,
-   "close_price": 5.3,
-   "cost": 4107.5,
-   "alert": "SHP|S|MOTILALOFS|985.10"
   },
   {
    "stock": "MPHASIS",
@@ -1832,39 +1804,25 @@
    "strike": 2200.0,
    "expiry": "2026-10-27",
    "lot_size": 275,
-   "lots": 6,
-   "qty": 1650,
-   "close_price": 4.4,
-   "cost": 7260.0,
+   "lots": 10,
+   "qty": 2750,
+   "close_price": 2.75,
+   "cost": 7562.5,
    "alert": "SHP|S|MPHASIS|2203.60"
   },
   {
-   "stock": "NYKAA",
-   "direction": "SHORT",
-   "ref": 329.75,
-   "option": "NYKAA26OCT325PE",
-   "strike": 325.0,
+   "stock": "PERSISTENT",
+   "direction": "LONG",
+   "ref": 5830.0,
+   "option": "PERSISTENT26OCT5900CE",
+   "strike": 5900.0,
    "expiry": "2026-10-27",
-   "lot_size": 3125,
+   "lot_size": 125,
    "lots": 1,
-   "qty": 3125,
-   "close_price": 2.0,
-   "cost": 6250.0,
-   "alert": "SHP|S|NYKAA|329.75"
-  },
-  {
-   "stock": "ICICIPRULI",
-   "direction": "SHORT",
-   "ref": 445.35,
-   "option": "ICICIPRULI26OCT445PE",
-   "strike": 445.0,
-   "expiry": "2026-10-27",
-   "lot_size": 925,
-   "lots": 1,
-   "qty": 925,
-   "close_price": 6.1,
-   "cost": 5642.5,
-   "alert": "SHP|S|ICICIPRULI|445.35"
+   "qty": 125,
+   "close_price": 45.25,
+   "cost": 5656.25,
+   "alert": "SHP|L|PERSISTENT|5830.00"
   },
   {
    "stock": "PERSISTENT",
@@ -1874,11 +1832,25 @@
    "strike": 5100.0,
    "expiry": "2026-10-27",
    "lot_size": 125,
-   "lots": 3,
-   "qty": 375,
-   "close_price": 20.8,
-   "cost": 7800.0,
+   "lots": 9,
+   "qty": 1125,
+   "close_price": 6.75,
+   "cost": 7593.75,
    "alert": "SHP|S|PERSISTENT|5188.00"
+  },
+  {
+   "stock": "PNBHOUSING",
+   "direction": "LONG",
+   "ref": 1205.9,
+   "option": "PNBHOUSING26OCT1220CE",
+   "strike": 1220.0,
+   "expiry": "2026-10-27",
+   "lot_size": 650,
+   "lots": 1,
+   "qty": 650,
+   "close_price": 6.55,
+   "cost": 4257.5,
+   "alert": "SHP|L|PNBHOUSING|1205.90"
   },
   {
    "stock": "PNBHOUSING",
@@ -1890,8 +1862,8 @@
    "lot_size": 650,
    "lots": 5,
    "qty": 3250,
-   "close_price": 2.3,
-   "cost": 7475.0,
+   "close_price": 2.35,
+   "cost": 7637.5,
    "alert": "SHP|S|PNBHOUSING|1098.40"
   },
   {
@@ -1902,10 +1874,10 @@
    "strike": 1160.0,
    "expiry": "2026-10-27",
    "lot_size": 500,
-   "lots": 3,
-   "qty": 1500,
-   "close_price": 4.5,
-   "cost": 6750.0,
+   "lots": 4,
+   "qty": 2000,
+   "close_price": 3.85,
+   "cost": 7700.0,
    "alert": "SHP|S|RELIANCE|1160.20"
   },
   {
@@ -1916,10 +1888,10 @@
    "strike": 2020.0,
    "expiry": "2026-10-27",
    "lot_size": 225,
-   "lots": 1,
-   "qty": 225,
-   "close_price": 18.85,
-   "cost": 4241.25,
+   "lots": 2,
+   "qty": 450,
+   "close_price": 18.05,
+   "cost": 8122.5,
    "alert": "SHP|S|MAZDOCK|2031.20"
   },
   {
@@ -1930,10 +1902,10 @@
    "strike": 1200.0,
    "expiry": "2026-10-27",
    "lot_size": 550,
-   "lots": 1,
-   "qty": 550,
-   "close_price": 10.6,
-   "cost": 5830.0,
+   "lots": 3,
+   "qty": 1650,
+   "close_price": 4.5,
+   "cost": 7425.0,
    "alert": "SHP|S|NAUKRI|1202.30"
   },
   {
@@ -1946,8 +1918,8 @@
    "lot_size": 200,
    "lots": 1,
    "qty": 200,
-   "close_price": 36.7,
-   "cost": 7340.0,
+   "close_price": 39.45,
+   "cost": 7890.0,
    "alert": "SHP|S|SRF|2444.50"
   },
   {
@@ -1958,10 +1930,10 @@
    "strike": 1480.0,
    "expiry": "2026-10-27",
    "lot_size": 600,
-   "lots": 3,
-   "qty": 1800,
-   "close_price": 3.9,
-   "cost": 7020.0,
+   "lots": 16,
+   "qty": 9600,
+   "close_price": 0.8,
+   "cost": 7680.0,
    "alert": "SHP|S|TECHM|1486.20"
   },
   {
@@ -1972,10 +1944,10 @@
    "strike": 10500.0,
    "expiry": "2026-10-27",
    "lot_size": 50,
-   "lots": 2,
-   "qty": 100,
-   "close_price": 57.9,
-   "cost": 5790.0,
+   "lots": 3,
+   "qty": 150,
+   "close_price": 43.55,
+   "cost": 6532.5,
    "alert": "SHP|S|ULTRACEMCO|10595.00"
   },
   {
@@ -1986,10 +1958,10 @@
    "strike": 1280.0,
    "expiry": "2026-10-27",
    "lot_size": 550,
-   "lots": 19,
-   "qty": 10450,
-   "close_price": 0.75,
-   "cost": 7837.5,
+   "lots": 37,
+   "qty": 20350,
+   "close_price": 0.4,
+   "cost": 8140.0,
    "alert": "SHP|L|UNOMINDA|1269.00"
   },
   {
@@ -2002,8 +1974,8 @@
    "lot_size": 550,
    "lots": 1,
    "qty": 550,
-   "close_price": 8.9,
-   "cost": 4895.0,
+   "close_price": 9.7,
+   "cost": 5335.0,
    "alert": "SHP|S|UNOMINDA|1086.20"
   },
   {
@@ -2014,10 +1986,10 @@
    "strike": 106.0,
    "expiry": "2026-10-27",
    "lot_size": 4850,
-   "lots": 3,
-   "qty": 14550,
-   "close_price": 0.43,
-   "cost": 6256.5,
+   "lots": 4,
+   "qty": 19400,
+   "close_price": 0.36,
+   "cost": 6984.0,
    "alert": "SHP|L|VMM|105.01"
   },
   {
@@ -2028,10 +2000,10 @@
    "strike": 160.0,
    "expiry": "2026-10-27",
    "lot_size": 3000,
-   "lots": 3,
-   "qty": 9000,
-   "close_price": 0.86,
-   "cost": 7740.0,
+   "lots": 19,
+   "qty": 57000,
+   "close_price": 0.14,
+   "cost": 7980.0,
    "alert": "SHP|S|WIPRO|160.97"
   },
   {
@@ -2042,11 +2014,25 @@
    "strike": 1340.0,
    "expiry": "2026-10-27",
    "lot_size": 425,
-   "lots": 7,
-   "qty": 2975,
-   "close_price": 2.65,
-   "cost": 7883.75,
+   "lots": 8,
+   "qty": 3400,
+   "close_price": 2.25,
+   "cost": 7650.0,
    "alert": "SHP|S|ASTRAL|1346.50"
+  },
+  {
+   "stock": "BAJFINANCE",
+   "direction": "SHORT",
+   "ref": 955.8,
+   "option": "BAJFINANCE26OCT950PE",
+   "strike": 950.0,
+   "expiry": "2026-10-27",
+   "lot_size": 750,
+   "lots": 1,
+   "qty": 750,
+   "close_price": 10.15,
+   "cost": 7612.5,
+   "alert": "SHP|S|BAJFINANCE|955.80"
   },
   {
    "stock": "UNITDSPR",
@@ -2058,23 +2044,23 @@
    "lot_size": 400,
    "lots": 4,
    "qty": 1600,
-   "close_price": 4.7,
-   "cost": 7520.0,
+   "close_price": 4.25,
+   "cost": 6800.0,
    "alert": "SHP|S|UNITDSPR|1337.60"
   },
   {
-   "stock": "GAIL",
+   "stock": "MFSL",
    "direction": "SHORT",
-   "ref": 168.43,
-   "option": "GAIL26OCT167.5PE",
-   "strike": 167.5,
+   "ref": 1280.2,
+   "option": "MFSL26OCT1280PE",
+   "strike": 1280.0,
    "expiry": "2026-10-27",
-   "lot_size": 3550,
+   "lot_size": 400,
    "lots": 1,
-   "qty": 3550,
-   "close_price": 1.85,
-   "cost": 6567.5,
-   "alert": "SHP|S|GAIL|168.43"
+   "qty": 400,
+   "close_price": 18.95,
+   "cost": 7580.0,
+   "alert": "SHP|S|MFSL|1280.20"
   },
   {
    "stock": "NTPC",
@@ -2084,10 +2070,10 @@
    "strike": 312.5,
    "expiry": "2026-10-27",
    "lot_size": 1500,
-   "lots": 1,
-   "qty": 1500,
-   "close_price": 2.9,
-   "cost": 4350.0,
+   "lots": 2,
+   "qty": 3000,
+   "close_price": 2.55,
+   "cost": 7650.0,
    "alert": "SHP|S|NTPC|313.05"
   },
   {
@@ -2098,10 +2084,10 @@
    "strike": 192.5,
    "expiry": "2026-10-27",
    "lot_size": 1925,
-   "lots": 1,
-   "qty": 1925,
-   "close_price": 2.58,
-   "cost": 4966.5,
+   "lots": 2,
+   "qty": 3850,
+   "close_price": 1.62,
+   "cost": 6237.0,
    "alert": "SHP|S|RVNL|194.05"
   },
   {
@@ -2112,10 +2098,10 @@
    "strike": 400.0,
    "expiry": "2026-10-27",
    "lot_size": 2000,
-   "lots": 9,
-   "qty": 18000,
-   "close_price": 0.45,
-   "cost": 8100.0,
+   "lots": 10,
+   "qty": 20000,
+   "close_price": 0.4,
+   "cost": 8000.0,
    "alert": "SHP|S|KOTAKBANK|404.30"
   },
   {
@@ -2126,10 +2112,10 @@
    "strike": 380.0,
    "expiry": "2026-10-27",
    "lot_size": 1400,
-   "lots": 3,
-   "qty": 4200,
-   "close_price": 1.75,
-   "cost": 7350.0,
+   "lots": 4,
+   "qty": 5600,
+   "close_price": 1.2,
+   "cost": 6720.0,
    "alert": "SHP|S|LICI|382.50"
   },
   {
@@ -2140,10 +2126,10 @@
    "strike": 4600.0,
    "expiry": "2026-10-27",
    "lot_size": 150,
-   "lots": 6,
-   "qty": 900,
-   "close_price": 8.9,
-   "cost": 8010.0,
+   "lots": 9,
+   "qty": 1350,
+   "close_price": 5.7,
+   "cost": 7695.0,
    "alert": "SHP|S|HAL|4615.80"
   },
   {
@@ -2156,8 +2142,8 @@
    "lot_size": 1700,
    "lots": 1,
    "qty": 1700,
-   "close_price": 3.25,
-   "cost": 5525.0,
+   "close_price": 3.0,
+   "cost": 5100.0,
    "alert": "SHP|L|INDUSTOWER|388.55"
   },
   {
@@ -2168,10 +2154,10 @@
    "strike": 370.0,
    "expiry": "2026-10-27",
    "lot_size": 1700,
-   "lots": 1,
-   "qty": 1700,
-   "close_price": 2.6,
-   "cost": 4420.0,
+   "lots": 2,
+   "qty": 3400,
+   "close_price": 1.85,
+   "cost": 6290.0,
    "alert": "SHP|S|INDUSTOWER|372.00"
   },
   {
@@ -2182,11 +2168,25 @@
    "strike": 138.0,
    "expiry": "2026-10-27",
    "lot_size": 4875,
-   "lots": 6,
-   "qty": 29250,
-   "close_price": 0.24,
-   "cost": 7020.0,
+   "lots": 8,
+   "qty": 39000,
+   "close_price": 0.19,
+   "cost": 7410.0,
    "alert": "SHP|L|IOC|137.71"
+  },
+  {
+   "stock": "IOC",
+   "direction": "SHORT",
+   "ref": 129.55,
+   "option": "IOC26OCT129PE",
+   "strike": 129.0,
+   "expiry": "2026-10-27",
+   "lot_size": 4875,
+   "lots": 1,
+   "qty": 4875,
+   "close_price": 1.34,
+   "cost": 6532.5,
+   "alert": "SHP|S|IOC|129.55"
   },
   {
    "stock": "IREDA",
@@ -2198,8 +2198,8 @@
    "lot_size": 4525,
    "lots": 2,
    "qty": 9050,
-   "close_price": 0.85,
-   "cost": 7692.5,
+   "close_price": 0.89,
+   "cost": 8054.5,
    "alert": "SHP|L|IREDA|114.53"
   },
   {
@@ -2212,8 +2212,8 @@
    "lot_size": 225,
    "lots": 1,
    "qty": 225,
-   "close_price": 32.6,
-   "cost": 7335.0,
+   "close_price": 28.7,
+   "cost": 6457.5,
    "alert": "SHP|L|TRENT|2966.00"
   },
   {
@@ -2224,10 +2224,10 @@
    "strike": 2550.0,
    "expiry": "2026-10-27",
    "lot_size": 225,
-   "lots": 16,
-   "qty": 3600,
-   "close_price": 2.25,
-   "cost": 8100.0,
+   "lots": 24,
+   "qty": 5400,
+   "close_price": 1.45,
+   "cost": 7830.0,
    "alert": "SHP|S|TRENT|2580.40"
   },
   {
@@ -2238,10 +2238,10 @@
    "strike": 550.0,
    "expiry": "2026-10-27",
    "lot_size": 800,
-   "lots": 2,
-   "qty": 1600,
-   "close_price": 4.7,
-   "cost": 7520.0,
+   "lots": 1,
+   "qty": 800,
+   "close_price": 5.95,
+   "cost": 4760.0,
    "alert": "SHP|S|SBICARD|555.65"
   },
   {
@@ -2254,8 +2254,8 @@
    "lot_size": 6750,
    "lots": 1,
    "qty": 6750,
-   "close_price": 0.94,
-   "cost": 6345.0,
+   "close_price": 0.99,
+   "cost": 6682.5,
    "alert": "SHP|L|CANBK|121.48"
   },
   {
@@ -2266,10 +2266,10 @@
    "strike": 1020.0,
    "expiry": "2026-10-27",
    "lot_size": 375,
-   "lots": 2,
-   "qty": 750,
-   "close_price": 9.2,
-   "cost": 6900.0,
+   "lots": 1,
+   "qty": 375,
+   "close_price": 14.0,
+   "cost": 5250.0,
    "alert": "SHP|S|VOLTAS|1024.10"
   },
   {
@@ -2282,8 +2282,8 @@
    "lot_size": 2025,
    "lots": 1,
    "qty": 2025,
-   "close_price": 3.55,
-   "cost": 7188.75,
+   "close_price": 2.15,
+   "cost": 4353.75,
    "alert": "SHP|L|HINDPETRO|359.85"
   },
   {
@@ -2296,8 +2296,8 @@
    "lot_size": 2025,
    "lots": 2,
    "qty": 4050,
-   "close_price": 1.5,
-   "cost": 6075.0,
+   "close_price": 1.35,
+   "cost": 5467.5,
    "alert": "SHP|S|HINDPETRO|326.05"
   },
   {
@@ -2310,8 +2310,8 @@
    "lot_size": 12000,
    "lots": 1,
    "qty": 12000,
-   "close_price": 0.45,
-   "cost": 5400.0,
+   "close_price": 0.49,
+   "cost": 5880.0,
    "alert": "SHP|S|SAGILITY|43.32"
   }
  ]
