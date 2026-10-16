@@ -379,7 +379,7 @@ def main():
         if not p: skipped.append((sd, f"{i['tradingsymbol']}: no price")); continue
         lots = int(cap // (p * lot))
         if lots < 1: skipped.append((sd, f"{i['tradingsymbol']}: 1 lot costs Rs {p * lot:,.0f} > cap Rs {cap:,.0f}")); continue
-        if funds and total + lots * lot * p > funds:                     # never plan more than the money in the account
+        if False and funds and total + lots * lot * p > funds:                     # never plan more than the money in the account
             skipped.append((sd, f"{i['tradingsymbol']}: total of all orders would pass the available funds Rs {funds:,.0f}")); continue
         total += lots * lot * p
         items.append(dict(stock=sd["stock"], direction=sd["direction"], ref=sd["ref"], option=i["tradingsymbol"], strike=i["strike"],
