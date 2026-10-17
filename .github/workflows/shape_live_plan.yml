@@ -22,7 +22,7 @@ on:
       min_price:
         description: 'Options priced below this many rupees are not traded'
         required: false
-        default: '2'
+        default: '1'
       capital_pct:
         description: 'Each trade may use this percent of the funds available in your Kite account'
         required: false
