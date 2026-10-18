@@ -1,7 +1,7 @@
 {
- "created": "2026-10-18 21:57:58.626474",
+ "created": "2026-10-18 22:19:42.861079",
  "trade_day": "2026-10-19",
- "max_cost": 60000.0,
+ "max_cost": 8002.33,
  "product": "NRML",
  "strategies": {
   "WRU": {
@@ -47,10 +47,10 @@
    "strike": 1020.0,
    "expiry": "2026-10-27",
    "lot_size": 500,
-   "lots": 21,
-   "qty": 10500,
+   "lots": 2,
+   "qty": 1000,
    "close_price": 5.5,
-   "cost": 57750.0,
+   "cost": 5500.0,
    "alert": "SHP|WRU|360ONE|1037.10",
    "alert_data": {
     "name": "SHP|WRU|360ONE|1037.10",
@@ -61,34 +61,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1037.1,
-    "basket": "{\"name\": \"SHP|WRU|360ONE|1037.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"360ONE26OCT1020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 10500, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "ADANIGREEN",
-   "direction": "SHORT",
-   "strategy": "WRU",
-   "ref": 1245.6,
-   "line": 1245.6,
-   "option": "ADANIGREEN26OCT1240PE",
-   "strike": 1240.0,
-   "expiry": "2026-10-27",
-   "lot_size": 600,
-   "lots": 7,
-   "qty": 4200,
-   "close_price": 13.6,
-   "cost": 57120.0,
-   "alert": "SHP|WRU|ADANIGREEN|1245.60",
-   "alert_data": {
-    "name": "SHP|WRU|ADANIGREEN|1245.60",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "ADANIGREEN",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 1245.6,
-    "basket": "{\"name\": \"SHP|WRU|ADANIGREEN|1245.60\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"ADANIGREEN26OCT1240PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 4200, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|360ONE|1037.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"360ONE26OCT1020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1000, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -101,10 +74,10 @@
    "strike": 1060.0,
    "expiry": "2026-10-27",
    "lot_size": 425,
-   "lots": 22,
-   "qty": 9350,
+   "lots": 3,
+   "qty": 1275,
    "close_price": 6.25,
-   "cost": 58437.5,
+   "cost": 7968.75,
    "alert": "SHP|WRU|BDL|1071.20",
    "alert_data": {
     "name": "SHP|WRU|BDL|1071.20",
@@ -115,7 +88,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1071.2,
-    "basket": "{\"name\": \"SHP|WRU|BDL|1071.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BDL26OCT1060PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 9350, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|BDL|1071.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BDL26OCT1060PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1275, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -128,10 +101,10 @@
    "strike": 1240.0,
    "expiry": "2026-10-27",
    "lot_size": 400,
-   "lots": 7,
-   "qty": 2800,
+   "lots": 1,
+   "qty": 400,
    "close_price": 19.3,
-   "cost": 54040.0,
+   "cost": 7720.0,
    "alert": "SHP|WRU|COCHINSHIP|1246.40",
    "alert_data": {
     "name": "SHP|WRU|COCHINSHIP|1246.40",
@@ -142,61 +115,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1246.4,
-    "basket": "{\"name\": \"SHP|WRU|COCHINSHIP|1246.40\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"COCHINSHIP26OCT1240PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 2800, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "KEI",
-   "direction": "SHORT",
-   "strategy": "WRU",
-   "ref": 4457.5,
-   "line": 4457.5,
-   "option": "KEI26OCT4400PE",
-   "strike": 4400.0,
-   "expiry": "2026-10-27",
-   "lot_size": 175,
-   "lots": 4,
-   "qty": 700,
-   "close_price": 83.15,
-   "cost": 58205.0,
-   "alert": "SHP|WRU|KEI|4457.50",
-   "alert_data": {
-    "name": "SHP|WRU|KEI|4457.50",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "KEI",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 4457.5,
-    "basket": "{\"name\": \"SHP|WRU|KEI|4457.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"KEI26OCT4400PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 700, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "KALYANKJIL",
-   "direction": "SHORT",
-   "strategy": "WRU",
-   "ref": 552.5,
-   "line": 552.5,
-   "option": "KALYANKJIL26OCT550PE",
-   "strike": 550.0,
-   "expiry": "2026-10-27",
-   "lot_size": 1350,
-   "lots": 5,
-   "qty": 6750,
-   "close_price": 8.55,
-   "cost": 57712.5,
-   "alert": "SHP|WRU|KALYANKJIL|552.50",
-   "alert_data": {
-    "name": "SHP|WRU|KALYANKJIL|552.50",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "KALYANKJIL",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 552.5,
-    "basket": "{\"name\": \"SHP|WRU|KALYANKJIL|552.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"KALYANKJIL26OCT550PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 6750, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|COCHINSHIP|1246.40\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"COCHINSHIP26OCT1240PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 400, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -209,10 +128,10 @@
    "strike": 820.0,
    "expiry": "2026-10-27",
    "lot_size": 575,
-   "lots": 28,
-   "qty": 16100,
+   "lots": 3,
+   "qty": 1725,
    "close_price": 3.6,
-   "cost": 57960.0,
+   "cost": 6210.0,
    "alert": "SHP|WRU|KFINTECH|837.40",
    "alert_data": {
     "name": "SHP|WRU|KFINTECH|837.40",
@@ -223,34 +142,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 837.4,
-    "basket": "{\"name\": \"SHP|WRU|KFINTECH|837.40\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"KFINTECH26OCT820PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 16100, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "PAYTM",
-   "direction": "SHORT",
-   "strategy": "WRU",
-   "ref": 1658.8,
-   "line": 1658.8,
-   "option": "PAYTM26OCT1640PE",
-   "strike": 1640.0,
-   "expiry": "2026-10-27",
-   "lot_size": 725,
-   "lots": 3,
-   "qty": 2175,
-   "close_price": 22.15,
-   "cost": 48176.25,
-   "alert": "SHP|WRU|PAYTM|1658.80",
-   "alert_data": {
-    "name": "SHP|WRU|PAYTM|1658.80",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "PAYTM",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 1658.8,
-    "basket": "{\"name\": \"SHP|WRU|PAYTM|1658.80\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PAYTM26OCT1640PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 2175, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|KFINTECH|837.40\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"KFINTECH26OCT820PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1725, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -263,10 +155,10 @@
    "strike": 1840.0,
    "expiry": "2026-10-27",
    "lot_size": 350,
-   "lots": 11,
-   "qty": 3850,
+   "lots": 1,
+   "qty": 350,
    "close_price": 14.3,
-   "cost": 55055.0,
+   "cost": 5005.0,
    "alert": "SHP|WRU|PHOENIXLTD|1845.00",
    "alert_data": {
     "name": "SHP|WRU|PHOENIXLTD|1845.00",
@@ -277,34 +169,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1845.0,
-    "basket": "{\"name\": \"SHP|WRU|PHOENIXLTD|1845.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PHOENIXLTD26OCT1840PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3850, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "POLYCAB",
-   "direction": "SHORT",
-   "strategy": "WRU",
-   "ref": 8026.0,
-   "line": 8026.0,
-   "option": "POLYCAB26OCT8000PE",
-   "strike": 8000.0,
-   "expiry": "2026-10-27",
-   "lot_size": 125,
-   "lots": 4,
-   "qty": 500,
-   "close_price": 102.85,
-   "cost": 51425.0,
-   "alert": "SHP|WRU|POLYCAB|8026.00",
-   "alert_data": {
-    "name": "SHP|WRU|POLYCAB|8026.00",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "POLYCAB",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 8026.0,
-    "basket": "{\"name\": \"SHP|WRU|POLYCAB|8026.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POLYCAB26OCT8000PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 500, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|PHOENIXLTD|1845.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PHOENIXLTD26OCT1840PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 350, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -317,10 +182,10 @@
    "strike": 1020.0,
    "expiry": "2026-10-27",
    "lot_size": 350,
-   "lots": 15,
-   "qty": 5250,
+   "lots": 2,
+   "qty": 700,
    "close_price": 10.8,
-   "cost": 56700.0,
+   "cost": 7560.0,
    "alert": "SHP|WRU|POLICYBZR|1031.40",
    "alert_data": {
     "name": "SHP|WRU|POLICYBZR|1031.40",
@@ -331,7 +196,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1031.4,
-    "basket": "{\"name\": \"SHP|WRU|POLICYBZR|1031.40\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POLICYBZR26OCT1020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 5250, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|POLICYBZR|1031.40\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POLICYBZR26OCT1020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 700, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -344,10 +209,10 @@
    "strike": 2300.0,
    "expiry": "2026-10-27",
    "lot_size": 300,
-   "lots": 23,
-   "qty": 6900,
+   "lots": 3,
+   "qty": 900,
    "close_price": 8.35,
-   "cost": 57615.0,
+   "cost": 7515.0,
    "alert": "SHP|WRU|HDFCAMC|2300.70",
    "alert_data": {
     "name": "SHP|WRU|HDFCAMC|2300.70",
@@ -358,7 +223,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 2300.7,
-    "basket": "{\"name\": \"SHP|WRU|HDFCAMC|2300.70\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"HDFCAMC26OCT2300PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 6900, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|HDFCAMC|2300.70\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"HDFCAMC26OCT2300PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 900, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -371,10 +236,10 @@
    "strike": 2020.0,
    "expiry": "2026-10-27",
    "lot_size": 225,
-   "lots": 14,
-   "qty": 3150,
+   "lots": 1,
+   "qty": 225,
    "close_price": 18.1,
-   "cost": 57015.0,
+   "cost": 4072.5,
    "alert": "SHP|WRU|MAZDOCK|2031.20",
    "alert_data": {
     "name": "SHP|WRU|MAZDOCK|2031.20",
@@ -385,34 +250,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 2031.2,
-    "basket": "{\"name\": \"SHP|WRU|MAZDOCK|2031.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MAZDOCK26OCT2020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3150, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "SONACOMS",
-   "direction": "SHORT",
-   "strategy": "WRU",
-   "ref": 783.65,
-   "line": 783.65,
-   "option": "SONACOMS26OCT780PE",
-   "strike": 780.0,
-   "expiry": "2026-10-27",
-   "lot_size": 1225,
-   "lots": 4,
-   "qty": 4900,
-   "close_price": 11.1,
-   "cost": 54390.0,
-   "alert": "SHP|WRU|SONACOMS|783.65",
-   "alert_data": {
-    "name": "SHP|WRU|SONACOMS|783.65",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "SONACOMS",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 783.65,
-    "basket": "{\"name\": \"SHP|WRU|SONACOMS|783.65\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"SONACOMS26OCT780PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 4900, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|MAZDOCK|2031.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MAZDOCK26OCT2020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 225, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -425,10 +263,10 @@
    "strike": 1340.0,
    "expiry": "2026-10-27",
    "lot_size": 425,
-   "lots": 61,
-   "qty": 25925,
+   "lots": 8,
+   "qty": 3400,
    "close_price": 2.3,
-   "cost": 59627.5,
+   "cost": 7820.0,
    "alert": "SHP|WRU|ASTRAL|1346.50",
    "alert_data": {
     "name": "SHP|WRU|ASTRAL|1346.50",
@@ -439,7 +277,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1346.5,
-    "basket": "{\"name\": \"SHP|WRU|ASTRAL|1346.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"ASTRAL26OCT1340PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 25925, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|ASTRAL|1346.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"ASTRAL26OCT1340PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3400, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -452,10 +290,10 @@
    "strike": 1020.0,
    "expiry": "2026-10-27",
    "lot_size": 375,
-   "lots": 11,
-   "qty": 4125,
+   "lots": 1,
+   "qty": 375,
    "close_price": 14.05,
-   "cost": 57956.25,
+   "cost": 5268.75,
    "alert": "SHP|WRU|VOLTAS|1024.10",
    "alert_data": {
     "name": "SHP|WRU|VOLTAS|1024.10",
@@ -466,34 +304,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1024.1,
-    "basket": "{\"name\": \"SHP|WRU|VOLTAS|1024.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"VOLTAS26OCT1020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 4125, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "ATHERENERG",
-   "direction": "SHORT",
-   "strategy": "WRU",
-   "ref": 1450.0,
-   "line": 1450.0,
-   "option": "ATHERENERG26OCT1440PE",
-   "strike": 1440.0,
-   "expiry": "2026-10-27",
-   "lot_size": 375,
-   "lots": 7,
-   "qty": 2625,
-   "close_price": 22.0,
-   "cost": 57750.0,
-   "alert": "SHP|WRU|ATHERENERG|1450.00",
-   "alert_data": {
-    "name": "SHP|WRU|ATHERENERG|1450.00",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "ATHERENERG",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 1450.0,
-    "basket": "{\"name\": \"SHP|WRU|ATHERENERG|1450.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"ATHERENERG26OCT1440PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 2625, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|VOLTAS|1024.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"VOLTAS26OCT1020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 375, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -506,10 +317,10 @@
    "strike": 11500.0,
    "expiry": "2026-10-27",
    "lot_size": 75,
-   "lots": 9,
-   "qty": 675,
+   "lots": 1,
+   "qty": 75,
    "close_price": 86.95,
-   "cost": 58691.25,
+   "cost": 6521.25,
    "alert": "SHP|WRL|BAJAJHLDNG|11434.00",
    "alert_data": {
     "name": "SHP|WRL|BAJAJHLDNG|11434.00",
@@ -520,7 +331,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 11434.0,
-    "basket": "{\"name\": \"SHP|WRL|BAJAJHLDNG|11434.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BAJAJHLDNG26OCT11500CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 675, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|BAJAJHLDNG|11434.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BAJAJHLDNG26OCT11500CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 75, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -533,10 +344,10 @@
    "strike": 1720.0,
    "expiry": "2026-10-27",
    "lot_size": 550,
-   "lots": 12,
-   "qty": 6600,
+   "lots": 1,
+   "qty": 550,
    "close_price": 8.4,
-   "cost": 55440.0,
+   "cost": 4620.0,
    "alert": "SHP|WRL|AUROPHARMA|1704.00",
    "alert_data": {
     "name": "SHP|WRL|AUROPHARMA|1704.00",
@@ -547,7 +358,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1704.0,
-    "basket": "{\"name\": \"SHP|WRL|AUROPHARMA|1704.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"AUROPHARMA26OCT1720CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 6600, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|AUROPHARMA|1704.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"AUROPHARMA26OCT1720CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 550, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -560,10 +371,10 @@
    "strike": 1600.0,
    "expiry": "2026-10-27",
    "lot_size": 325,
-   "lots": 11,
-   "qty": 3575,
+   "lots": 1,
+   "qty": 325,
    "close_price": 15.8,
-   "cost": 56485.0,
+   "cost": 5135.0,
    "alert": "SHP|WRL|BLUESTARCO|1594.00",
    "alert_data": {
     "name": "SHP|WRL|BLUESTARCO|1594.00",
@@ -574,7 +385,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1594.0,
-    "basket": "{\"name\": \"SHP|WRL|BLUESTARCO|1594.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BLUESTARCO26OCT1600CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3575, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|BLUESTARCO|1594.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BLUESTARCO26OCT1600CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 325, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -587,10 +398,10 @@
    "strike": 1920.0,
    "expiry": "2026-10-27",
    "lot_size": 275,
-   "lots": 53,
-   "qty": 14575,
+   "lots": 7,
+   "qty": 1925,
    "close_price": 4.1,
-   "cost": 59757.5,
+   "cost": 7892.5,
    "alert": "SHP|WRL|COLPAL|1900.10",
    "alert_data": {
     "name": "SHP|WRL|COLPAL|1900.10",
@@ -601,7 +412,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1900.1,
-    "basket": "{\"name\": \"SHP|WRL|COLPAL|1900.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"COLPAL26OCT1920CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 14575, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|COLPAL|1900.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"COLPAL26OCT1920CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1925, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -614,10 +425,10 @@
    "strike": 9100.0,
    "expiry": "2026-10-27",
    "lot_size": 125,
-   "lots": 184,
-   "qty": 23000,
+   "lots": 24,
+   "qty": 3000,
    "close_price": 2.6,
-   "cost": 59800.0,
+   "cost": 7800.0,
    "alert": "SHP|WRL|APOLLOHOSP|9024.00",
    "alert_data": {
     "name": "SHP|WRL|APOLLOHOSP|9024.00",
@@ -628,7 +439,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 9024.0,
-    "basket": "{\"name\": \"SHP|WRL|APOLLOHOSP|9024.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"APOLLOHOSP26OCT9100CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 23000, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|APOLLOHOSP|9024.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"APOLLOHOSP26OCT9100CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3000, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -641,10 +452,10 @@
    "strike": 1720.0,
    "expiry": "2026-10-27",
    "lot_size": 325,
-   "lots": 12,
-   "qty": 3900,
+   "lots": 1,
+   "qty": 325,
    "close_price": 15.0,
-   "cost": 58500.0,
+   "cost": 4875.0,
    "alert": "SHP|WRL|ICICIGI|1704.00",
    "alert_data": {
     "name": "SHP|WRL|ICICIGI|1704.00",
@@ -655,7 +466,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1704.0,
-    "basket": "{\"name\": \"SHP|WRL|ICICIGI|1704.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"ICICIGI26OCT1720CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3900, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|ICICIGI|1704.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"ICICIGI26OCT1720CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 325, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -668,10 +479,10 @@
    "strike": 2520.0,
    "expiry": "2026-10-27",
    "lot_size": 250,
-   "lots": 57,
-   "qty": 14250,
+   "lots": 7,
+   "qty": 1750,
    "close_price": 4.15,
-   "cost": 59137.5,
+   "cost": 7262.5,
    "alert": "SHP|WRL|MANKIND|2504.60",
    "alert_data": {
     "name": "SHP|WRL|MANKIND|2504.60",
@@ -682,7 +493,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 2504.6,
-    "basket": "{\"name\": \"SHP|WRL|MANKIND|2504.60\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MANKIND26OCT2520CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 14250, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|MANKIND|2504.60\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MANKIND26OCT2520CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1750, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -695,10 +506,10 @@
    "strike": 3400.0,
    "expiry": "2026-10-27",
    "lot_size": 225,
-   "lots": 16,
-   "qty": 3600,
+   "lots": 2,
+   "qty": 450,
    "close_price": 15.85,
-   "cost": 57060.0,
+   "cost": 7132.5,
    "alert": "SHP|WRL|MCX|3398.00",
    "alert_data": {
     "name": "SHP|WRL|MCX|3398.00",
@@ -709,7 +520,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 3398.0,
-    "basket": "{\"name\": \"SHP|WRL|MCX|3398.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MCX26OCT3400CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3600, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|MCX|3398.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MCX26OCT3400CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 450, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -722,10 +533,10 @@
    "strike": 1100.0,
    "expiry": "2026-10-27",
    "lot_size": 625,
-   "lots": 8,
-   "qty": 5000,
+   "lots": 1,
+   "qty": 625,
    "close_price": 11.35,
-   "cost": 56750.0,
+   "cost": 7093.75,
    "alert": "SHP|WRL|NAM-INDIA|1088.00",
    "alert_data": {
     "name": "SHP|WRL|NAM-INDIA|1088.00",
@@ -736,7 +547,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1088.0,
-    "basket": "{\"name\": \"SHP|WRL|NAM-INDIA|1088.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"NAM-INDIA26OCT1100CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 5000, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|NAM-INDIA|1088.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"NAM-INDIA26OCT1100CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 625, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -749,10 +560,10 @@
    "strike": 1360.0,
    "expiry": "2026-10-27",
    "lot_size": 500,
-   "lots": 55,
-   "qty": 27500,
+   "lots": 7,
+   "qty": 3500,
    "close_price": 2.15,
-   "cost": 59125.0,
+   "cost": 7525.0,
    "alert": "SHP|WRL|NESTLEIND|1354.50",
    "alert_data": {
     "name": "SHP|WRL|NESTLEIND|1354.50",
@@ -763,7 +574,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1354.5,
-    "basket": "{\"name\": \"SHP|WRL|NESTLEIND|1354.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"NESTLEIND26OCT1360CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 27500, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|NESTLEIND|1354.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"NESTLEIND26OCT1360CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3500, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -776,10 +587,10 @@
    "strike": 990.0,
    "expiry": "2026-10-27",
    "lot_size": 550,
-   "lots": 12,
-   "qty": 6600,
+   "lots": 1,
+   "qty": 550,
    "close_price": 8.7,
-   "cost": 57420.0,
+   "cost": 4785.0,
    "alert": "SHP|WRL|TATACONSUM|987.90",
    "alert_data": {
     "name": "SHP|WRL|TATACONSUM|987.90",
@@ -790,7 +601,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 987.9,
-    "basket": "{\"name\": \"SHP|WRL|TATACONSUM|987.90\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"TATACONSUM26OCT990CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 6600, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|TATACONSUM|987.90\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"TATACONSUM26OCT990CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 550, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -803,10 +614,10 @@
    "strike": 295.0,
    "expiry": "2026-10-27",
    "lot_size": 1900,
-   "lots": 9,
-   "qty": 17100,
+   "lots": 1,
+   "qty": 1900,
    "close_price": 3.35,
-   "cost": 57285.0,
+   "cost": 6365.0,
    "alert": "SHP|WRL|PETRONET|294.00",
    "alert_data": {
     "name": "SHP|WRL|PETRONET|294.00",
@@ -817,7 +628,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 294.0,
-    "basket": "{\"name\": \"SHP|WRL|PETRONET|294.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PETRONET26OCT295CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 17100, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|PETRONET|294.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PETRONET26OCT295CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1900, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -830,10 +641,10 @@
    "strike": 440.0,
    "expiry": "2026-10-27",
    "lot_size": 1275,
-   "lots": 9,
-   "qty": 11475,
+   "lots": 1,
+   "qty": 1275,
    "close_price": 4.95,
-   "cost": 56801.25,
+   "cost": 6311.25,
    "alert": "SHP|WRL|VBL|438.60",
    "alert_data": {
     "name": "SHP|WRL|VBL|438.60",
@@ -844,61 +655,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 438.6,
-    "basket": "{\"name\": \"SHP|WRL|VBL|438.60\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"VBL26OCT440CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 11475, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "BSE",
-   "direction": "LONG",
-   "strategy": "WRL",
-   "ref": 3408.3,
-   "line": 3408.3,
-   "option": "BSE26OCT3450CE",
-   "strike": 3450.0,
-   "expiry": "2026-10-27",
-   "lot_size": 200,
-   "lots": 7,
-   "qty": 1400,
-   "close_price": 41.65,
-   "cost": 58310.0,
-   "alert": "SHP|WRL|BSE|3408.30",
-   "alert_data": {
-    "name": "SHP|WRL|BSE|3408.30",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "BSE",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": ">=",
-    "rhs_type": "constant",
-    "rhs_constant": 3408.3,
-    "basket": "{\"name\": \"SHP|WRL|BSE|3408.30\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BSE26OCT3450CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1400, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "MOTILALOFS",
-   "direction": "LONG",
-   "strategy": "WRL",
-   "ref": 1058.0,
-   "line": 1058.0,
-   "option": "MOTILALOFS26OCT1060CE",
-   "strike": 1060.0,
-   "expiry": "2026-10-27",
-   "lot_size": 775,
-   "lots": 3,
-   "qty": 2325,
-   "close_price": 25.05,
-   "cost": 58241.25,
-   "alert": "SHP|WRL|MOTILALOFS|1058.00",
-   "alert_data": {
-    "name": "SHP|WRL|MOTILALOFS|1058.00",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "MOTILALOFS",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": ">=",
-    "rhs_type": "constant",
-    "rhs_constant": 1058.0,
-    "basket": "{\"name\": \"SHP|WRL|MOTILALOFS|1058.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MOTILALOFS26OCT1060CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 2325, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|VBL|438.60\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"VBL26OCT440CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1275, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -911,10 +668,10 @@
    "strike": 1220.0,
    "expiry": "2026-10-27",
    "lot_size": 650,
-   "lots": 14,
-   "qty": 9100,
+   "lots": 1,
+   "qty": 650,
    "close_price": 6.25,
-   "cost": 56875.0,
+   "cost": 4062.5,
    "alert": "SHP|WRL|PNBHOUSING|1205.90",
    "alert_data": {
     "name": "SHP|WRL|PNBHOUSING|1205.90",
@@ -925,7 +682,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1205.9,
-    "basket": "{\"name\": \"SHP|WRL|PNBHOUSING|1205.90\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PNBHOUSING26OCT1220CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 9100, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|PNBHOUSING|1205.90\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PNBHOUSING26OCT1220CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 650, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -938,10 +695,10 @@
    "strike": 360.0,
    "expiry": "2026-10-27",
    "lot_size": 2025,
-   "lots": 13,
-   "qty": 26325,
+   "lots": 1,
+   "qty": 2025,
    "close_price": 2.2,
-   "cost": 57915.0,
+   "cost": 4455.0,
    "alert": "SHP|WRL|HINDPETRO|359.85",
    "alert_data": {
     "name": "SHP|WRL|HINDPETRO|359.85",
@@ -952,7 +709,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 359.85,
-    "basket": "{\"name\": \"SHP|WRL|HINDPETRO|359.85\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"HINDPETRO26OCT360CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 26325, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|HINDPETRO|359.85\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"HINDPETRO26OCT360CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 2025, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -965,10 +722,10 @@
    "strike": 2500.0,
    "expiry": "2026-10-27",
    "lot_size": 309,
-   "lots": 22,
-   "qty": 6798,
+   "lots": 3,
+   "qty": 927,
    "close_price": 8.5,
-   "cost": 57783.0,
+   "cost": 7879.5,
    "alert": "SHP|BPB|ADANIENT|2547.00",
    "alert_data": {
     "name": "SHP|BPB|ADANIENT|2547.00",
@@ -979,7 +736,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 2547.0,
-    "basket": "{\"name\": \"SHP|BPB|ADANIENT|2547.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"ADANIENT26OCT2500PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 6798, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|ADANIENT|2547.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"ADANIENT26OCT2500PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 927, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -992,10 +749,10 @@
    "strike": 9600.0,
    "expiry": "2026-10-27",
    "lot_size": 75,
-   "lots": 102,
-   "qty": 7650,
+   "lots": 13,
+   "qty": 975,
    "close_price": 7.8,
-   "cost": 59670.0,
+   "cost": 7605.0,
    "alert": "SHP|BPB|BAJAJ-AUTO|9637.00",
    "alert_data": {
     "name": "SHP|BPB|BAJAJ-AUTO|9637.00",
@@ -1006,7 +763,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 9637.0,
-    "basket": "{\"name\": \"SHP|BPB|BAJAJ-AUTO|9637.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BAJAJ-AUTO26OCT9600PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 7650, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|BAJAJ-AUTO|9637.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BAJAJ-AUTO26OCT9600PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 975, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1019,10 +776,10 @@
    "strike": 1200.0,
    "expiry": "2026-10-27",
    "lot_size": 400,
-   "lots": 18,
-   "qty": 7200,
+   "lots": 2,
+   "qty": 800,
    "close_price": 8.1,
-   "cost": 58320.0,
+   "cost": 6480.0,
    "alert": "SHP|BPB|COCHINSHIP|1200.00",
    "alert_data": {
     "name": "SHP|BPB|COCHINSHIP|1200.00",
@@ -1033,7 +790,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1200.0,
-    "basket": "{\"name\": \"SHP|BPB|COCHINSHIP|1200.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"COCHINSHIP26OCT1200PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 7200, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|COCHINSHIP|1200.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"COCHINSHIP26OCT1200PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 800, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1046,10 +803,10 @@
    "strike": 340.0,
    "expiry": "2026-10-27",
    "lot_size": 2500,
-   "lots": 9,
-   "qty": 22500,
+   "lots": 1,
+   "qty": 2500,
    "close_price": 2.5,
-   "cost": 56250.0,
+   "cost": 6250.0,
    "alert": "SHP|BPB|BIOCON|342.15",
    "alert_data": {
     "name": "SHP|BPB|BIOCON|342.15",
@@ -1060,7 +817,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 342.15,
-    "basket": "{\"name\": \"SHP|BPB|BIOCON|342.15\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BIOCON26OCT340PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 22500, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|BIOCON|342.15\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BIOCON26OCT340PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 2500, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1073,10 +830,10 @@
    "strike": 1000.0,
    "expiry": "2026-10-27",
    "lot_size": 625,
-   "lots": 10,
-   "qty": 6250,
+   "lots": 1,
+   "qty": 625,
    "close_price": 8.75,
-   "cost": 54687.5,
+   "cost": 5468.75,
    "alert": "SHP|BPB|JINDALSTEL|1001.10",
    "alert_data": {
     "name": "SHP|BPB|JINDALSTEL|1001.10",
@@ -1087,34 +844,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1001.1,
-    "basket": "{\"name\": \"SHP|BPB|JINDALSTEL|1001.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"JINDALSTEL26OCT1000PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 6250, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "KAYNES",
-   "direction": "SHORT",
-   "strategy": "BPB",
-   "ref": 3200.1,
-   "line": 3333.0,
-   "option": "KAYNES26OCT3200PE",
-   "strike": 3200.0,
-   "expiry": "2026-10-27",
-   "lot_size": 150,
-   "lots": 6,
-   "qty": 900,
-   "close_price": 58.1,
-   "cost": 52290.0,
-   "alert": "SHP|BPB|KAYNES|3200.10",
-   "alert_data": {
-    "name": "SHP|BPB|KAYNES|3200.10",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "KAYNES",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 3200.1,
-    "basket": "{\"name\": \"SHP|BPB|KAYNES|3200.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"KAYNES26OCT3200PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 900, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|JINDALSTEL|1001.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"JINDALSTEL26OCT1000PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 625, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1127,10 +857,10 @@
    "strike": 410.0,
    "expiry": "2026-10-27",
    "lot_size": 1250,
-   "lots": 11,
-   "qty": 13750,
+   "lots": 1,
+   "qty": 1250,
    "close_price": 4.35,
-   "cost": 59812.5,
+   "cost": 5437.5,
    "alert": "SHP|BPB|JUBLFOOD|415.20",
    "alert_data": {
     "name": "SHP|BPB|JUBLFOOD|415.20",
@@ -1141,7 +871,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 415.2,
-    "basket": "{\"name\": \"SHP|BPB|JUBLFOOD|415.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"JUBLFOOD26OCT410PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 13750, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|JUBLFOOD|415.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"JUBLFOOD26OCT410PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1250, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1154,10 +884,10 @@
    "strike": 1020.0,
    "expiry": "2026-10-27",
    "lot_size": 625,
-   "lots": 9,
-   "qty": 5625,
+   "lots": 1,
+   "qty": 625,
    "close_price": 10.0,
-   "cost": 56250.0,
+   "cost": 6250.0,
    "alert": "SHP|BPB|NAM-INDIA|1026.40",
    "alert_data": {
     "name": "SHP|BPB|NAM-INDIA|1026.40",
@@ -1168,7 +898,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1026.4,
-    "basket": "{\"name\": \"SHP|BPB|NAM-INDIA|1026.40\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"NAM-INDIA26OCT1020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 5625, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|NAM-INDIA|1026.40\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"NAM-INDIA26OCT1020PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 625, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1181,10 +911,10 @@
    "strike": 1660.0,
    "expiry": "2026-10-27",
    "lot_size": 350,
-   "lots": 7,
-   "qty": 2450,
+   "lots": 1,
+   "qty": 350,
    "close_price": 22.7,
-   "cost": 55615.0,
+   "cost": 7945.0,
    "alert": "SHP|BPB|OBEROIRLTY|1663.30",
    "alert_data": {
     "name": "SHP|BPB|OBEROIRLTY|1663.30",
@@ -1195,7 +925,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1663.3,
-    "basket": "{\"name\": \"SHP|BPB|OBEROIRLTY|1663.30\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"OBEROIRLTY26OCT1660PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 2450, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|OBEROIRLTY|1663.30\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"OBEROIRLTY26OCT1660PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 350, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1208,10 +938,10 @@
    "strike": 840.0,
    "expiry": "2026-10-27",
    "lot_size": 525,
-   "lots": 9,
-   "qty": 4725,
+   "lots": 1,
+   "qty": 525,
    "close_price": 12.5,
-   "cost": 59062.5,
+   "cost": 6562.5,
    "alert": "SHP|BPB|MAXHEALTH|842.05",
    "alert_data": {
     "name": "SHP|BPB|MAXHEALTH|842.05",
@@ -1222,7 +952,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 842.05,
-    "basket": "{\"name\": \"SHP|BPB|MAXHEALTH|842.05\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MAXHEALTH26OCT840PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 4725, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|MAXHEALTH|842.05\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MAXHEALTH26OCT840PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 525, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1235,10 +965,10 @@
    "strike": 28000.0,
    "expiry": "2026-10-27",
    "lot_size": 25,
-   "lots": 8,
-   "qty": 200,
+   "lots": 1,
+   "qty": 25,
    "close_price": 291.45,
-   "cost": 58290.0,
+   "cost": 7286.25,
    "alert": "SHP|BPB|POWERINDIA|28400.00",
    "alert_data": {
     "name": "SHP|BPB|POWERINDIA|28400.00",
@@ -1249,7 +979,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 28400.0,
-    "basket": "{\"name\": \"SHP|BPB|POWERINDIA|28400.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POWERINDIA26OCT28000PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 200, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|POWERINDIA|28400.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POWERINDIA26OCT28000PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 25, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1262,10 +992,10 @@
    "strike": 940.0,
    "expiry": "2026-10-27",
    "lot_size": 350,
-   "lots": 49,
-   "qty": 17150,
+   "lots": 6,
+   "qty": 2100,
    "close_price": 3.45,
-   "cost": 59167.5,
+   "cost": 7245.0,
    "alert": "SHP|BPB|POLICYBZR|945.10",
    "alert_data": {
     "name": "SHP|BPB|POLICYBZR|945.10",
@@ -1276,34 +1006,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 945.1,
-    "basket": "{\"name\": \"SHP|BPB|POLICYBZR|945.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POLICYBZR26OCT940PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 17150, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "RBLBANK",
-   "direction": "SHORT",
-   "strategy": "BPB",
-   "ref": 373.35,
-   "line": 400.0,
-   "option": "RBLBANK26OCT370PE",
-   "strike": 370.0,
-   "expiry": "2026-10-27",
-   "lot_size": 3175,
-   "lots": 5,
-   "qty": 15875,
-   "close_price": 3.75,
-   "cost": 59531.25,
-   "alert": "SHP|BPB|RBLBANK|373.35",
-   "alert_data": {
-    "name": "SHP|BPB|RBLBANK|373.35",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "RBLBANK",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": "<=",
-    "rhs_type": "constant",
-    "rhs_constant": 373.35,
-    "basket": "{\"name\": \"SHP|BPB|RBLBANK|373.35\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"RBLBANK26OCT370PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 15875, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|POLICYBZR|945.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POLICYBZR26OCT940PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 2100, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1316,10 +1019,10 @@
    "strike": 2100.0,
    "expiry": "2026-10-27",
    "lot_size": 200,
-   "lots": 20,
-   "qty": 4000,
+   "lots": 2,
+   "qty": 400,
    "close_price": 14.55,
-   "cost": 58200.0,
+   "cost": 5820.0,
    "alert": "SHP|BPB|TIINDIA|2136.50",
    "alert_data": {
     "name": "SHP|BPB|TIINDIA|2136.50",
@@ -1330,7 +1033,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 2136.5,
-    "basket": "{\"name\": \"SHP|BPB|TIINDIA|2136.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"TIINDIA26OCT2100PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 4000, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|TIINDIA|2136.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"TIINDIA26OCT2100PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 400, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1343,10 +1046,10 @@
    "strike": 4300.0,
    "expiry": "2026-10-27",
    "lot_size": 175,
-   "lots": 33,
-   "qty": 5775,
+   "lots": 4,
+   "qty": 700,
    "close_price": 10.15,
-   "cost": 58616.25,
+   "cost": 7105.0,
    "alert": "SHP|BPB|TITAN|4335.60",
    "alert_data": {
     "name": "SHP|BPB|TITAN|4335.60",
@@ -1357,7 +1060,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 4335.6,
-    "basket": "{\"name\": \"SHP|BPB|TITAN|4335.60\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"TITAN26OCT4300PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 5775, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|TITAN|4335.60\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"TITAN26OCT4300PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 700, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1370,10 +1073,10 @@
    "strike": 1880.0,
    "expiry": "2026-10-27",
    "lot_size": 275,
-   "lots": 33,
-   "qty": 9075,
+   "lots": 4,
+   "qty": 1100,
    "close_price": 6.55,
-   "cost": 59441.25,
+   "cost": 7205.0,
    "alert": "SHP|BPB|HYUNDAI|1897.20",
    "alert_data": {
     "name": "SHP|BPB|HYUNDAI|1897.20",
@@ -1384,7 +1087,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1897.2,
-    "basket": "{\"name\": \"SHP|BPB|HYUNDAI|1897.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"HYUNDAI26OCT1880PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 9075, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|HYUNDAI|1897.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"HYUNDAI26OCT1880PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1100, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1397,10 +1100,10 @@
    "strike": 1260.0,
    "expiry": "2026-10-27",
    "lot_size": 400,
-   "lots": 13,
-   "qty": 5200,
+   "lots": 1,
+   "qty": 400,
    "close_price": 10.8,
-   "cost": 56160.0,
+   "cost": 4320.0,
    "alert": "SHP|BPB|MFSL|1263.30",
    "alert_data": {
     "name": "SHP|BPB|MFSL|1263.30",
@@ -1411,7 +1114,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 1263.3,
-    "basket": "{\"name\": \"SHP|BPB|MFSL|1263.30\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MFSL26OCT1260PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 5200, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|BPB|MFSL|1263.30\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"MFSL26OCT1260PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 400, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   }
  ]
