@@ -1,7 +1,7 @@
 {
- "created": "2026-10-19 18:06:15.242635",
- "trade_day": "2026-10-20",
- "max_cost": 8002.33,
+ "created": "2026-10-20 18:05:05.447662",
+ "trade_day": "2026-10-21",
+ "max_cost": 8178.62,
  "product": "NRML",
  "strategies": {
   "WRU": {
@@ -49,8 +49,8 @@
    "lot_size": 675,
    "lots": 2,
    "qty": 1350,
-   "close_price": 4.9,
-   "cost": 6615.0,
+   "close_price": 5.05,
+   "cost": 6817.5,
    "alert": "SHP|WRU|ADANIENSOL|1275.20",
    "alert_data": {
     "name": "SHP|WRU|ADANIENSOL|1275.20",
@@ -76,8 +76,8 @@
    "lot_size": 75,
    "lots": 11,
    "qty": 825,
-   "close_price": 9.35,
-   "cost": 7713.75,
+   "close_price": 9.2,
+   "cost": 7590.0,
    "alert": "SHP|WRU|BAJAJ-AUTO|9727.00",
    "alert_data": {
     "name": "SHP|WRU|BAJAJ-AUTO|9727.00",
@@ -103,8 +103,8 @@
    "lot_size": 600,
    "lots": 1,
    "qty": 600,
-   "close_price": 12.9,
-   "cost": 7740.0,
+   "close_price": 13.35,
+   "cost": 8010.0,
    "alert": "SHP|WRU|ADANIGREEN|1245.60",
    "alert_data": {
     "name": "SHP|WRU|ADANIGREEN|1245.60",
@@ -128,10 +128,10 @@
    "strike": 44000.0,
    "expiry": "2026-10-27",
    "lot_size": 25,
-   "lots": 2,
-   "qty": 50,
-   "close_price": 158.9,
-   "cost": 7945.0,
+   "lots": 1,
+   "qty": 25,
+   "close_price": 170.25,
+   "cost": 4256.25,
    "alert": "SHP|WRU|BOSCHLTD|44305.00",
    "alert_data": {
     "name": "SHP|WRU|BOSCHLTD|44305.00",
@@ -142,7 +142,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 44305.0,
-    "basket": "{\"name\": \"SHP|WRU|BOSCHLTD|44305.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BOSCHLTD26OCT44000PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 50, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|BOSCHLTD|44305.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"BOSCHLTD26OCT44000PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 25, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -157,8 +157,8 @@
    "lot_size": 475,
    "lots": 1,
    "qty": 475,
-   "close_price": 12.9,
-   "cost": 6127.5,
+   "close_price": 14.3,
+   "cost": 6792.5,
    "alert": "SHP|WRU|CDSL|1261.30",
    "alert_data": {
     "name": "SHP|WRU|CDSL|1261.30",
@@ -184,8 +184,8 @@
    "lot_size": 3600,
    "lots": 1,
    "qty": 3600,
-   "close_price": 2.13,
-   "cost": 7668.0,
+   "close_price": 2.09,
+   "cost": 7524.0,
    "alert": "SHP|WRU|BANDHANBNK|161.33",
    "alert_data": {
     "name": "SHP|WRU|BANDHANBNK|161.33",
@@ -211,8 +211,8 @@
    "lot_size": 1350,
    "lots": 1,
    "qty": 1350,
-   "close_price": 4.35,
-   "cost": 5872.5,
+   "close_price": 3.7,
+   "cost": 4995.0,
    "alert": "SHP|WRU|COALINDIA|410.60",
    "alert_data": {
     "name": "SHP|WRU|COALINDIA|410.60",
@@ -238,8 +238,8 @@
    "lot_size": 25,
    "lots": 2,
    "qty": 50,
-   "close_price": 132.0,
-   "cost": 6600.0,
+   "close_price": 129.15,
+   "cost": 6457.5,
    "alert": "SHP|WRU|FORCEMOT|17042.00",
    "alert_data": {
     "name": "SHP|WRU|FORCEMOT|17042.00",
@@ -265,8 +265,8 @@
    "lot_size": 325,
    "lots": 1,
    "qty": 325,
-   "close_price": 20.3,
-   "cost": 6597.5,
+   "close_price": 21.5,
+   "cost": 6987.5,
    "alert": "SHP|WRU|GODREJPROP|1566.60",
    "alert_data": {
     "name": "SHP|WRU|GODREJPROP|1566.60",
@@ -292,8 +292,8 @@
    "lot_size": 700,
    "lots": 2,
    "qty": 1400,
-   "close_price": 5.0,
-   "cost": 7000.0,
+   "close_price": 5.15,
+   "cost": 7210.0,
    "alert": "SHP|WRU|HINDALCO|886.50",
    "alert_data": {
     "name": "SHP|WRU|HINDALCO|886.50",
@@ -308,6 +308,33 @@
    }
   },
   {
+   "stock": "INDUSINDBK",
+   "direction": "SHORT",
+   "strategy": "WRU",
+   "ref": 857.0,
+   "line": 857.0,
+   "option": "INDUSINDBK26OCT850PE",
+   "strike": 850.0,
+   "expiry": "2026-10-27",
+   "lot_size": 700,
+   "lots": 1,
+   "qty": 700,
+   "close_price": 11.65,
+   "cost": 8155.0,
+   "alert": "SHP|WRU|INDUSINDBK|857.00",
+   "alert_data": {
+    "name": "SHP|WRU|INDUSINDBK|857.00",
+    "type": "ato",
+    "lhs_exchange": "NSE",
+    "lhs_tradingsymbol": "INDUSINDBK",
+    "lhs_attribute": "LastTradedPrice",
+    "operator": "<=",
+    "rhs_type": "constant",
+    "rhs_constant": 857.0,
+    "basket": "{\"name\": \"SHP|WRU|INDUSINDBK|857.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"INDUSINDBK26OCT850PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 700, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+   }
+  },
+  {
    "stock": "LUPIN",
    "direction": "SHORT",
    "strategy": "WRU",
@@ -319,8 +346,8 @@
    "lot_size": 425,
    "lots": 1,
    "qty": 425,
-   "close_price": 16.05,
-   "cost": 6821.25,
+   "close_price": 18.05,
+   "cost": 7671.25,
    "alert": "SHP|WRU|LUPIN|1936.90",
    "alert_data": {
     "name": "SHP|WRU|LUPIN|1936.90",
@@ -346,8 +373,8 @@
    "lot_size": 50,
    "lots": 1,
    "qty": 50,
-   "close_price": 80.35,
-   "cost": 4017.5,
+   "close_price": 81.9,
+   "cost": 4095.0,
    "alert": "SHP|WRU|MARUTI|11305.00",
    "alert_data": {
     "name": "SHP|WRU|MARUTI|11305.00",
@@ -400,8 +427,8 @@
    "lot_size": 450,
    "lots": 2,
    "qty": 900,
-   "close_price": 6.65,
-   "cost": 5985.0,
+   "close_price": 6.75,
+   "cost": 6075.0,
    "alert": "SHP|WRU|PRESTIGE|1417.50",
    "alert_data": {
     "name": "SHP|WRU|PRESTIGE|1417.50",
@@ -427,8 +454,8 @@
    "lot_size": 650,
    "lots": 3,
    "qty": 1950,
-   "close_price": 4.05,
-   "cost": 7897.5,
+   "close_price": 3.7,
+   "cost": 7215.0,
    "alert": "SHP|WRU|PREMIERENE|878.30",
    "alert_data": {
     "name": "SHP|WRU|PREMIERENE|878.30",
@@ -452,10 +479,10 @@
    "strike": 3850.0,
    "expiry": "2026-10-27",
    "lot_size": 175,
-   "lots": 5,
-   "qty": 875,
-   "close_price": 7.9,
-   "cost": 6912.5,
+   "lots": 6,
+   "qty": 1050,
+   "close_price": 7.7,
+   "cost": 8085.0,
    "alert": "SHP|WRU|TVSMOTOR|3870.80",
    "alert_data": {
     "name": "SHP|WRU|TVSMOTOR|3870.80",
@@ -466,7 +493,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 3870.8,
-    "basket": "{\"name\": \"SHP|WRU|TVSMOTOR|3870.80\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"TVSMOTOR26OCT3850PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 875, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|TVSMOTOR|3870.80\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"TVSMOTOR26OCT3850PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1050, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -481,8 +508,8 @@
    "lot_size": 200,
    "lots": 6,
    "qty": 1200,
-   "close_price": 6.35,
-   "cost": 7620.0,
+   "close_price": 6.1,
+   "cost": 7320.0,
    "alert": "SHP|WRU|BSE|3075.00",
    "alert_data": {
     "name": "SHP|WRU|BSE|3075.00",
@@ -508,8 +535,8 @@
    "lot_size": 300,
    "lots": 1,
    "qty": 300,
-   "close_price": 17.4,
-   "cost": 5220.0,
+   "close_price": 16.6,
+   "cost": 4980.0,
    "alert": "SHP|WRU|HDFCAMC|2300.70",
    "alert_data": {
     "name": "SHP|WRU|HDFCAMC|2300.70",
@@ -533,10 +560,10 @@
    "strike": 5100.0,
    "expiry": "2026-10-27",
    "lot_size": 125,
-   "lots": 13,
-   "qty": 1625,
-   "close_price": 4.8,
-   "cost": 7800.0,
+   "lots": 14,
+   "qty": 1750,
+   "close_price": 4.6,
+   "cost": 8050.0,
    "alert": "SHP|WRU|PERSISTENT|5188.00",
    "alert_data": {
     "name": "SHP|WRU|PERSISTENT|5188.00",
@@ -547,7 +574,7 @@
     "operator": "<=",
     "rhs_type": "constant",
     "rhs_constant": 5188.0,
-    "basket": "{\"name\": \"SHP|WRU|PERSISTENT|5188.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PERSISTENT26OCT5100PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1625, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRU|PERSISTENT|5188.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PERSISTENT26OCT5100PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1750, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRU\"], \"gtt\": {\"target\": 400, \"stoploss\": -20}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -562,8 +589,8 @@
    "lot_size": 500,
    "lots": 5,
    "qty": 2500,
-   "close_price": 2.9,
-   "cost": 7250.0,
+   "close_price": 2.75,
+   "cost": 6875.0,
    "alert": "SHP|WRU|RELIANCE|1160.20",
    "alert_data": {
     "name": "SHP|WRU|RELIANCE|1160.20",
@@ -589,8 +616,8 @@
    "lot_size": 550,
    "lots": 1,
    "qty": 550,
-   "close_price": 9.65,
-   "cost": 5307.5,
+   "close_price": 9.3,
+   "cost": 5115.0,
    "alert": "SHP|WRU|NAUKRI|1202.30",
    "alert_data": {
     "name": "SHP|WRU|NAUKRI|1202.30",
@@ -616,8 +643,8 @@
    "lot_size": 50,
    "lots": 1,
    "qty": 50,
-   "close_price": 91.25,
-   "cost": 4562.5,
+   "close_price": 92.6,
+   "cost": 4630.0,
    "alert": "SHP|WRU|ULTRACEMCO|10595.00",
    "alert_data": {
     "name": "SHP|WRU|ULTRACEMCO|10595.00",
@@ -643,8 +670,8 @@
    "lot_size": 550,
    "lots": 1,
    "qty": 550,
-   "close_price": 12.35,
-   "cost": 6792.5,
+   "close_price": 13.9,
+   "cost": 7645.0,
    "alert": "SHP|WRU|UNOMINDA|1086.20",
    "alert_data": {
     "name": "SHP|WRU|UNOMINDA|1086.20",
@@ -670,8 +697,8 @@
    "lot_size": 400,
    "lots": 3,
    "qty": 1200,
-   "close_price": 5.3,
-   "cost": 6360.0,
+   "close_price": 5.4,
+   "cost": 6480.0,
    "alert": "SHP|WRU|UNITDSPR|1337.60",
    "alert_data": {
     "name": "SHP|WRU|UNITDSPR|1337.60",
@@ -697,8 +724,8 @@
    "lot_size": 1925,
    "lots": 1,
    "qty": 1925,
-   "close_price": 2.98,
-   "cost": 5736.5,
+   "close_price": 2.91,
+   "cost": 5601.75,
    "alert": "SHP|WRU|RVNL|194.05",
    "alert_data": {
     "name": "SHP|WRU|RVNL|194.05",
@@ -722,10 +749,10 @@
    "strike": 1080.0,
    "expiry": "2026-10-27",
    "lot_size": 500,
-   "lots": 2,
-   "qty": 1000,
-   "close_price": 5.75,
-   "cost": 5750.0,
+   "lots": 3,
+   "qty": 1500,
+   "close_price": 5.4,
+   "cost": 8100.0,
    "alert": "SHP|WRL|360ONE|1074.80",
    "alert_data": {
     "name": "SHP|WRL|360ONE|1074.80",
@@ -736,7 +763,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1074.8,
-    "basket": "{\"name\": \"SHP|WRL|360ONE|1074.80\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"360ONE26OCT1080CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1000, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|360ONE|1074.80\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"360ONE26OCT1080CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1500, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -749,10 +776,10 @@
    "strike": 1280.0,
    "expiry": "2026-10-27",
    "lot_size": 625,
-   "lots": 6,
-   "qty": 3750,
-   "close_price": 2.1,
-   "cost": 7875.0,
+   "lots": 5,
+   "qty": 3125,
+   "close_price": 2.25,
+   "cost": 7031.25,
    "alert": "SHP|WRL|AXISBANK|1276.10",
    "alert_data": {
     "name": "SHP|WRL|AXISBANK|1276.10",
@@ -763,7 +790,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 1276.1,
-    "basket": "{\"name\": \"SHP|WRL|AXISBANK|1276.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"AXISBANK26OCT1280CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3750, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|AXISBANK|1276.10\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"AXISBANK26OCT1280CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3125, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -778,8 +805,8 @@
    "lot_size": 425,
    "lots": 3,
    "qty": 1275,
-   "close_price": 5.05,
-   "cost": 6438.75,
+   "close_price": 5.0,
+   "cost": 6375.0,
    "alert": "SHP|WRL|BDL|1127.60",
    "alert_data": {
     "name": "SHP|WRL|BDL|1127.60",
@@ -805,8 +832,8 @@
    "lot_size": 275,
    "lots": 14,
    "qty": 3850,
-   "close_price": 2.05,
-   "cost": 7892.5,
+   "close_price": 2.1,
+   "cost": 8085.0,
    "alert": "SHP|WRL|COLPAL|1900.10",
    "alert_data": {
     "name": "SHP|WRL|COLPAL|1900.10",
@@ -832,8 +859,8 @@
    "lot_size": 950,
    "lots": 2,
    "qty": 1900,
-   "close_price": 3.25,
-   "cost": 6175.0,
+   "close_price": 3.4,
+   "cost": 6460.0,
    "alert": "SHP|WRL|DLF|681.00",
    "alert_data": {
     "name": "SHP|WRL|DLF|681.00",
@@ -845,33 +872,6 @@
     "rhs_type": "constant",
     "rhs_constant": 681.0,
     "basket": "{\"name\": \"SHP|WRL|DLF|681.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"DLF26OCT690CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1900, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
-   }
-  },
-  {
-   "stock": "DMART",
-   "direction": "LONG",
-   "strategy": "WRL",
-   "ref": 3830.5,
-   "line": 3830.5,
-   "option": "DMART26OCT3850CE",
-   "strike": 3850.0,
-   "expiry": "2026-10-27",
-   "lot_size": 150,
-   "lots": 26,
-   "qty": 3900,
-   "close_price": 2.0,
-   "cost": 7800.0,
-   "alert": "SHP|WRL|DMART|3830.50",
-   "alert_data": {
-    "name": "SHP|WRL|DMART|3830.50",
-    "type": "ato",
-    "lhs_exchange": "NSE",
-    "lhs_tradingsymbol": "DMART",
-    "lhs_attribute": "LastTradedPrice",
-    "operator": ">=",
-    "rhs_type": "constant",
-    "rhs_constant": 3830.5,
-    "basket": "{\"name\": \"SHP|WRL|DMART|3830.50\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"DMART26OCT3850CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 3900, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -913,8 +913,8 @@
    "lot_size": 775,
    "lots": 1,
    "qty": 775,
-   "close_price": 10.25,
-   "cost": 7943.75,
+   "close_price": 9.65,
+   "cost": 7478.75,
    "alert": "SHP|WRL|KPITTECH|538.80",
    "alert_data": {
     "name": "SHP|WRL|KPITTECH|538.80",
@@ -940,8 +940,8 @@
    "lot_size": 625,
    "lots": 2,
    "qty": 1250,
-   "close_price": 5.55,
-   "cost": 6937.5,
+   "close_price": 5.45,
+   "cost": 6812.5,
    "alert": "SHP|WRL|NAM-INDIA|1088.00",
    "alert_data": {
     "name": "SHP|WRL|NAM-INDIA|1088.00",
@@ -965,10 +965,10 @@
    "strike": 38000.0,
    "expiry": "2026-10-27",
    "lot_size": 20,
-   "lots": 7,
-   "qty": 140,
-   "close_price": 53.05,
-   "cost": 7427.0,
+   "lots": 8,
+   "qty": 160,
+   "close_price": 47.6,
+   "cost": 7616.0,
    "alert": "SHP|WRL|PAGEIND|37845.00",
    "alert_data": {
     "name": "SHP|WRL|PAGEIND|37845.00",
@@ -979,7 +979,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 37845.0,
-    "basket": "{\"name\": \"SHP|WRL|PAGEIND|37845.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PAGEIND26OCT38000CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 140, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|PAGEIND|37845.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"PAGEIND26OCT38000CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 160, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -992,10 +992,10 @@
    "strike": 33000.0,
    "expiry": "2026-10-27",
    "lot_size": 25,
-   "lots": 17,
-   "qty": 425,
-   "close_price": 18.0,
-   "cost": 7650.0,
+   "lots": 18,
+   "qty": 450,
+   "close_price": 17.85,
+   "cost": 8032.5,
    "alert": "SHP|WRL|POWERINDIA|32635.00",
    "alert_data": {
     "name": "SHP|WRL|POWERINDIA|32635.00",
@@ -1006,7 +1006,7 @@
     "operator": ">=",
     "rhs_type": "constant",
     "rhs_constant": 32635.0,
-    "basket": "{\"name\": \"SHP|WRL|POWERINDIA|32635.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POWERINDIA26OCT33000CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 425, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+    "basket": "{\"name\": \"SHP|WRL|POWERINDIA|32635.00\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"POWERINDIA26OCT33000CE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 450, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPWRL\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   },
   {
@@ -1021,8 +1021,8 @@
    "lot_size": 550,
    "lots": 3,
    "qty": 1650,
-   "close_price": 4.25,
-   "cost": 7012.5,
+   "close_price": 4.1,
+   "cost": 6765.0,
    "alert": "SHP|WRL|TATACONSUM|987.90",
    "alert_data": {
     "name": "SHP|WRL|TATACONSUM|987.90",
@@ -1048,8 +1048,8 @@
    "lot_size": 150,
    "lots": 2,
    "qty": 300,
-   "close_price": 25.2,
-   "cost": 7560.0,
+   "close_price": 24.95,
+   "cost": 7485.0,
    "alert": "SHP|WRL|RADICO|4539.90",
    "alert_data": {
     "name": "SHP|WRL|RADICO|4539.90",
@@ -1075,8 +1075,8 @@
    "lot_size": 50,
    "lots": 1,
    "qty": 50,
-   "close_price": 129.9,
-   "cost": 6495.0,
+   "close_price": 127.0,
+   "cost": 6350.0,
    "alert": "SHP|WRL|SOLARINDS|20274.00",
    "alert_data": {
     "name": "SHP|WRL|SOLARINDS|20274.00",
@@ -1102,8 +1102,8 @@
    "lot_size": 775,
    "lots": 1,
    "qty": 775,
-   "close_price": 8.35,
-   "cost": 6471.25,
+   "close_price": 9.9,
+   "cost": 7672.5,
    "alert": "SHP|WRL|MOTILALOFS|1058.00",
    "alert_data": {
     "name": "SHP|WRL|MOTILALOFS|1058.00",
@@ -1129,8 +1129,8 @@
    "lot_size": 225,
    "lots": 3,
    "qty": 675,
-   "close_price": 10.5,
-   "cost": 7087.5,
+   "close_price": 10.65,
+   "cost": 7188.75,
    "alert": "SHP|WRL|TRENT|2966.00",
    "alert_data": {
     "name": "SHP|WRL|TRENT|2966.00",
@@ -1156,8 +1156,8 @@
    "lot_size": 309,
    "lots": 3,
    "qty": 927,
-   "close_price": 6.85,
-   "cost": 6349.95,
+   "close_price": 6.75,
+   "cost": 6257.25,
    "alert": "SHP|BPB|ADANIENT|2547.00",
    "alert_data": {
     "name": "SHP|BPB|ADANIENT|2547.00",
@@ -1183,8 +1183,8 @@
    "lot_size": 75,
    "lots": 16,
    "qty": 1200,
-   "close_price": 6.4,
-   "cost": 7680.0,
+   "close_price": 6.5,
+   "cost": 7800.0,
    "alert": "SHP|BPB|BAJAJ-AUTO|9637.00",
    "alert_data": {
     "name": "SHP|BPB|BAJAJ-AUTO|9637.00",
@@ -1210,8 +1210,8 @@
    "lot_size": 400,
    "lots": 1,
    "qty": 400,
-   "close_price": 10.35,
-   "cost": 4140.0,
+   "close_price": 10.7,
+   "cost": 4280.0,
    "alert": "SHP|BPB|COCHINSHIP|1200.00",
    "alert_data": {
     "name": "SHP|BPB|COCHINSHIP|1200.00",
@@ -1237,8 +1237,8 @@
    "lot_size": 775,
    "lots": 1,
    "qty": 775,
-   "close_price": 8.5,
-   "cost": 6587.5,
+   "close_price": 8.6,
+   "cost": 6665.0,
    "alert": "SHP|BPB|FORTIS|731.80",
    "alert_data": {
     "name": "SHP|BPB|FORTIS|731.80",
@@ -1264,8 +1264,8 @@
    "lot_size": 625,
    "lots": 1,
    "qty": 625,
-   "close_price": 7.35,
-   "cost": 4593.75,
+   "close_price": 8.3,
+   "cost": 5187.5,
    "alert": "SHP|BPB|JINDALSTEL|1001.10",
    "alert_data": {
     "name": "SHP|BPB|JINDALSTEL|1001.10",
@@ -1291,8 +1291,8 @@
    "lot_size": 350,
    "lots": 1,
    "qty": 350,
-   "close_price": 20.35,
-   "cost": 7122.5,
+   "close_price": 20.1,
+   "cost": 7035.0,
    "alert": "SHP|BPB|OBEROIRLTY|1663.30",
    "alert_data": {
     "name": "SHP|BPB|OBEROIRLTY|1663.30",
@@ -1318,8 +1318,8 @@
    "lot_size": 25,
    "lots": 1,
    "qty": 25,
-   "close_price": 270.85,
-   "cost": 6771.25,
+   "close_price": 283.9,
+   "cost": 7097.5,
    "alert": "SHP|BPB|POWERINDIA|28400.00",
    "alert_data": {
     "name": "SHP|BPB|POWERINDIA|28400.00",
@@ -1345,8 +1345,8 @@
    "lot_size": 350,
    "lots": 6,
    "qty": 2100,
-   "close_price": 3.55,
-   "cost": 7455.0,
+   "close_price": 3.65,
+   "cost": 7665.0,
    "alert": "SHP|BPB|POLICYBZR|945.10",
    "alert_data": {
     "name": "SHP|BPB|POLICYBZR|945.10",
@@ -1372,8 +1372,8 @@
    "lot_size": 200,
    "lots": 2,
    "qty": 400,
-   "close_price": 17.05,
-   "cost": 6820.0,
+   "close_price": 18.3,
+   "cost": 7320.0,
    "alert": "SHP|BPB|TIINDIA|2136.50",
    "alert_data": {
     "name": "SHP|BPB|TIINDIA|2136.50",
@@ -1399,8 +1399,8 @@
    "lot_size": 175,
    "lots": 3,
    "qty": 525,
-   "close_price": 12.0,
-   "cost": 6300.0,
+   "close_price": 11.95,
+   "cost": 6273.75,
    "alert": "SHP|BPB|TITAN|4335.60",
    "alert_data": {
     "name": "SHP|BPB|TITAN|4335.60",
@@ -1426,8 +1426,8 @@
    "lot_size": 275,
    "lots": 4,
    "qty": 1100,
-   "close_price": 6.7,
-   "cost": 7370.0,
+   "close_price": 6.6,
+   "cost": 7260.0,
    "alert": "SHP|BPB|HYUNDAI|1897.20",
    "alert_data": {
     "name": "SHP|BPB|HYUNDAI|1897.20",
@@ -1439,6 +1439,33 @@
     "rhs_type": "constant",
     "rhs_constant": 1897.2,
     "basket": "{\"name\": \"SHP|BPB|HYUNDAI|1897.20\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"HYUNDAI26OCT1880PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 1100, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
+   }
+  },
+  {
+   "stock": "CUMMINSIND",
+   "direction": "SHORT",
+   "strategy": "BPB",
+   "ref": 4586.9,
+   "line": 4671.1,
+   "option": "CUMMINSIND26OCT4550PE",
+   "strike": 4550.0,
+   "expiry": "2026-10-27",
+   "lot_size": 200,
+   "lots": 1,
+   "qty": 200,
+   "close_price": 40.3,
+   "cost": 8060.0,
+   "alert": "SHP|BPB|CUMMINSIND|4586.90",
+   "alert_data": {
+    "name": "SHP|BPB|CUMMINSIND|4586.90",
+    "type": "ato",
+    "lhs_exchange": "NSE",
+    "lhs_tradingsymbol": "CUMMINSIND",
+    "lhs_attribute": "LastTradedPrice",
+    "operator": "<=",
+    "rhs_type": "constant",
+    "rhs_constant": 4586.9,
+    "basket": "{\"name\": \"SHP|BPB|CUMMINSIND|4586.90\", \"type\": \"alert\", \"tags\": [], \"items\": [{\"type\": \"insert\", \"tradingsymbol\": \"CUMMINSIND26OCT4550PE\", \"exchange\": \"NFO\", \"weight\": 10000, \"params\": {\"transaction_type\": \"BUY\", \"product\": \"NRML\", \"order_type\": \"MARKET\", \"validity\": \"DAY\", \"validity_ttl\": 1, \"quantity\": 200, \"price\": 0, \"trigger_price\": 0, \"disclosed_quantity\": 0, \"last_price\": 0, \"variety\": \"regular\", \"tags\": [\"SHPBPB\"], \"gtt\": {\"target\": 60, \"stoploss\": 0}, \"squareoff\": 0, \"stoploss\": 0, \"trailing_stoploss\": 0, \"iceberg_legs\": 0, \"market_protection\": -1}}]}"
    }
   }
  ]
