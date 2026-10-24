@@ -1,0 +1,71 @@
+name: 'SHAPELIVE preview - run in the EVENING after the market closes (e.g. 18:00 IST): next trading day setups, nothing is traded'
+
+# Start it with cron-job.org at 18:00 IST (Mon-Fri; Sunday too if you want Monday's list on Sunday evening).  It creates NO alerts and changes NO plan.
+# Result: the run page (Summary tab) shows a table of next day's setups, entry levels, options, lots and cost; the same list is attached as the artifact "preview".
+on:
+  workflow_dispatch:
+    inputs:
+      strategies:
+        description: 'WRU (default) = wick-red-upper short | WRU,BPB = both | BPB = breakout short (its untouched-since-open check is only possible on the day itself)'
+        required: false
+        default: 'WRU'
+      min_price:
+        description: 'Options priced at or below this many rupees are shown as not tradable'
+        required: false
+        default: '5'
+      total_funds:
+        description: 'OPTIONAL total funds in rupees for the lot calculation (blank = funds available in Kite now)'
+        required: false
+        default: ''
+      capital_pct:
+        description: 'Percent of the funds per trade (blank = built-in 7 percent for WRU and BPB)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shapelive-preview
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    name: 'next day preview'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests kiteconnect pyotp pandas numpy
+
+      - name: Preview - scan, choose options, list next day setups
+        env:
+          KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+          KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+          ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+          ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+          ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+          ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+          ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+          ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+          ANGEL_TOTP_KEY: ${{ secrets.ANGEL_TOTP_KEY }}
+          STRATEGIES: ${{ github.event.inputs.strategies || 'WRU' }}
+          MIN_PRICE: ${{ github.event.inputs.min_price || '5' }}
+          TOTAL_FUNDS: ${{ github.event.inputs.total_funds }}
+          WRU_CAPITAL_PCT: ${{ github.event.inputs.capital_pct }}
+          BPB_CAPITAL_PCT: ${{ github.event.inputs.capital_pct }}
+        run: python -u shape_live_plan.py preview
+
+      - name: Attach the preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview
+          path: live_plan/preview_next_*.json
+          if-no-files-found: ignore
