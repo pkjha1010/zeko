@@ -1,0 +1,58 @@
+name: 'KITE modify-price TEST (temporary) - changes the price of ONE pending order you placed by hand'
+
+# Place a pending LIMIT BUY by hand in Kite (below the market, on an option that is NOT in today's plan; an AMO order works before the open), then run this with its order id.
+# Do NOT run it while shape_live_day.yml is running (08:40 - 15:45): a second Kite login might replace the manager's session.  Best: before 08:30 with an AMO order, or after 15:45.
+on:
+  workflow_dispatch:
+    inputs:
+      order_id:
+        description: 'The order id of your pending test order (Kite app -> Orders -> tap the order). Blank = use the only open order, if there is exactly one'
+        required: false
+        default: ''
+      pct:
+        description: 'New price = old price x (1 + pct %). -1 (default): a BUY moves 1 percent DOWN and stays pending. A positive number moves it towards the market and may fill it'
+        required: false
+        default: '-1'
+      cancel_after:
+        description: '1 = cancel the test order at the end. 0 (default) = leave it, cancel it yourself in Kite'
+        required: false
+        default: '0'
+      dry_run:
+        description: '1 = only show what would be sent'
+        required: false
+        default: '0'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kite-modify-test
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests kiteconnect pyotp
+
+      - name: Modify the price of the pending order
+        env:
+          KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+          KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+          ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+          ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+          ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+          ORDER_PROXY: ${{ secrets.ORDER_PROXY }}
+          ORDER_ID: ${{ github.event.inputs.order_id }}
+          PCT: ${{ github.event.inputs.pct || '-1' }}
+          CANCEL_AFTER: ${{ github.event.inputs.cancel_after }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: python -u kite_modify_test.py
