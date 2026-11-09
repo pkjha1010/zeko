@@ -1,0 +1,37 @@
+name: shape_live_check
+# Manual run only (Actions tab -> shape_live_check -> Run workflow).  Places ONE far-below-market test limit order, modifies it and cancels it.  Nothing is traded for real.
+on:
+  workflow_dispatch:
+    inputs:
+      test_stock:
+        description: "Underlying for the test option (ATM, nearest monthly expiry)"
+        default: "SBIN"
+      test_type:
+        description: "PE or CE"
+        default: "PE"
+      test_order:
+        description: "1 = place / modify / cancel the test order, 0 = quotes and checks only"
+        default: "1"
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install kiteconnect pyotp requests numpy pandas
+      - run: python shape_live_check.py
+        env:
+          # use the SAME secret names as your other workflows (shape_live_manager.yml) - change them here if yours differ
+          KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+          KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+          ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+          ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+          ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+          ORDER_PROXY: ${{ secrets.ORDER_PROXY }}
+          # the plan file also reads Angel at import time only if run - the check does not use Angel
+          TEST_STOCK: ${{ github.event.inputs.test_stock }}
+          TEST_TYPE: ${{ github.event.inputs.test_type }}
+          TEST_ORDER: ${{ github.event.inputs.test_order }}
