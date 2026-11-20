@@ -1,0 +1,128 @@
+name: 'SHAPELIVE DAY - BPB ONLY (start ~11:30 IST: plan BPB, alerts at 12:00 -> manager to 15:45)'
+
+# BPB (breakout short) is the ONLY strategy now.  WRU and ENG are not planned and not managed.
+# Start it ONCE per day with cron-job.org at ~11:30 IST (Mon-Fri).  ONE job: plan step (scan, wait for 12:00, create the ATO alerts) -> manager step (entries, 60 % target, 15:30 square-off,
+# max 3 trades open at the same time) until 15:45.  11:30 -> 15:45 is far below GitHub's 6 hour limit, so no hand-over job is needed.
+# IMPORTANT: do NOT start this at 08:40 any more (that was the old morning WRU + ENG run): the job would sit for hours and the 6 hour GitHub limit would end it before 15:45.
+# A failed plan step is retried once (continue-on-error + retry step).  The manager deletes any waiting SHP| alert when there is no plan for today.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'run = normal day | cleanup = delete all waiting SHP| alerts right now | iptest = check the static IP (places nothing)'
+        required: false
+        default: 'run'
+      dry_run:
+        description: '1 = print the plan and the orders, create/send nothing'
+        required: false
+        default: '0'
+      capital_pct:
+        description: 'Each BPB trade may use this percent of the funds available in your Kite account (default 7)'
+        required: false
+        default: '7'
+      bpb_max_open:
+        description: 'BPB: the most trades open at the same time'
+        required: false
+        default: '3'
+      min_price:
+        description: 'Strict-test tier only: 0 = OFF (default, every option above the Rs 1 floor gets the same OI / spread / depth test). Rs 5 = options at or below Rs 5 get the strict test'
+        required: false
+        default: '0'
+      alert_at:
+        description: 'BPB: time its ATO alerts are created (the untouched-since-open check is made at this second)'
+        required: false
+        default: '12:00:00'
+      total_funds:
+        description: 'OPTIONAL total funds in rupees: trades are sized on this instead of the funds available in Kite (blank = use Kite)'
+        required: false
+        default: ''
+      max_cost:
+        description: 'OPTIONAL fixed rupee cap per trade. Leave empty to use the percentage above'
+        required: false
+        default: ''
+      fund_limit_pct:
+        description: '30 (default) = no new orders while the account uses more than 30 percent of the total funds.  0 = no fund limit'
+        required: false
+        default: '30'
+      sweep_all:
+        description: '0 (default) = only the options of the plan + SHP orders | 1 = after the last strategy also clear EVERY open NFO position and waiting NFO order of the account'
+        required: false
+        default: '0'
+      buy_chase:
+        description: '1 (default) = a waiting BUY is first modified to a marketable limit price (BPB +10 percent / 1 s), then cancelled. 0 = cancel it at once (old behaviour)'
+        required: false
+        default: '1'
+      force:
+        description: '0 (default). 1 = allow the plan outside the normal window (weekend / after 15:00)'
+        required: false
+        default: '0'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shapelive-kite-manager
+  cancel-in-progress: false
+
+jobs:
+  day:
+    name: 'day: plan BPB (alerts at 12:00) -> manager to 15:45'
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+      KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+      ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+      ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+      ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+      ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+      ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+      ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+      ANGEL_TOTP_KEY: ${{ secrets.ANGEL_TOTP_KEY }}
+      ORDER_PROXY: ${{ secrets.ORDER_PROXY }}
+      DRY_RUN: ${{ github.event.inputs.dry_run }}
+      TOTAL_FUNDS: ${{ github.event.inputs.total_funds }}
+      MAX_COST: ${{ github.event.inputs.max_cost }}
+      FORCE: ${{ github.event.inputs.force }}
+      MIN_PRICE: ${{ github.event.inputs.min_price || '0' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests kiteconnect pyotp pandas numpy
+
+      - name: Plan BPB - scan, drop touched setups, create ATO alerts at 12:00
+        id: plan
+        continue-on-error: true      # a failed first attempt does not fail the job - the retry below decides
+        if: ${{ github.event.inputs.mode == '' || github.event.inputs.mode == 'run' }}
+        env:
+          STRATEGIES: 'BPB'
+          BPB_CAPITAL_PCT: ${{ github.event.inputs.capital_pct || '7' }}
+          BPB_MAX_OPEN: ${{ github.event.inputs.bpb_max_open || '3' }}
+          ALERT_AT: ${{ github.event.inputs.alert_at || '12:00:00' }}
+        run: python -u shape_live_plan.py plan
+
+      - name: Plan BPB RETRY (only if the first attempt failed)
+        id: plan_retry
+        if: ${{ steps.plan.outcome == 'failure' && (github.event.inputs.mode == '' || github.event.inputs.mode == 'run') }}
+        env:
+          STRATEGIES: 'BPB'
+          BPB_CAPITAL_PCT: ${{ github.event.inputs.capital_pct || '7' }}
+          BPB_MAX_OPEN: ${{ github.event.inputs.bpb_max_open || '3' }}
+          ALERT_AT: ${{ github.event.inputs.alert_at || '12:00:00' }}
+        run: python -u shape_live_plan.py plan
+
+      - name: Manager (BPB) - entries, 60 % target, 15:30 square-off, max 3 open trades
+        # runs even if the BPB plan failed: with no plan for today the manager deletes any waiting SHP| alert and stops
+        if: ${{ !cancelled() }}
+        env:
+          FUND_LIMIT_PCT: ${{ github.event.inputs.fund_limit_pct || '30' }}
+          SWEEP_ALL: ${{ github.event.inputs.sweep_all }}
+          BUY_CHASE: ${{ github.event.inputs.buy_chase || '1' }}
+          PLAN_FILE: ${{ github.event.inputs.dry_run == '1' && 'live_plan/preview.json' || 'live_plan/plan.json' }}
+          JOB_END: '15:45:00'
+        run: python -u shape_live_manager.py ${{ github.event.inputs.mode || 'run' }}
