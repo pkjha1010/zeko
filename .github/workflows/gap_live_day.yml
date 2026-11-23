@@ -1,0 +1,154 @@
+name: 'GAPLIVE DAY - GAP LONG + GAP SHORT (start ~08:40 IST, Mon-Fri)'
+
+# Start it ONCE per day with cron-job.org at ~08:40 IST.  Two jobs run one after the other (GitHub stops a job after 6 hours; 08:40 -> 15:45 is longer):
+#   job 1  08:40 -> 13:50 : plan GAPL (alerts BEFORE the open) -> manager; the manager itself starts the GAPS plan step in the background (scan, wait for 09:30:00, drop touched setups, create alerts, merge plan.json)
+#   job 2  13:50 -> 15:45 : a fresh manager rebuilds everything from Kite and squares off at 15:30:00
+# Plan files travel between the jobs as an artifact.  If the artifact is lost the manager recovers open trades from the SHPGAPL / SHPGAPS order tags.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'run = normal day | cleanup = delete all waiting SHP| alerts right now | iptest = check the static IP (places nothing)'
+        required: false
+        default: 'run'
+      dry_run:
+        description: '1 = print the plan and the orders, create/send nothing'
+        required: false
+        default: '0'
+      total_funds:
+        description: 'OPTIONAL total funds in rupees (blank = use Kite)'
+        required: false
+        default: ''
+      fund_limit_pct:
+        description: '30 (default) = no new orders while the account uses more than 30 percent of the funds; 0 = off'
+        required: false
+        default: '30'
+      loss_stop_pct:
+        description: '30 (default) = no more NEW trades when today loss is above 30 percent of the funds (or of the premium invested); 0 = off'
+        required: false
+        default: '30'
+      sweep_all:
+        description: '0 (default) | 1 = at the end also clear EVERY open NFO position and waiting NFO order'
+        required: false
+        default: '0'
+      buy_chase:
+        description: '1 (default) = chase a waiting BUY from the live ask, then cancel | 0 = cancel at once'
+        required: false
+        default: '1'
+      force:
+        description: '0 (default). 1 = allow the plan outside the normal window'
+        required: false
+        default: '0'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gaplive-kite-manager
+  cancel-in-progress: false
+
+jobs:
+  morning:
+    name: 'job 1: GAPL plan -> manager (+ GAPS plan at 09:30) to 13:50'
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+      KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+      ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+      ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+      ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+      ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+      ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+      ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+      ANGEL_TOTP_KEY: ${{ secrets.ANGEL_TOTP_KEY }}
+      ORDER_PROXY: ${{ secrets.ORDER_PROXY }}
+      DRY_RUN: ${{ github.event.inputs.dry_run }}
+      TOTAL_FUNDS: ${{ github.event.inputs.total_funds }}
+      FUND_LIMIT_PCT: ${{ github.event.inputs.fund_limit_pct || '30' }}
+      LOSS_STOP_PCT: ${{ github.event.inputs.loss_stop_pct || '30' }}
+      SWEEP_ALL: ${{ github.event.inputs.sweep_all }}
+      BUY_CHASE: ${{ github.event.inputs.buy_chase || '1' }}
+      FORCE: ${{ github.event.inputs.force }}
+      PLAN_FILE: ${{ github.event.inputs.dry_run == '1' && 'live_plan/preview.json' || 'live_plan/plan.json' }}
+      PLAN_MERGE: '1'
+      JOB_END: '13:50:00'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install requests kiteconnect pyotp pandas numpy
+
+      - name: Plan GAP LONG - scan, create ATO alerts before the open
+        id: planl
+        continue-on-error: true
+        if: ${{ github.event.inputs.mode == '' || github.event.inputs.mode == 'run' }}
+        env:
+          STRATEGIES: 'GAPL'
+        run: python -u gap_live_plan.py plan
+
+      - name: Plan GAP LONG RETRY (only if the first attempt failed)
+        if: ${{ steps.planl.outcome == 'failure' && (github.event.inputs.mode == '' || github.event.inputs.mode == 'run') }}
+        env:
+          STRATEGIES: 'GAPL'
+        run: python -u gap_live_plan.py plan
+
+      - name: Manager - entries, caps, fund limit, loss stop, 15:30 square-off (to 13:50, then hand-over)
+        if: ${{ !cancelled() }}
+        env:
+          RUN_GAPS_PLAN: '1'
+        run: python -u gap_live_manager.py ${{ github.event.inputs.mode || 'run' }}
+
+      - name: Hand the plan to job 2
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-plan
+          path: live_plan/
+          if-no-files-found: ignore
+
+  afternoon:
+    name: 'job 2: manager 13:50 -> 15:45 (square-off 15:30:00)'
+    needs: morning
+    if: ${{ !cancelled() && (github.event.inputs.mode == '' || github.event.inputs.mode == 'run') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+      KITE_API_SECRET: ${{ secrets.KITE_API_SECRET }}
+      ZERODHA_USER_ID: ${{ secrets.ZERODHA_USER_ID }}
+      ZERODHA_PASSWORD: ${{ secrets.ZERODHA_PASSWORD }}
+      ZERODHA_TOTP_KEY: ${{ secrets.ZERODHA_TOTP_KEY }}
+      ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+      ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+      ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+      ANGEL_TOTP_KEY: ${{ secrets.ANGEL_TOTP_KEY }}
+      ORDER_PROXY: ${{ secrets.ORDER_PROXY }}
+      DRY_RUN: ${{ github.event.inputs.dry_run }}
+      TOTAL_FUNDS: ${{ github.event.inputs.total_funds }}
+      FUND_LIMIT_PCT: ${{ github.event.inputs.fund_limit_pct || '30' }}
+      LOSS_STOP_PCT: ${{ github.event.inputs.loss_stop_pct || '30' }}
+      SWEEP_ALL: ${{ github.event.inputs.sweep_all }}
+      BUY_CHASE: ${{ github.event.inputs.buy_chase || '1' }}
+      FORCE: ${{ github.event.inputs.force }}
+      PLAN_FILE: ${{ github.event.inputs.dry_run == '1' && 'live_plan/preview.json' || 'live_plan/plan.json' }}
+      PLAN_MERGE: '1'
+      JOB_START: '13:45:00'
+      JOB_END: '15:45:00'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install requests kiteconnect pyotp pandas numpy
+      - name: Get the plan of job 1
+        uses: actions/download-artifact@v4
+        with:
+          name: live-plan
+          path: live_plan/
+        continue-on-error: true
+      - name: Manager - rebuilds from Kite, squares off at 15:30:00
+        run: python -u gap_live_manager.py run
