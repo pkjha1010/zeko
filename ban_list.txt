@@ -1,0 +1,1 @@
+# one stock symbol per line: F&O stocks in the ban period (never traded)
