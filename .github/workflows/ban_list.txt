@@ -1,2 +1,0 @@
-# F&O ban list: stocks the plan must NOT trade.  One symbol per line (or comma separated); a line starting with # is a comment.
-# Update by hand from NSE's list when it changes (every month).  Example:  RBLBANK
